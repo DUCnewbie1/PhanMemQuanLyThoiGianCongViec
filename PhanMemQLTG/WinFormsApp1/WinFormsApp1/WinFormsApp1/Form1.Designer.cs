@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
             panel3 = new Panel();
-            panel5 = new Panel();
+            pnMatrix = new Panel();
             panel4 = new Panel();
             btnPreviours = new Button();
             btnSun = new Button();
@@ -43,12 +43,14 @@
             btnThu = new Button();
             btnMon = new Button();
             panel2 = new Panel();
+            Thoat = new Button();
+            DangXuat = new Button();
             panel6 = new Panel();
             LabelMunute = new Label();
             nmNotify = new NumericUpDown();
             cbnotify = new CheckBox();
             button1 = new Button();
-            dtpk = new DateTimePicker();
+            dtpkDate = new DateTimePicker();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -69,7 +71,7 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(panel5);
+            panel3.Controls.Add(pnMatrix);
             panel3.Controls.Add(panel4);
             panel3.Location = new Point(3, 32);
             panel3.Margin = new Padding(2);
@@ -77,13 +79,13 @@
             panel3.Size = new Size(765, 335);
             panel3.TabIndex = 1;
             // 
-            // panel5
+            // pnMatrix
             // 
-            panel5.Location = new Point(88, 46);
-            panel5.Margin = new Padding(2);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(574, 287);
-            panel5.TabIndex = 1;
+            pnMatrix.Location = new Point(88, 46);
+            pnMatrix.Margin = new Padding(2);
+            pnMatrix.Name = "pnMatrix";
+            pnMatrix.Size = new Size(574, 287);
+            pnMatrix.TabIndex = 1;
             // 
             // panel4
             // 
@@ -115,7 +117,7 @@
             // 
             // btnSun
             // 
-            btnSun.Location = new Point(586, 9);
+            btnSun.Location = new Point(582, 11);
             btnSun.Margin = new Padding(2);
             btnSun.Name = "btnSun";
             btnSun.Size = new Size(78, 28);
@@ -136,7 +138,7 @@
             // 
             // btnSat
             // 
-            btnSat.Location = new Point(503, 9);
+            btnSat.Location = new Point(500, 11);
             btnSat.Margin = new Padding(2);
             btnSat.Name = "btnSat";
             btnSat.Size = new Size(78, 28);
@@ -146,7 +148,7 @@
             // 
             // btnFri
             // 
-            btnFri.Location = new Point(421, 10);
+            btnFri.Location = new Point(418, 11);
             btnFri.Margin = new Padding(2);
             btnFri.Name = "btnFri";
             btnFri.Size = new Size(78, 28);
@@ -156,7 +158,7 @@
             // 
             // btnTue
             // 
-            btnTue.Location = new Point(173, 10);
+            btnTue.Location = new Point(172, 11);
             btnTue.Margin = new Padding(2);
             btnTue.Name = "btnTue";
             btnTue.Size = new Size(78, 28);
@@ -167,7 +169,7 @@
             // 
             // btnWed
             // 
-            btnWed.Location = new Point(256, 10);
+            btnWed.Location = new Point(254, 11);
             btnWed.Margin = new Padding(2);
             btnWed.Name = "btnWed";
             btnWed.Size = new Size(78, 28);
@@ -178,7 +180,7 @@
             // 
             // btnThu
             // 
-            btnThu.Location = new Point(338, 10);
+            btnThu.Location = new Point(336, 11);
             btnThu.Margin = new Padding(2);
             btnThu.Name = "btnThu";
             btnThu.Size = new Size(78, 28);
@@ -188,7 +190,7 @@
             // 
             // btnMon
             // 
-            btnMon.Location = new Point(90, 10);
+            btnMon.Location = new Point(90, 11);
             btnMon.Margin = new Padding(2);
             btnMon.Name = "btnMon";
             btnMon.Size = new Size(78, 28);
@@ -198,14 +200,37 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(Thoat);
+            panel2.Controls.Add(DangXuat);
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(button1);
-            panel2.Controls.Add(dtpk);
+            panel2.Controls.Add(dtpkDate);
             panel2.Location = new Point(1, 5);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(769, 27);
             panel2.TabIndex = 0;
+            // 
+            // Thoat
+            // 
+            Thoat.Location = new Point(692, 3);
+            Thoat.Name = "Thoat";
+            Thoat.Size = new Size(75, 25);
+            Thoat.TabIndex = 4;
+            Thoat.Text = "Thoát";
+            Thoat.UseVisualStyleBackColor = true;
+            Thoat.Click += Thoat_Click;
+            // 
+            // DangXuat
+            // 
+            DangXuat.AccessibleDescription = "";
+            DangXuat.Location = new Point(591, 3);
+            DangXuat.Name = "DangXuat";
+            DangXuat.Size = new Size(95, 25);
+            DangXuat.TabIndex = 3;
+            DangXuat.Text = "Đăng xuất";
+            DangXuat.UseVisualStyleBackColor = true;
+            DangXuat.Click += DangXuat_Click;
             // 
             // panel6
             // 
@@ -221,7 +246,7 @@
             // LabelMunute
             // 
             LabelMunute.AutoSize = true;
-            LabelMunute.Location = new Point(131, 3);
+            LabelMunute.Location = new Point(151, 3);
             LabelMunute.Margin = new Padding(2, 0, 2, 0);
             LabelMunute.Name = "LabelMunute";
             LabelMunute.Size = new Size(35, 15);
@@ -231,7 +256,7 @@
             // 
             // nmNotify
             // 
-            nmNotify.Location = new Point(67, 2);
+            nmNotify.Location = new Point(87, 0);
             nmNotify.Margin = new Padding(2);
             nmNotify.Maximum = new decimal(new int[] { 3600, 0, 0, 0 });
             nmNotify.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -246,9 +271,9 @@
             cbnotify.Location = new Point(2, 2);
             cbnotify.Margin = new Padding(2);
             cbnotify.Name = "cbnotify";
-            cbnotify.Size = new Size(59, 19);
+            cbnotify.Size = new Size(83, 19);
             cbnotify.TabIndex = 0;
-            cbnotify.Text = "Notify";
+            cbnotify.Text = "Thông báo";
             cbnotify.UseVisualStyleBackColor = true;
             cbnotify.CheckedChanged += checkBox1_CheckedChanged;
             // 
@@ -262,14 +287,14 @@
             button1.Text = "Hôm nay ";
             button1.UseVisualStyleBackColor = true;
             // 
-            // dtpk
+            // dtpkDate
             // 
-            dtpk.CalendarMonthBackground = SystemColors.ScrollBar;
-            dtpk.Location = new Point(261, 3);
-            dtpk.Margin = new Padding(2);
-            dtpk.Name = "dtpk";
-            dtpk.Size = new Size(211, 23);
-            dtpk.TabIndex = 0;
+            dtpkDate.CalendarMonthBackground = SystemColors.ScrollBar;
+            dtpkDate.Location = new Point(261, 3);
+            dtpkDate.Margin = new Padding(2);
+            dtpkDate.Name = "dtpkDate";
+            dtpkDate.Size = new Size(211, 23);
+            dtpkDate.TabIndex = 0;
             // 
             // Form1
             // 
@@ -282,6 +307,7 @@
             Margin = new Padding(2);
             Name = "Form1";
             Text = "Calendar";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
@@ -296,10 +322,10 @@
 
         private Panel panel1;
         private Panel panel3;
-        private Panel panel5;
+        private Panel pnMatrix;
         private Panel panel4;
         private Panel panel2;
-        private DateTimePicker dtpk;
+        private DateTimePicker dtpkDate;
         private Button btnSun;
         private Button btnnext;
         private Button btnSat;
@@ -314,5 +340,7 @@
         private CheckBox cbnotify;
         private NumericUpDown nmNotify;
         private Label LabelMunute;
+        private Button Thoat;
+        private Button DangXuat;
     }
 }

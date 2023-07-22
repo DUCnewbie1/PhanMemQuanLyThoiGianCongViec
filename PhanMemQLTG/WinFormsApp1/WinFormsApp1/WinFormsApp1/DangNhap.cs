@@ -20,33 +20,46 @@ namespace WinFormsApp1
         }
         private void DN_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-VF44UALL;Initial Catalog=QLTG;Integrated Security=True");
+            string connectionString = @"Data Source=DESKTOP-FGNUE5N\SQLEXPRESS;Initial Catalog=QLTG;Integrated Security=True;Encrypt=False";
+
             try
             {
-                conn.Open();
-                string tk = txt_TK.Text;
-                string mk = txt_MK.Text;
-                string sql = "SELECT * FROM THONGTINTK WHERE TENTK='" + tk + "' AND MATKHAU='" + mk + "'";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                SqlDataReader data = cmd.ExecuteReader();
-                if (data.Read() == true)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    MessageBox.Show("Đăng nhập thành công");
-                    Form1 f = new Form1();
-                    f.ShowDialog();
+                    conn.Open();
+                    string tk = txt_TK.Text;
+                    string mk = txt_MK.Text;
 
-                }
-                else
-                {
-                    MessageBox.Show("Đăng nhập thất bại");
+                    string sql = "SELECT * FROM THONGTINTK WHERE TENTK=@tk AND MATKHAU=@mk";
 
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@tk", tk);
+                        cmd.Parameters.AddWithValue("@mk", mk);
+
+                        using (SqlDataReader data = cmd.ExecuteReader())
+                        {
+                            if (data.Read())
+                            {
+                                MessageBox.Show("Đăng nhập thành công");
+                                Form1 f = new Form1();
+                                f.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.");
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi kết nối");
+                MessageBox.Show("Lỗi kết nối: " + ex.Message);
             }
         }
+
         private void txt_TK_TextChanged(object sender, EventArgs e)
         {
 
