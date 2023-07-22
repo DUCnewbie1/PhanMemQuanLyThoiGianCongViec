@@ -58,25 +58,28 @@
             panel1.Controls.Add(numericUpDown1);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(ChbDone);
-            panel1.Location = new Point(3, 6);
+            panel1.Location = new Point(2, 4);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(994, 85);
+            panel1.Size = new Size(696, 51);
             panel1.TabIndex = 0;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(834, 2);
+            btnDelete.Location = new Point(584, 1);
+            btnDelete.Margin = new Padding(2, 2, 2, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(112, 34);
+            btnDelete.Size = new Size(78, 24);
             btnDelete.TabIndex = 9;
             btnDelete.Text = "Xóa ";
             btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(716, 1);
+            btnEdit.Location = new Point(501, 1);
+            btnEdit.Margin = new Padding(2, 2, 2, 2);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(112, 34);
+            btnEdit.Size = new Size(78, 24);
             btnEdit.TabIndex = 8;
             btnEdit.Text = "Sửa ";
             btnEdit.UseVisualStyleBackColor = true;
@@ -85,63 +88,71 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(528, 2);
+            comboBox1.Location = new Point(370, 1);
+            comboBox1.Margin = new Padding(2, 2, 2, 2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 33);
+            comboBox1.Size = new Size(129, 23);
             comboBox1.TabIndex = 7;
             // 
             // LabelTo
             // 
             LabelTo.AutoSize = true;
-            LabelTo.Location = new Point(301, 5);
+            LabelTo.Location = new Point(211, 3);
+            LabelTo.Margin = new Padding(2, 0, 2, 0);
             LabelTo.Name = "LabelTo";
-            LabelTo.Size = new Size(38, 25);
+            LabelTo.Size = new Size(24, 15);
             LabelTo.TabIndex = 6;
             LabelTo.Text = "tới ";
             LabelTo.Click += label1_Click;
             // 
             // numericUpDown4
             // 
-            numericUpDown4.Location = new Point(421, 2);
+            numericUpDown4.Location = new Point(295, 1);
+            numericUpDown4.Margin = new Padding(2, 2, 2, 2);
             numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(70, 31);
+            numericUpDown4.Size = new Size(49, 23);
             numericUpDown4.TabIndex = 5;
             // 
             // numericUpDown3
             // 
-            numericUpDown3.Location = new Point(345, 2);
+            numericUpDown3.Location = new Point(242, 1);
+            numericUpDown3.Margin = new Padding(2, 2, 2, 2);
             numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(70, 31);
+            numericUpDown3.Size = new Size(49, 23);
             numericUpDown3.TabIndex = 4;
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(225, 3);
+            numericUpDown2.Location = new Point(158, 2);
+            numericUpDown2.Margin = new Padding(2, 2, 2, 2);
             numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(70, 31);
+            numericUpDown2.Size = new Size(49, 23);
             numericUpDown2.TabIndex = 3;
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(149, 3);
+            numericUpDown1.Location = new Point(104, 2);
+            numericUpDown1.Margin = new Padding(2, 2, 2, 2);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(70, 31);
+            numericUpDown1.Size = new Size(49, 23);
             numericUpDown1.TabIndex = 2;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(3, 40);
+            textBox1.Location = new Point(2, 24);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(988, 31);
+            textBox1.Size = new Size(693, 23);
             textBox1.TabIndex = 1;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // ChbDone
             // 
             ChbDone.AutoSize = true;
-            ChbDone.Location = new Point(18, 5);
+            ChbDone.Location = new Point(13, 3);
+            ChbDone.Margin = new Padding(2, 2, 2, 2);
             ChbDone.Name = "ChbDone";
-            ChbDone.Size = new Size(81, 29);
+            ChbDone.Size = new Size(54, 19);
             ChbDone.TabIndex = 0;
             ChbDone.Text = "Done";
             ChbDone.UseVisualStyleBackColor = true;
@@ -149,11 +160,12 @@
             // 
             // Ajob
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Ajob";
-            Size = new Size(1001, 91);
+            Size = new Size(701, 55);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();

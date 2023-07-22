@@ -104,6 +104,7 @@
             Location = new Point(282, 151);
             Name = "DangNhap";
             Text = "DangNhap";
+            FormClosing += DangNhap_FormClosing;
             Load += DangNhap_Load;
             ResumeLayout(false);
             PerformLayout();

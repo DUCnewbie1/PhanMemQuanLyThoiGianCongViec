@@ -49,7 +49,7 @@
             LabelMunute = new Label();
             nmNotify = new NumericUpDown();
             cbnotify = new CheckBox();
-            button1 = new Button();
+            HomNay = new Button();
             dtpkDate = new DateTimePicker();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -106,7 +106,7 @@
             // 
             // btnPreviours
             // 
-            btnPreviours.Location = new Point(3, 9);
+            btnPreviours.Location = new Point(5, 11);
             btnPreviours.Margin = new Padding(2);
             btnPreviours.Name = "btnPreviours";
             btnPreviours.Size = new Size(83, 28);
@@ -128,13 +128,14 @@
             // 
             // btnnext
             // 
-            btnnext.Location = new Point(668, 10);
+            btnnext.Location = new Point(669, 11);
             btnnext.Margin = new Padding(2);
             btnnext.Name = "btnnext";
             btnnext.Size = new Size(78, 28);
             btnnext.TabIndex = 6;
             btnnext.Text = "Tháng sau ";
             btnnext.UseVisualStyleBackColor = true;
+            btnnext.Click += btnnext_Click;
             // 
             // btnSat
             // 
@@ -203,7 +204,7 @@
             panel2.Controls.Add(Thoat);
             panel2.Controls.Add(DangXuat);
             panel2.Controls.Add(panel6);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(HomNay);
             panel2.Controls.Add(dtpkDate);
             panel2.Location = new Point(1, 5);
             panel2.Margin = new Padding(2);
@@ -277,15 +278,16 @@
             cbnotify.UseVisualStyleBackColor = true;
             cbnotify.CheckedChanged += checkBox1_CheckedChanged;
             // 
-            // button1
+            // HomNay
             // 
-            button1.Location = new Point(487, 2);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(73, 25);
-            button1.TabIndex = 1;
-            button1.Text = "Hôm nay ";
-            button1.UseVisualStyleBackColor = true;
+            HomNay.Location = new Point(487, 2);
+            HomNay.Margin = new Padding(2);
+            HomNay.Name = "HomNay";
+            HomNay.Size = new Size(73, 25);
+            HomNay.TabIndex = 1;
+            HomNay.Text = "Hôm nay ";
+            HomNay.UseVisualStyleBackColor = true;
+            HomNay.Click += button1_Click;
             // 
             // dtpkDate
             // 
@@ -307,6 +309,7 @@
             Margin = new Padding(2);
             Name = "Form1";
             Text = "Calendar";
+            FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -334,7 +337,7 @@
         private Button btnWed;
         private Button btnThu;
         private Button btnMon;
-        private Button button1;
+        private Button HomNay;
         private Button btnPreviours;
         private Panel panel6;
         private CheckBox cbnotify;
