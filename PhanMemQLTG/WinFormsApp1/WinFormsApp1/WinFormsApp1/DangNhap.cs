@@ -20,7 +20,7 @@ namespace WinFormsApp1
         }
         private void DN_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=LAPTOP-VF44UALL;Initial Catalog=QLTG;Integrated Security=True;;Encrypt=False";
+            string connectionString = @"Data Source=DESKTOP-FGNUE5N\SQLEXPRESS;Initial Catalog=QLTG;Integrated Security=True;;Encrypt=False";
             //Data Source=DESKTOP-FGNUE5N\SQLEXPRESS;Initial Catalog=QLTG;Integrated Security=True
             try
             {

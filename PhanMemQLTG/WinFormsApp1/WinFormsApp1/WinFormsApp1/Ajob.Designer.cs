@@ -59,7 +59,7 @@
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(ChbDone);
             panel1.Location = new Point(2, 4);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(696, 51);
             panel1.TabIndex = 0;
@@ -67,7 +67,7 @@
             // btnDelete
             // 
             btnDelete.Location = new Point(584, 1);
-            btnDelete.Margin = new Padding(2, 2, 2, 2);
+            btnDelete.Margin = new Padding(2);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(78, 24);
             btnDelete.TabIndex = 9;
@@ -77,7 +77,7 @@
             // btnEdit
             // 
             btnEdit.Location = new Point(501, 1);
-            btnEdit.Margin = new Padding(2, 2, 2, 2);
+            btnEdit.Margin = new Padding(2);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(78, 24);
             btnEdit.TabIndex = 8;
@@ -89,7 +89,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(370, 1);
-            comboBox1.Margin = new Padding(2, 2, 2, 2);
+            comboBox1.Margin = new Padding(2);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(129, 23);
             comboBox1.TabIndex = 7;
@@ -108,7 +108,7 @@
             // numericUpDown4
             // 
             numericUpDown4.Location = new Point(295, 1);
-            numericUpDown4.Margin = new Padding(2, 2, 2, 2);
+            numericUpDown4.Margin = new Padding(2);
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(49, 23);
             numericUpDown4.TabIndex = 5;
@@ -116,7 +116,7 @@
             // numericUpDown3
             // 
             numericUpDown3.Location = new Point(242, 1);
-            numericUpDown3.Margin = new Padding(2, 2, 2, 2);
+            numericUpDown3.Margin = new Padding(2);
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(49, 23);
             numericUpDown3.TabIndex = 4;
@@ -124,7 +124,7 @@
             // numericUpDown2
             // 
             numericUpDown2.Location = new Point(158, 2);
-            numericUpDown2.Margin = new Padding(2, 2, 2, 2);
+            numericUpDown2.Margin = new Padding(2);
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(49, 23);
             numericUpDown2.TabIndex = 3;
@@ -132,7 +132,7 @@
             // numericUpDown1
             // 
             numericUpDown1.Location = new Point(104, 2);
-            numericUpDown1.Margin = new Padding(2, 2, 2, 2);
+            numericUpDown1.Margin = new Padding(2);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(49, 23);
             numericUpDown1.TabIndex = 2;
@@ -140,7 +140,7 @@
             // textBox1
             // 
             textBox1.Location = new Point(2, 24);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(693, 23);
             textBox1.TabIndex = 1;
@@ -150,7 +150,7 @@
             // 
             ChbDone.AutoSize = true;
             ChbDone.Location = new Point(13, 3);
-            ChbDone.Margin = new Padding(2, 2, 2, 2);
+            ChbDone.Margin = new Padding(2);
             ChbDone.Name = "ChbDone";
             ChbDone.Size = new Size(54, 19);
             ChbDone.TabIndex = 0;
@@ -163,9 +163,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Ajob";
-            Size = new Size(701, 55);
+            Size = new Size(701, 330);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();

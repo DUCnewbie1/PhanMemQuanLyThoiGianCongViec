@@ -46,11 +46,11 @@
             Thoat = new Button();
             DangXuat = new Button();
             panel6 = new Panel();
-            LabelMunute = new Label();
             nmNotify = new NumericUpDown();
             cbnotify = new CheckBox();
             HomNay = new Button();
             dtpkDate = new DateTimePicker();
+            label1 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -235,7 +235,7 @@
             // 
             // panel6
             // 
-            panel6.Controls.Add(LabelMunute);
+            panel6.Controls.Add(label1);
             panel6.Controls.Add(nmNotify);
             panel6.Controls.Add(cbnotify);
             panel6.Location = new Point(6, 3);
@@ -243,17 +243,6 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(223, 22);
             panel6.TabIndex = 2;
-            // 
-            // LabelMunute
-            // 
-            LabelMunute.AutoSize = true;
-            LabelMunute.Location = new Point(151, 3);
-            LabelMunute.Margin = new Padding(2, 0, 2, 0);
-            LabelMunute.Name = "LabelMunute";
-            LabelMunute.Size = new Size(35, 15);
-            LabelMunute.TabIndex = 7;
-            LabelMunute.Text = "phút ";
-            LabelMunute.Click += lbTo_Click;
             // 
             // nmNotify
             // 
@@ -297,6 +286,15 @@
             dtpkDate.Name = "dtpkDate";
             dtpkDate.Size = new Size(211, 23);
             dtpkDate.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(152, 5);
+            label1.Name = "label1";
+            label1.Size = new Size(32, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Phút";
             // 
             // Form1
             // 
@@ -342,8 +340,8 @@
         private Panel panel6;
         private CheckBox cbnotify;
         private NumericUpDown nmNotify;
-        private Label LabelMunute;
         private Button Thoat;
         private Button DangXuat;
+        private Label label1;
     }
 }
