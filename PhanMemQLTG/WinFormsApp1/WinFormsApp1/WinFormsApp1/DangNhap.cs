@@ -21,7 +21,8 @@ namespace WinFormsApp1
         private void DN_Click(object sender, EventArgs e)
         {
             string connectionString = @"Data Source=DESKTOP-FGNUE5N\SQLEXPRESS;Initial Catalog=QLTG;Integrated Security=True;;Encrypt=False";
-            //Data Source=DESKTOP-FGNUE5N\SQLEXPRESS;Initial Catalog=QLTG;Integrated Security=True
+            //Hai ESKTOP-FGNUE5N\SQLEXPRESS
+            //Duc LAPTOPCUAHMD\SQLEXPRESS
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
