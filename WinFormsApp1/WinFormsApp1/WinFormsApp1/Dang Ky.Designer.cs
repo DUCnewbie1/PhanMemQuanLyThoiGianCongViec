@@ -61,7 +61,7 @@
             // 
             // textBoxTen
             // 
-            textBoxTen.Location = new Point(447, 47);
+            textBoxTen.Location = new Point(447, 42);
             textBoxTen.Name = "textBoxTen";
             textBoxTen.Size = new Size(187, 23);
             textBoxTen.TabIndex = 4;
@@ -97,7 +97,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(297, 260);
+            label4.Location = new Point(307, 260);
             label4.Name = "label4";
             label4.Size = new Size(94, 15);
             label4.TabIndex = 8;
@@ -106,7 +106,7 @@
             // 
             // QuayVeDangNhap
             // 
-            QuayVeDangNhap.Location = new Point(287, 278);
+            QuayVeDangNhap.Location = new Point(297, 278);
             QuayVeDangNhap.Name = "QuayVeDangNhap";
             QuayVeDangNhap.Size = new Size(114, 23);
             QuayVeDangNhap.TabIndex = 9;
@@ -161,7 +161,7 @@
             // 
             // textBoxTenDangNhap
             // 
-            textBoxTenDangNhap.Location = new Point(447, 132);
+            textBoxTenDangNhap.Location = new Point(447, 124);
             textBoxTenDangNhap.Name = "textBoxTenDangNhap";
             textBoxTenDangNhap.Size = new Size(187, 23);
             textBoxTenDangNhap.TabIndex = 15;
