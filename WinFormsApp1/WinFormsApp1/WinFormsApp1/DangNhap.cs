@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
+using Npgsql;
 
 namespace WinFormsApp1
 {
@@ -20,14 +21,11 @@ namespace WinFormsApp1
         }
         private void DN_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=LAPTOP-VF44UALL;Initial Catalog=QLTG;Integrated Security=True;;Encrypt=False";
-            //Dung LAPTOP-VF44UALL
-            //Duc LAPTOPCUAHMD\SQLEXPRESS
-            //Hai ESKTOP-FGNUE5N\SQLEXPRESS
-            //Khang LAPTOP-9ERO8F9L\SQLEXPRESS
+            string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                 {
                     conn.Open();
                     string tk = txt_TK.Text;
@@ -35,12 +33,12 @@ namespace WinFormsApp1
 
                     string sql = "SELECT * FROM THONGTINTK WHERE TENTK=@tk AND MATKHAU=@mk";
 
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@tk", tk);
                         cmd.Parameters.AddWithValue("@mk", mk);
 
-                        using (SqlDataReader data = cmd.ExecuteReader())
+                        using (NpgsqlDataReader data = cmd.ExecuteReader())
                         {
                             if (data.Read())
                             {
@@ -81,6 +79,13 @@ namespace WinFormsApp1
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dang_Ky f = new Dang_Ky();
+            f.Show();
+            this.Hide();
         }
     }
 }
