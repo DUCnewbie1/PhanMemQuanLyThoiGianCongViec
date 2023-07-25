@@ -63,10 +63,24 @@ namespace WinFormsApp1
             string tenDangNhap = textBoxTenDangNhap.Text;
             string matKhau = textBoxMatKhau.Text;
             string nhapLaiMatKhau = textBoxNhapLaiMatKhau.Text;
+            // Kiểm tra các trường thông tin có được nhập đủ hay không
+            if (string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(gioiTinh) ||
+                string.IsNullOrWhiteSpace(ngaySinh) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(tenDangNhap) ||
+                string.IsNullOrWhiteSpace(matKhau) || string.IsNullOrWhiteSpace(nhapLaiMatKhau))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
+                return;
+            }
             // Kiểm tra mật khẩu và mật khẩu nhập lại có khớp hay không
             if (matKhau != nhapLaiMatKhau)
             {
                 MessageBox.Show("Mật khẩu nhập lại không khớp. Vui lòng nhập lại mật khẩu.");
+                return;
+            }
+            // Kiểm tra mật khẩu có độ dài ít nhất 6 kí tự
+            if (matKhau.Length < 6)
+            {
+                MessageBox.Show("Mật khẩu phải có ít nhất 6 kí tự.");
                 return;
             }
             // Thực hiện lưu thông tin vào cơ sở dữ liệu
