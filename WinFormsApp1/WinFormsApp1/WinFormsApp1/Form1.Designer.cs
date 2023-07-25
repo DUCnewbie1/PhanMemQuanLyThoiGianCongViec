@@ -46,11 +46,12 @@
             Thoat = new Button();
             DangXuat = new Button();
             panel6 = new Panel();
+            label1 = new Label();
             nmNotify = new NumericUpDown();
             cbnotify = new CheckBox();
             HomNay = new Button();
             dtpkDate = new DateTimePicker();
-            label1 = new Label();
+            button1 = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -71,6 +72,8 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(Thoat);
+            panel3.Controls.Add(DangXuat);
             panel3.Controls.Add(pnMatrix);
             panel3.Controls.Add(panel4);
             panel3.Location = new Point(3, 32);
@@ -201,9 +204,8 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(Thoat);
-            panel2.Controls.Add(DangXuat);
             panel2.Controls.Add(panel6);
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(HomNay);
             panel2.Controls.Add(dtpkDate);
             panel2.Location = new Point(1, 5);
@@ -214,9 +216,9 @@
             // 
             // Thoat
             // 
-            Thoat.Location = new Point(692, 3);
+            Thoat.Location = new Point(666, 310);
             Thoat.Name = "Thoat";
-            Thoat.Size = new Size(75, 25);
+            Thoat.Size = new Size(98, 25);
             Thoat.TabIndex = 4;
             Thoat.Text = "Thoát";
             Thoat.UseVisualStyleBackColor = true;
@@ -225,9 +227,9 @@
             // DangXuat
             // 
             DangXuat.AccessibleDescription = "";
-            DangXuat.Location = new Point(591, 3);
+            DangXuat.Location = new Point(666, 280);
             DangXuat.Name = "DangXuat";
-            DangXuat.Size = new Size(95, 25);
+            DangXuat.Size = new Size(99, 25);
             DangXuat.TabIndex = 3;
             DangXuat.Text = "Đăng xuất";
             DangXuat.UseVisualStyleBackColor = true;
@@ -243,6 +245,15 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(223, 22);
             panel6.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(152, 5);
+            label1.Name = "label1";
+            label1.Size = new Size(32, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Phút";
             // 
             // nmNotify
             // 
@@ -287,14 +298,14 @@
             dtpkDate.Size = new Size(211, 23);
             dtpkDate.TabIndex = 0;
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(152, 5);
-            label1.Name = "label1";
-            label1.Size = new Size(32, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Phút";
+            button1.Location = new Point(649, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(118, 23);
+            button1.TabIndex = 2;
+            button1.Text = "Thông tin cá nhân";
+            button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -343,5 +354,6 @@
         private Button Thoat;
         private Button DangXuat;
         private Label label1;
+        private Button button1;
     }
 }

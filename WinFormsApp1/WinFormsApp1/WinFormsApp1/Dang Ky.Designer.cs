@@ -68,9 +68,9 @@
             // 
             // textBoxMatKhau
             // 
-            textBoxMatKhau.Location = new Point(447, 124);
+            textBoxMatKhau.Location = new Point(134, 164);
             textBoxMatKhau.Name = "textBoxMatKhau";
-            textBoxMatKhau.Size = new Size(187, 23);
+            textBoxMatKhau.Size = new Size(155, 23);
             textBoxMatKhau.TabIndex = 5;
             textBoxMatKhau.TextChanged += textBox3_TextChanged;
             // 
@@ -144,7 +144,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(134, 9);
+            label5.Location = new Point(307, 9);
             label5.Name = "label5";
             label5.Size = new Size(130, 15);
             label5.TabIndex = 13;
@@ -161,9 +161,9 @@
             // 
             // textBoxTenDangNhap
             // 
-            textBoxTenDangNhap.Location = new Point(134, 164);
+            textBoxTenDangNhap.Location = new Point(447, 132);
             textBoxTenDangNhap.Name = "textBoxTenDangNhap";
-            textBoxTenDangNhap.Size = new Size(155, 23);
+            textBoxTenDangNhap.Size = new Size(187, 23);
             textBoxTenDangNhap.TabIndex = 15;
             // 
             // label7

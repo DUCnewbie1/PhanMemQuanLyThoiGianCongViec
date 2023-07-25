@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Npgsql;
 using NpgsqlTypes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.RegularExpressions;
 
 namespace WinFormsApp1
 {
@@ -64,11 +65,23 @@ namespace WinFormsApp1
             string matKhau = textBoxMatKhau.Text;
             string nhapLaiMatKhau = textBoxNhapLaiMatKhau.Text;
             // Kiểm tra các trường thông tin có được nhập đủ hay không
-            if (string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(gioiTinh) ||
+            if (string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) ||
                 string.IsNullOrWhiteSpace(ngaySinh) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(tenDangNhap) ||
                 string.IsNullOrWhiteSpace(matKhau) || string.IsNullOrWhiteSpace(nhapLaiMatKhau))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
+                return;
+            }
+            // Kiểm tra "Họ" và "Tên" chỉ chứa chữ
+            if (!Regex.IsMatch(ho, "^[a-zA-Z]+$") || !Regex.IsMatch(ten, "^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Họ và Tên chỉ được nhập chữ.");
+                return;
+            }
+            // Kiểm tra tên đăng nhập chỉ chứa chữ và số (không chứa kí tự đặc biệt)
+            if (!Regex.IsMatch(tenDangNhap, "^[a-zA-Z0-9]+$"))
+            {
+                MessageBox.Show("Tên đăng nhập chỉ được chứa chữ và số, không chứa kí tự đặc biệt.");
                 return;
             }
             // Kiểm tra mật khẩu và mật khẩu nhập lại có khớp hay không
