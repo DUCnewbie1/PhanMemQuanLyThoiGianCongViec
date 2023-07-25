@@ -72,12 +72,6 @@ namespace WinFormsApp1
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
                 return;
             }
-            // Kiểm tra "Họ" và "Tên" chỉ chứa chữ
-            if (!Regex.IsMatch(ho, "^[a-zA-Z]+$") || !Regex.IsMatch(ten, "^[a-zA-Z]+$"))
-            {
-                MessageBox.Show("Họ và Tên chỉ được nhập chữ.");
-                return;
-            }
             // Kiểm tra tên đăng nhập chỉ chứa chữ và số (không chứa kí tự đặc biệt)
             if (!Regex.IsMatch(tenDangNhap, "^[a-zA-Z0-9]+$"))
             {
@@ -102,6 +96,21 @@ namespace WinFormsApp1
                 using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                 {
                     conn.Open();
+
+                    // Kiểm tra tên đăng nhập đã tồn tại
+                    using (NpgsqlCommand cmd = new NpgsqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = "SELECT COUNT(*) FROM THONGTINTK WHERE TENTK = @TENTK";
+                        cmd.Parameters.AddWithValue("TENTK", tenDangNhap);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && Convert.ToInt32(result) > 0)
+                        {
+                            MessageBox.Show("Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.");
+                            return;
+                        }
+                    }
 
                     // Thêm thông tin vào bảng NGUOIDUNG
                     using (NpgsqlCommand cmd = new NpgsqlCommand())
