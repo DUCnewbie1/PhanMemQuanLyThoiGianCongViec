@@ -46,7 +46,7 @@
             label9 = new Label();
             textBoxDiaChi = new TextBox();
             label10 = new Label();
-            textBox8 = new TextBox();
+            textBoxNhapLaiMatKhau = new TextBox();
             dateTimePickerNgaySinh = new DateTimePicker();
             radioButtonNam = new RadioButton();
             radioButtonNu = new RadioButton();
@@ -209,12 +209,12 @@
             label10.TabIndex = 22;
             label10.Text = "Nhập lại mật khẩu";
             // 
-            // textBox8
+            // textBoxNhapLaiMatKhau
             // 
-            textBox8.Location = new Point(447, 164);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(187, 23);
-            textBox8.TabIndex = 23;
+            textBoxNhapLaiMatKhau.Location = new Point(447, 164);
+            textBoxNhapLaiMatKhau.Name = "textBoxNhapLaiMatKhau";
+            textBoxNhapLaiMatKhau.Size = new Size(187, 23);
+            textBoxNhapLaiMatKhau.TabIndex = 23;
             // 
             // dateTimePickerNgaySinh
             // 
@@ -253,7 +253,7 @@
             Controls.Add(radioButtonNu);
             Controls.Add(radioButtonNam);
             Controls.Add(dateTimePickerNgaySinh);
-            Controls.Add(textBox8);
+            Controls.Add(textBoxNhapLaiMatKhau);
             Controls.Add(label10);
             Controls.Add(textBoxDiaChi);
             Controls.Add(label9);
@@ -297,7 +297,7 @@
         private Label label9;
         private TextBox textBoxDiaChi;
         private Label label10;
-        private TextBox textBox8;
+        private TextBox textBoxNhapLaiMatKhau;
         private DateTimePicker dateTimePickerNgaySinh;
         private RadioButton radioButtonNam;
         private RadioButton radioButtonNu;

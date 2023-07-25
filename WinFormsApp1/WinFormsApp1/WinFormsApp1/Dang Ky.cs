@@ -62,14 +62,20 @@ namespace WinFormsApp1
             string diaChi = textBoxDiaChi.Text;
             string tenDangNhap = textBoxTenDangNhap.Text;
             string matKhau = textBoxMatKhau.Text;
-
+            string nhapLaiMatKhau = textBoxNhapLaiMatKhau.Text;
+            // Kiểm tra mật khẩu và mật khẩu nhập lại có khớp hay không
+            if (matKhau != nhapLaiMatKhau)
+            {
+                MessageBox.Show("Mật khẩu nhập lại không khớp. Vui lòng nhập lại mật khẩu.");
+                return;
+            }
             // Thực hiện lưu thông tin vào cơ sở dữ liệu
             try
             {
                 using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                 {
                     conn.Open();
-                    
+
                     // Thêm thông tin vào bảng NGUOIDUNG
                     using (NpgsqlCommand cmd = new NpgsqlCommand())
                     {
