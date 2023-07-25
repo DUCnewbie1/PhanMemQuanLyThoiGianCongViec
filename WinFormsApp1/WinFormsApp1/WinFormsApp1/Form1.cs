@@ -162,22 +162,22 @@ namespace WinFormsApp1
                 }
             }
         }
-
         private void SetDefaultDay() => dtpkDate.Value = DateTime.Now;
-        // hàm thực thi lệnh thoát
+        // thoát chương trình 
         private void Thoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (XacNhanThoatChuongTrinh.ConfirmExit())
+            {
+                Application.Exit();
+            }
         }
-
-        // hàm đăng xuất 
+        // đăng xuất 
         private void DangXuat_Click(object sender, EventArgs e)
         {
             DangNhap dn = new DangNhap();
             dn.Show();
             this.Hide();
         }
-
         //chuyển sang tháng tiếp theo
         private void btnnext_Click(object sender, EventArgs e)
         {
@@ -187,7 +187,6 @@ namespace WinFormsApp1
             // Cập nhật lại lịch cho tháng mới
             AddNumberIntoMatrixByDate(dtpkDate.Value);
         }
-
         // lùi lại 1 tháng
         private void btnPreviours_Click(object sender, EventArgs e)
         {
@@ -197,7 +196,6 @@ namespace WinFormsApp1
             // Cập nhật lại lịch cho tháng mới
             AddNumberIntoMatrixByDate(dtpkDate.Value);
         }
-
         // hiển thị ngày hôm nay
         private void button1_Click(object sender, EventArgs e)
         {
@@ -209,29 +207,14 @@ namespace WinFormsApp1
             Application.Exit();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        // Hàm xử lý sự kiện FormClosing để xác nhận việc thoát chương trình khi người dùng ấn nút "X" hoặc sử dụng tổ hợp phím Alt + F4.
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbTo_Click(object sender, EventArgs e)
-        {
-
+            // Kiểm tra xem người dùng có sử dụng Alt + F4 hoặc ấn nút "X" để đóng form không
+            if (e.CloseReason == CloseReason.UserClosing && (Control.ModifierKeys == Keys.Alt || e.CloseReason == CloseReason.UserClosing))
+            {
+                e.Cancel = !XacNhanThoatChuongTrinh.ConfirmExit();
+            }
         }
     }
 }

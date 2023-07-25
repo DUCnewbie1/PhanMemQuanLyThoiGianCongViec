@@ -40,7 +40,7 @@
             // 
             // Thoat
             // 
-            Thoat.Location = new Point(253, 118);
+            Thoat.Location = new Point(253, 134);
             Thoat.Name = "Thoat";
             Thoat.Size = new Size(75, 23);
             Thoat.TabIndex = 1;
@@ -63,6 +63,8 @@
             txt_MK.Size = new Size(181, 23);
             txt_MK.TabIndex = 3;
             txt_MK.UseSystemPasswordChar = true;
+            txt_MK.TextChanged += txt_MK_TextChanged;
+            txt_MK.KeyPress += txt_MK_KeyPress;
             // 
             // label1
             // 
@@ -84,7 +86,7 @@
             // 
             // DN
             // 
-            DN.Location = new Point(147, 118);
+            DN.Location = new Point(147, 134);
             DN.Name = "DN";
             DN.Size = new Size(75, 23);
             DN.TabIndex = 6;
@@ -94,7 +96,7 @@
             // 
             // DangKi
             // 
-            DangKi.Location = new Point(193, 171);
+            DangKi.Location = new Point(349, 171);
             DangKi.Name = "DangKi";
             DangKi.Size = new Size(75, 23);
             DangKi.TabIndex = 7;
@@ -105,7 +107,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(171, 153);
+            label3.Location = new Point(214, 179);
             label3.Name = "label3";
             label3.Size = new Size(129, 15);
             label3.TabIndex = 8;
@@ -127,7 +129,7 @@
             Location = new Point(282, 151);
             Name = "DangNhap";
             Text = "DangNhap";
-            FormClosing += DangNhap_FormClosing;
+            FormClosing += DangNhap_FormClosing_1;
             Load += DangNhap_Load;
             ResumeLayout(false);
             PerformLayout();

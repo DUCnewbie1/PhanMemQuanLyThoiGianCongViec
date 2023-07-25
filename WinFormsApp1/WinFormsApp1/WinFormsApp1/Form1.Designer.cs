@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
             panel3 = new Panel();
+            Thoat = new Button();
+            DangXuat = new Button();
             pnMatrix = new Panel();
             panel4 = new Panel();
             btnPreviours = new Button();
@@ -43,15 +45,13 @@
             btnThu = new Button();
             btnMon = new Button();
             panel2 = new Panel();
-            Thoat = new Button();
-            DangXuat = new Button();
             panel6 = new Panel();
             label1 = new Label();
             nmNotify = new NumericUpDown();
             cbnotify = new CheckBox();
+            button1 = new Button();
             HomNay = new Button();
             dtpkDate = new DateTimePicker();
-            button1 = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -81,6 +81,27 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(765, 335);
             panel3.TabIndex = 1;
+            // 
+            // Thoat
+            // 
+            Thoat.Location = new Point(666, 310);
+            Thoat.Name = "Thoat";
+            Thoat.Size = new Size(98, 25);
+            Thoat.TabIndex = 4;
+            Thoat.Text = "Thoát";
+            Thoat.UseVisualStyleBackColor = true;
+            Thoat.Click += Thoat_Click;
+            // 
+            // DangXuat
+            // 
+            DangXuat.AccessibleDescription = "";
+            DangXuat.Location = new Point(666, 280);
+            DangXuat.Name = "DangXuat";
+            DangXuat.Size = new Size(99, 25);
+            DangXuat.TabIndex = 3;
+            DangXuat.Text = "Đăng xuất";
+            DangXuat.UseVisualStyleBackColor = true;
+            DangXuat.Click += DangXuat_Click;
             // 
             // pnMatrix
             // 
@@ -127,7 +148,6 @@
             btnSun.TabIndex = 7;
             btnSun.Text = "CN";
             btnSun.UseVisualStyleBackColor = true;
-            btnSun.Click += button9_Click;
             // 
             // btnnext
             // 
@@ -169,7 +189,6 @@
             btnTue.TabIndex = 3;
             btnTue.Text = "Th3";
             btnTue.UseVisualStyleBackColor = true;
-            btnTue.Click += button5_Click;
             // 
             // btnWed
             // 
@@ -180,7 +199,6 @@
             btnWed.TabIndex = 2;
             btnWed.Text = "Th4";
             btnWed.UseVisualStyleBackColor = true;
-            btnWed.Click += button4_Click;
             // 
             // btnThu
             // 
@@ -213,27 +231,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(769, 27);
             panel2.TabIndex = 0;
-            // 
-            // Thoat
-            // 
-            Thoat.Location = new Point(666, 310);
-            Thoat.Name = "Thoat";
-            Thoat.Size = new Size(98, 25);
-            Thoat.TabIndex = 4;
-            Thoat.Text = "Thoát";
-            Thoat.UseVisualStyleBackColor = true;
-            Thoat.Click += Thoat_Click;
-            // 
-            // DangXuat
-            // 
-            DangXuat.AccessibleDescription = "";
-            DangXuat.Location = new Point(666, 280);
-            DangXuat.Name = "DangXuat";
-            DangXuat.Size = new Size(99, 25);
-            DangXuat.TabIndex = 3;
-            DangXuat.Text = "Đăng xuất";
-            DangXuat.UseVisualStyleBackColor = true;
-            DangXuat.Click += DangXuat_Click;
             // 
             // panel6
             // 
@@ -276,7 +273,16 @@
             cbnotify.TabIndex = 0;
             cbnotify.Text = "Thông báo";
             cbnotify.UseVisualStyleBackColor = true;
-            cbnotify.CheckedChanged += checkBox1_CheckedChanged;
+          //  cbnotify.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(649, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(118, 23);
+            button1.TabIndex = 2;
+            button1.Text = "Thông tin cá nhân";
+            button1.UseVisualStyleBackColor = true;
             // 
             // HomNay
             // 
@@ -298,15 +304,6 @@
             dtpkDate.Size = new Size(211, 23);
             dtpkDate.TabIndex = 0;
             // 
-            // button1
-            // 
-            button1.Location = new Point(649, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(118, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Thông tin cá nhân";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -318,6 +315,7 @@
             Margin = new Padding(2);
             Name = "Form1";
             Text = "Calendar";
+            FormClosing += Form1_FormClosing;
             FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             panel1.ResumeLayout(false);

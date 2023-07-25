@@ -57,39 +57,38 @@
             textBoxHo.Location = new Point(134, 42);
             textBoxHo.Name = "textBoxHo";
             textBoxHo.Size = new Size(155, 23);
-            textBoxHo.TabIndex = 3;
+            textBoxHo.TabIndex = 1;
             // 
             // textBoxTen
             // 
             textBoxTen.Location = new Point(447, 42);
             textBoxTen.Name = "textBoxTen";
             textBoxTen.Size = new Size(187, 23);
-            textBoxTen.TabIndex = 4;
+            textBoxTen.TabIndex = 2;
             // 
             // textBoxMatKhau
             // 
             textBoxMatKhau.Location = new Point(134, 164);
             textBoxMatKhau.Name = "textBoxMatKhau";
             textBoxMatKhau.Size = new Size(155, 23);
-            textBoxMatKhau.TabIndex = 5;
-            textBoxMatKhau.TextChanged += textBox3_TextChanged;
+            textBoxMatKhau.TabIndex = 8;
             // 
             // button1
             // 
-            button1.Location = new Point(214, 226);
+            button1.Location = new Point(134, 237);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
+            button1.TabIndex = 10;
             button1.Text = "Đăng ký";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(423, 226);
+            button2.Location = new Point(251, 237);
             button2.Name = "button2";
             button2.Size = new Size(85, 23);
-            button2.TabIndex = 7;
+            button2.TabIndex = 11;
             button2.Text = "Hủy đăng ký";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
@@ -97,19 +96,18 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(307, 260);
+            label4.Location = new Point(402, 245);
             label4.Name = "label4";
             label4.Size = new Size(94, 15);
             label4.TabIndex = 8;
             label4.Text = "Đã có tài khoản?";
-            label4.Click += label4_Click;
             // 
             // QuayVeDangNhap
             // 
-            QuayVeDangNhap.Location = new Point(297, 278);
+            QuayVeDangNhap.Location = new Point(502, 237);
             QuayVeDangNhap.Name = "QuayVeDangNhap";
             QuayVeDangNhap.Size = new Size(114, 23);
-            QuayVeDangNhap.TabIndex = 9;
+            QuayVeDangNhap.TabIndex = 12;
             QuayVeDangNhap.Text = "Đăng nhập ngay";
             QuayVeDangNhap.UseVisualStyleBackColor = true;
             QuayVeDangNhap.Click += button3_Click;
@@ -144,9 +142,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(307, 9);
+            label5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Navy;
+            label5.Location = new Point(240, -1);
             label5.Name = "label5";
-            label5.Size = new Size(130, 15);
+            label5.Size = new Size(229, 30);
             label5.TabIndex = 13;
             label5.Text = "Nhập thông tin đăng kí";
             // 
@@ -164,7 +164,7 @@
             textBoxTenDangNhap.Location = new Point(447, 124);
             textBoxTenDangNhap.Name = "textBoxTenDangNhap";
             textBoxTenDangNhap.Size = new Size(187, 23);
-            textBoxTenDangNhap.TabIndex = 15;
+            textBoxTenDangNhap.TabIndex = 7;
             // 
             // label7
             // 
@@ -198,7 +198,7 @@
             textBoxDiaChi.Location = new Point(134, 124);
             textBoxDiaChi.Name = "textBoxDiaChi";
             textBoxDiaChi.Size = new Size(155, 23);
-            textBoxDiaChi.TabIndex = 21;
+            textBoxDiaChi.TabIndex = 6;
             // 
             // label10
             // 
@@ -214,14 +214,14 @@
             textBoxNhapLaiMatKhau.Location = new Point(447, 164);
             textBoxNhapLaiMatKhau.Name = "textBoxNhapLaiMatKhau";
             textBoxNhapLaiMatKhau.Size = new Size(187, 23);
-            textBoxNhapLaiMatKhau.TabIndex = 23;
+            textBoxNhapLaiMatKhau.TabIndex = 9;
             // 
             // dateTimePickerNgaySinh
             // 
             dateTimePickerNgaySinh.Location = new Point(447, 86);
             dateTimePickerNgaySinh.Name = "dateTimePickerNgaySinh";
             dateTimePickerNgaySinh.Size = new Size(187, 23);
-            dateTimePickerNgaySinh.TabIndex = 24;
+            dateTimePickerNgaySinh.TabIndex = 5;
             // 
             // radioButtonNam
             // 
@@ -229,7 +229,7 @@
             radioButtonNam.Location = new Point(134, 84);
             radioButtonNam.Name = "radioButtonNam";
             radioButtonNam.Size = new Size(51, 19);
-            radioButtonNam.TabIndex = 25;
+            radioButtonNam.TabIndex = 3;
             radioButtonNam.TabStop = true;
             radioButtonNam.Text = "Nam";
             radioButtonNam.UseVisualStyleBackColor = true;
@@ -240,7 +240,7 @@
             radioButtonNu.Location = new Point(195, 84);
             radioButtonNu.Name = "radioButtonNu";
             radioButtonNu.Size = new Size(41, 19);
-            radioButtonNu.TabIndex = 26;
+            radioButtonNu.TabIndex = 4;
             radioButtonNu.TabStop = true;
             radioButtonNu.Text = "Nữ";
             radioButtonNu.UseVisualStyleBackColor = true;
@@ -274,6 +274,8 @@
             Controls.Add(textBoxHo);
             Name = "Dang_Ky";
             Text = "Dang_Ky";
+            FormClosing += Dang_Ky_FormClosing;
+            Load += Dang_Ky_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -20,16 +20,8 @@ namespace WinFormsApp1
         public Dang_Ky()
         {
             InitializeComponent();
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+            // Thiết lập giá trị mặc định cho DateTimePicker
+            dateTimePickerNgaySinh.Value = new DateTime(1990, 1, 1);
         }
 
         // quay lại màn hình đăng nhập
@@ -58,12 +50,25 @@ namespace WinFormsApp1
             // Lấy thông tin từ các điều khiển trên giao diện
             string ho = textBoxHo.Text;
             string ten = textBoxTen.Text;
-            string gioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ"; // Giới tính được chọn dựa vào RadioButton
+            string gioiTinh = "";
             string ngaySinh = dateTimePickerNgaySinh.Value.ToString("yyyy-MM-dd");
             string diaChi = textBoxDiaChi.Text;
             string tenDangNhap = textBoxTenDangNhap.Text;
             string matKhau = textBoxMatKhau.Text;
             string nhapLaiMatKhau = textBoxNhapLaiMatKhau.Text;
+            if (radioButtonNam.Checked)
+            {
+                gioiTinh = "Nam";
+            }
+            else if (radioButtonNu.Checked)
+            {
+                gioiTinh = "Nữ";
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn giới tính.");
+                return;
+            }
             // Kiểm tra các trường thông tin có được nhập đủ hay không
             if (string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) ||
                 string.IsNullOrWhiteSpace(ngaySinh) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(tenDangNhap) ||
@@ -76,6 +81,12 @@ namespace WinFormsApp1
             if (!Regex.IsMatch(tenDangNhap, "^[a-zA-Z0-9]+$"))
             {
                 MessageBox.Show("Tên đăng nhập chỉ được chứa chữ và số, không chứa kí tự đặc biệt.");
+                return;
+            }
+            // Kiểm tra mật khẩu chỉ chứa chữ và số (không chứa ký tự đặc biệt)
+            if (!Regex.IsMatch(matKhau, "^[a-zA-Z0-9]+$"))
+            {
+                MessageBox.Show("Mật khẩu chỉ được chứa chữ và số, không chứa ký tự đặc biệt và dấu cách.");
                 return;
             }
             // Kiểm tra mật khẩu và mật khẩu nhập lại có khớp hay không
@@ -143,6 +154,27 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Đã xảy ra lỗi trong quá trình đăng ký: " + ex.Message);
             }
+        }
+
+        // Kiểm tra người dùng có muốn hủy đăng ký hay không
+        private void Dang_Ky_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn hủy đăng ký?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DangNhap f = new DangNhap();
+                f.Show();
+                this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        // đặt dấu nháy ở ô Họ 
+        private void Dang_Ky_Load(object sender, EventArgs e)
+        {
+            textBoxHo.Select();
         }
     }
 }
