@@ -69,7 +69,7 @@ namespace WinFormsApp1
                 using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                 {
                     conn.Open();
-
+                    
                     // Thêm thông tin vào bảng NGUOIDUNG
                     using (NpgsqlCommand cmd = new NpgsqlCommand())
                     {
