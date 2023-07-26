@@ -175,6 +175,17 @@ namespace WinFormsApp1
         private void Dang_Ky_Load(object sender, EventArgs e)
         {
             textBoxHo.Select();
+            // Đăng ký sự kiện KeyPress cho TextBox textBoxNhapLaiMatKhau
+            textBoxNhapLaiMatKhau.KeyPress += TextBoxNhapLaiMatKhau_KeyPress;
+        }
+
+        // gán nút đăng ký với nút enter 
+        private void TextBoxNhapLaiMatKhau_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button1_Click(sender, e);
+            }
         }
     }
 }

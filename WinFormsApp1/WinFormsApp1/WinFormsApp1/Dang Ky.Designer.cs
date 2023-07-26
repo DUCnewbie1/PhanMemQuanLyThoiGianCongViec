@@ -215,6 +215,7 @@
             textBoxNhapLaiMatKhau.Name = "textBoxNhapLaiMatKhau";
             textBoxNhapLaiMatKhau.Size = new Size(187, 23);
             textBoxNhapLaiMatKhau.TabIndex = 9;
+            //textBoxNhapLaiMatKhau.KeyPress += textBoxNhapLaiMatKhau_KeyPress;
             // 
             // dateTimePickerNgaySinh
             // 

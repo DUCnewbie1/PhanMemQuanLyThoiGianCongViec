@@ -174,10 +174,16 @@ namespace WinFormsApp1
         // đăng xuất 
         private void DangXuat_Click(object sender, EventArgs e)
         {
-            DangNhap dn = new DangNhap();
-            dn.Show();
-            this.Hide();
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất tài khoản không?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                DangNhap dn = new DangNhap();
+                dn.Show();
+                this.Hide();
+            }
         }
+
         //chuyển sang tháng tiếp theo
         private void btnnext_Click(object sender, EventArgs e)
         {

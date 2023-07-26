@@ -54,7 +54,7 @@
             txt_TK.Name = "txt_TK";
             txt_TK.Size = new Size(181, 23);
             txt_TK.TabIndex = 2;
-            txt_TK.TextChanged += txt_TK_TextChanged;
+            
             // 
             // txt_MK
             // 
