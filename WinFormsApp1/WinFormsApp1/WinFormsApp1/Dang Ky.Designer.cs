@@ -50,6 +50,7 @@
             dateTimePickerNgaySinh = new DateTimePicker();
             radioButtonNam = new RadioButton();
             radioButtonNu = new RadioButton();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // textBoxHo
@@ -58,6 +59,8 @@
             textBoxHo.Name = "textBoxHo";
             textBoxHo.Size = new Size(155, 23);
             textBoxHo.TabIndex = 1;
+            textBoxHo.TextChanged += textBoxHo_TextChanged;
+            textBoxHo.KeyPress += textBoxHo_KeyPress;
             // 
             // textBoxTen
             // 
@@ -65,6 +68,7 @@
             textBoxTen.Name = "textBoxTen";
             textBoxTen.Size = new Size(187, 23);
             textBoxTen.TabIndex = 2;
+            textBoxTen.KeyPress += textBoxTen_KeyPress;
             // 
             // textBoxMatKhau
             // 
@@ -72,6 +76,7 @@
             textBoxMatKhau.Name = "textBoxMatKhau";
             textBoxMatKhau.Size = new Size(155, 23);
             textBoxMatKhau.TabIndex = 8;
+            textBoxMatKhau.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -85,7 +90,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(251, 237);
+            button2.Location = new Point(273, 237);
             button2.Name = "button2";
             button2.Size = new Size(85, 23);
             button2.TabIndex = 11;
@@ -96,15 +101,16 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(402, 245);
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label4.Location = new Point(419, 241);
             label4.Name = "label4";
-            label4.Size = new Size(94, 15);
+            label4.Size = new Size(95, 15);
             label4.TabIndex = 8;
             label4.Text = "Đã có tài khoản?";
             // 
             // QuayVeDangNhap
             // 
-            QuayVeDangNhap.Location = new Point(502, 237);
+            QuayVeDangNhap.Location = new Point(520, 237);
             QuayVeDangNhap.Name = "QuayVeDangNhap";
             QuayVeDangNhap.Size = new Size(114, 23);
             QuayVeDangNhap.TabIndex = 12;
@@ -144,11 +150,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Navy;
-            label5.Location = new Point(240, -1);
+            label5.Location = new Point(225, 0);
             label5.Name = "label5";
-            label5.Size = new Size(229, 30);
+            label5.Size = new Size(234, 30);
             label5.TabIndex = 13;
-            label5.Text = "Nhập thông tin đăng kí";
+            label5.Text = "Nhập thông tin đăng ký";
             // 
             // label6
             // 
@@ -215,7 +221,7 @@
             textBoxNhapLaiMatKhau.Name = "textBoxNhapLaiMatKhau";
             textBoxNhapLaiMatKhau.Size = new Size(187, 23);
             textBoxNhapLaiMatKhau.TabIndex = 9;
-            //textBoxNhapLaiMatKhau.KeyPress += textBoxNhapLaiMatKhau_KeyPress;
+            textBoxNhapLaiMatKhau.UseSystemPasswordChar = true;
             // 
             // dateTimePickerNgaySinh
             // 
@@ -246,11 +252,23 @@
             radioButtonNu.Text = "Nữ";
             radioButtonNu.UseVisualStyleBackColor = true;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(134, 202);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(121, 19);
+            checkBox1.TabIndex = 23;
+            checkBox1.Text = "Hiển thị mật khẩu";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // Dang_Ky
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(657, 312);
+            Controls.Add(checkBox1);
             Controls.Add(radioButtonNu);
             Controls.Add(radioButtonNam);
             Controls.Add(dateTimePickerNgaySinh);
@@ -304,5 +322,6 @@
         private DateTimePicker dateTimePickerNgaySinh;
         private RadioButton radioButtonNam;
         private RadioButton radioButtonNu;
+        private CheckBox checkBox1;
     }
 }

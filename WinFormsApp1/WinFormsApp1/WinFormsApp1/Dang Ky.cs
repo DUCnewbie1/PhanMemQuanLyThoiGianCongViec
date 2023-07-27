@@ -163,7 +163,7 @@ namespace WinFormsApp1
             {
                 DangNhap f = new DangNhap();
                 f.Show();
-                this.Hide();
+                this.Close();
             }
             else
             {
@@ -185,6 +185,34 @@ namespace WinFormsApp1
             if (e.KeyChar == (char)Keys.Enter)
             {
                 button1_Click(sender, e);
+            }
+        }
+        private void textBoxHo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxHo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar != (char)Keys.Back && !char.IsSeparator(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar);
+        }
+
+        private void textBoxTen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar != (char)Keys.Back && !char.IsSeparator(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBoxMatKhau.UseSystemPasswordChar = false;
+                textBoxNhapLaiMatKhau.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBoxMatKhau.UseSystemPasswordChar = true;
+                textBoxNhapLaiMatKhau.UseSystemPasswordChar = true;
             }
         }
     }

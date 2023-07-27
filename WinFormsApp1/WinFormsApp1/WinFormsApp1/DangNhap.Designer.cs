@@ -36,11 +36,13 @@
             DN = new Button();
             DangKi = new Button();
             label3 = new Label();
+            checkBox1 = new CheckBox();
+            linkLabel1 = new LinkLabel();
             SuspendLayout();
             // 
             // Thoat
             // 
-            Thoat.Location = new Point(253, 134);
+            Thoat.Location = new Point(253, 126);
             Thoat.Name = "Thoat";
             Thoat.Size = new Size(75, 23);
             Thoat.TabIndex = 1;
@@ -50,16 +52,16 @@
             // 
             // txt_TK
             // 
-            txt_TK.Location = new Point(147, 32);
+            txt_TK.Location = new Point(147, 29);
             txt_TK.Name = "txt_TK";
             txt_TK.Size = new Size(181, 23);
             txt_TK.TabIndex = 2;
-            
             // 
             // txt_MK
             // 
-            txt_MK.Location = new Point(147, 75);
+            txt_MK.Location = new Point(147, 72);
             txt_MK.Name = "txt_MK";
+            txt_MK.ShortcutsEnabled = false;
             txt_MK.Size = new Size(181, 23);
             txt_MK.TabIndex = 3;
             txt_MK.UseSystemPasswordChar = true;
@@ -69,7 +71,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(84, 40);
+            label1.Location = new Point(84, 32);
             label1.Name = "label1";
             label1.Size = new Size(57, 15);
             label1.TabIndex = 4;
@@ -78,7 +80,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(84, 83);
+            label2.Location = new Point(84, 75);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 5;
@@ -86,7 +88,7 @@
             // 
             // DN
             // 
-            DN.Location = new Point(147, 134);
+            DN.Location = new Point(147, 126);
             DN.Name = "DN";
             DN.Size = new Size(75, 23);
             DN.TabIndex = 6;
@@ -96,28 +98,53 @@
             // 
             // DangKi
             // 
-            DangKi.Location = new Point(349, 171);
+            DangKi.Location = new Point(336, 178);
             DangKi.Name = "DangKi";
-            DangKi.Size = new Size(75, 23);
+            DangKi.RightToLeft = RightToLeft.No;
+            DangKi.Size = new Size(88, 23);
             DangKi.TabIndex = 7;
-            DangKi.Text = "Đăng kí ";
+            DangKi.Text = "Đăng ký ngay";
             DangKi.UseVisualStyleBackColor = true;
             DangKi.Click += button1_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(214, 179);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(201, 182);
             label3.Name = "label3";
             label3.Size = new Size(129, 15);
             label3.TabIndex = 8;
             label3.Text = "Bạn chưa có tài khoản?";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(147, 101);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(121, 19);
+            checkBox1.TabIndex = 9;
+            checkBox1.Text = "Hiển thị mật khẩu";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(201, 167);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(89, 15);
+            linkLabel1.TabIndex = 10;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Quên mật khẩu";
             // 
             // DangNhap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(436, 206);
+            Controls.Add(linkLabel1);
+            Controls.Add(checkBox1);
             Controls.Add(label3);
             Controls.Add(DangKi);
             Controls.Add(DN);
@@ -145,5 +172,7 @@
         private Button DN;
         private Button DangKi;
         private Label label3;
+        private CheckBox checkBox1;
+        private LinkLabel linkLabel1;
     }
 }

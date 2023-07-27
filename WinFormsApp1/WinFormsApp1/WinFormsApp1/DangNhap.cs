@@ -135,5 +135,16 @@ namespace WinFormsApp1
             }
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                txt_MK.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txt_MK.UseSystemPasswordChar = true;
+            }
+        }
     }
 }
