@@ -21,7 +21,8 @@ namespace WinFormsApp1
         }
         private bool ConfirmExit()
         {
-            return XacNhanThoatChuongTrinh.ConfirmExit();
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result == DialogResult.Yes;
         }
         private void DN_Click(object sender, EventArgs e)
         {
