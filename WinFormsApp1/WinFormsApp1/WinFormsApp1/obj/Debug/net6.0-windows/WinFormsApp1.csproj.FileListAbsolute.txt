@@ -332,7 +332,6 @@ C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\
 C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.Dang_Ky.resources
 C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.DangNhap.resources
 C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.Form1.resources
-C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.QuenMatKhau.resources
 C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.csproj.GenerateResource.cache
 C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.AssemblyInfoInputs.cache
@@ -395,3 +394,5 @@ C:\Users\Admin\source\repos\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsA
 C:\Users\Admin\source\repos\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.pdb
 C:\Users\Admin\source\repos\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.genruntimeconfig.cache
 C:\Users\Admin\source\repos\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\ref\WinFormsApp1.dll
+C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.ThongTinCaNhan.resources
+C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.XacNhanMatKhau.resources

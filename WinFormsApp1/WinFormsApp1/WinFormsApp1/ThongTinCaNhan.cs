@@ -27,9 +27,6 @@ namespace WinFormsApp1
         private void ThongTinCaNhan_Load(object sender, EventArgs e)
         {
             ho.Select();
-            // Đăng ký sự kiện KeyPress cho TextBox textBoxNhapLaiMatKhau
-            //textBoxNhapLaiMatKhau.KeyPress += TextBoxNhapLaiMatKhau_KeyPress;
-
         }
 
         // thoát và trở lại giao diện chương trình
@@ -56,7 +53,7 @@ namespace WinFormsApp1
                 f.Show();
                 this.Hide();
             }
-            
+
 
         }
         // nút chỉnh sửa thông tin

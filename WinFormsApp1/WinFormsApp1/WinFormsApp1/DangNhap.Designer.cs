@@ -139,7 +139,6 @@
             linkLabel1.TabIndex = 10;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Quên mật khẩu";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // DangNhap
             // 

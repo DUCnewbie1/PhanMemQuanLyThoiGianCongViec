@@ -29,7 +29,7 @@ namespace WinFormsApp1
         }
         private void DN_Click(object sender, EventArgs e)
         {
-            string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QLTG";
+            string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
 
             try
             {
@@ -115,11 +115,19 @@ namespace WinFormsApp1
         // Kiểm tra xem người dùng có sử dụng Alt + F4 hoặc ấn nút "X" để đóng form không
         private void DangNhap_FormClosing_1(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing && (Control.ModifierKeys == Keys.Alt || e.CloseReason == CloseReason.UserClosing))
+            if (e.CloseReason == CloseReason.UserClosing && ConfirmExit())
             {
-                e.Cancel = !ConfirmExit();
+                // Nếu người dùng chọn "X" để đóng form và xác nhận muốn thoát, thực hiện dừng chương trình.
+                Application.Exit();
+            }
+            else
+            {
+                // Nếu người dùng không muốn thoát, hủy sự kiện đóng form để ngăn form đóng đi.
+                e.Cancel = true;
             }
         }
+
+
 
         private KiemTraNhapKiTu tkTextBoxHandler;
         private KiemTraNhapKiTu mkTextBoxHandler;
@@ -158,14 +166,6 @@ namespace WinFormsApp1
             {
                 txt_MK.UseSystemPasswordChar = true;
             }
-        }
-
-        // form quên mật khẩu 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            QuenMatKhau f = new QuenMatKhau();
-            f.Show();
-            this.Hide();
         }
     }
 }

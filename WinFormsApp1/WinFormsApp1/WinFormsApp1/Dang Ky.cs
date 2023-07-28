@@ -16,7 +16,7 @@ namespace WinFormsApp1
 {
     public partial class Dang_Ky : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QLTG";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
         public Dang_Ky()
         {
             InitializeComponent();
@@ -161,15 +161,18 @@ namespace WinFormsApp1
         {
             if (MessageBox.Show("Bạn có muốn hủy đăng ký?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                // Hủy sự kiện đóng form để ngăn form đóng đi khi người dùng nhấn nút "X"
+                e.Cancel = true;
+
+                // Thay vì mở form DangNhap một lần nữa, bạn chỉ cần đặt form hiện hành thành DangNhap và hiển thị nó.
                 DangNhap f = new DangNhap();
                 f.Show();
-                this.Close();
-            }
-            else
-            {
-                e.Cancel = true;
+                this.Hide();
             }
         }
+
+
+
 
         // đặt dấu nháy ở ô Họ 
         private void Dang_Ky_Load(object sender, EventArgs e)
