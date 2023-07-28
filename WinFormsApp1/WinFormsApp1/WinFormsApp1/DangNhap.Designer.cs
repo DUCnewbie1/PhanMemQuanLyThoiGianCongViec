@@ -56,6 +56,8 @@
             txt_TK.Name = "txt_TK";
             txt_TK.Size = new Size(181, 23);
             txt_TK.TabIndex = 2;
+            txt_TK.TextChanged += txt_TK_TextChanged;
+           // txt_TK.KeyPress += txt_TK_KeyPress;
             // 
             // txt_MK
             // 
@@ -137,6 +139,7 @@
             linkLabel1.TabIndex = 10;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Quên mật khẩu";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // DangNhap
             // 

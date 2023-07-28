@@ -187,21 +187,20 @@ namespace WinFormsApp1
                 button1_Click(sender, e);
             }
         }
-        private void textBoxHo_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
+        // hàm ràng buộc họ không được có kí tự đặc biệt 
         private void textBoxHo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = e.KeyChar != (char)Keys.Back && !char.IsSeparator(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
 
+        // hàm ràng buộc tên không được có kí tự đặc biệt 
         private void textBoxTen_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = e.KeyChar != (char)Keys.Back && !char.IsSeparator(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
 
+        // hàm để hiện mật khẩu 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)

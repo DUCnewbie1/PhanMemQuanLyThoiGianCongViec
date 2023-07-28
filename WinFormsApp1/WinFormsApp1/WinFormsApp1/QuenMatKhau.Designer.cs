@@ -34,21 +34,23 @@
             textBox_TK = new TextBox();
             textBox_newMK = new TextBox();
             textBox_ChecknewMK = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(77, 75);
+            label1.Location = new Point(62, 75);
             label1.Name = "label1";
-            label1.Size = new Size(57, 15);
+            label1.Size = new Size(158, 15);
             label1.TabIndex = 0;
-            label1.Text = "Tài khoản";
+            label1.Text = "Nhập mật khẩu bạn đã quên";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(77, 110);
+            label2.Location = new Point(62, 110);
             label2.Name = "label2";
             label2.Size = new Size(116, 15);
             label2.TabIndex = 1;
@@ -57,7 +59,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(77, 146);
+            label3.Location = new Point(62, 146);
             label3.Name = "label3";
             label3.Size = new Size(128, 15);
             label3.TabIndex = 2;
@@ -84,11 +86,31 @@
             textBox_ChecknewMK.Size = new Size(181, 23);
             textBox_ChecknewMK.TabIndex = 5;
             // 
+            // button1
+            // 
+            button1.Location = new Point(226, 197);
+            button1.Name = "button1";
+            button1.Size = new Size(93, 25);
+            button1.TabIndex = 6;
+            button1.Text = "Lưu mật khẩu";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(332, 197);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 25);
+            button2.TabIndex = 7;
+            button2.Text = "Thoát";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // QuenMatKhau
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(572, 248);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(textBox_ChecknewMK);
             Controls.Add(textBox_newMK);
             Controls.Add(textBox_TK);
@@ -109,5 +131,7 @@
         private TextBox textBox_TK;
         private TextBox textBox_newMK;
         private TextBox textBox_ChecknewMK;
+        private Button button1;
+        private Button button2;
     }
 }

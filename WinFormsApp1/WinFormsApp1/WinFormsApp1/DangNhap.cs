@@ -18,6 +18,9 @@ namespace WinFormsApp1
         public DangNhap()
         {
             InitializeComponent();
+            // Khởi tạo các xử lý cho txt_TK và txt_MK
+            tkTextBoxHandler = new KiemTraNhapKiTu(20);
+            mkTextBoxHandler = new KiemTraNhapKiTu(20);
         }
         private bool ConfirmExit()
         {
@@ -117,25 +120,34 @@ namespace WinFormsApp1
                 e.Cancel = !ConfirmExit();
             }
         }
-        private int mkMaxLength = 20;
-        private bool isMKMaxLengthExceeded = false; // Biến cờ để theo dõi trạng thái cảnh báo cho TextBox txt_MK
 
-        // Kiểm tra số lượng kí tự khi nội dung của TextBox txt_MK thay đổi
+        private KiemTraNhapKiTu tkTextBoxHandler;
+        private KiemTraNhapKiTu mkTextBoxHandler;
+        private bool isHandlingTextChanged = false;
+        private bool isTKMaxLengthExceeded = false;
+        private bool isMKMaxLengthExceeded = false;
+        // kiểm tra nhập tên đăng nhập có quá kí tự quy định không
+        private void txt_TK_TextChanged(object sender, EventArgs e)
+        {
+            if (isHandlingTextChanged)
+            {
+                return;
+            }
+
+            isHandlingTextChanged = true;
+            bool tkExceeded = tkTextBoxHandler.HandleTextChanged(txt_TK, txt_TK.Name);
+            isHandlingTextChanged = false;
+
+            isTKMaxLengthExceeded = tkExceeded;
+        }
+        // kiểm tra nhập mật khẩu có quá kí tự quy định không
         private void txt_MK_TextChanged(object sender, EventArgs e)
         {
-            if (txt_MK.Text.Length > mkMaxLength && !isMKMaxLengthExceeded)
-            {
-                isMKMaxLengthExceeded = true; // Đánh dấu đã hiển thị cảnh báo
-                MessageBox.Show("Mật khẩu chỉ được nhập tối đa " + mkMaxLength + " kí tự.");
-                txt_MK.Text = txt_MK.Text.Substring(0, mkMaxLength);
-                txt_MK.Select(mkMaxLength, 0); // Di chuyển con trỏ nhập liệu về cuối TextBox
-            }
-            else
-            {
-                isMKMaxLengthExceeded = false; // Đặt lại biến cờ khi người dùng nhập dưới giới hạn
-            }
+            bool mkExceeded = mkTextBoxHandler.HandleTextChanged(txt_MK, txt_MK.Name);
+            isMKMaxLengthExceeded = mkExceeded;
         }
 
+        //  hiện mật khẩu 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -146,6 +158,14 @@ namespace WinFormsApp1
             {
                 txt_MK.UseSystemPasswordChar = true;
             }
+        }
+
+        // form quên mật khẩu 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            QuenMatKhau f = new QuenMatKhau();
+            f.Show();
+            this.Hide();
         }
     }
 }

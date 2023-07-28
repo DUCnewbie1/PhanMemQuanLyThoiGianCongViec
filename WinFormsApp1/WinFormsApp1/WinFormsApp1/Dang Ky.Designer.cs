@@ -59,7 +59,7 @@
             textBoxHo.Name = "textBoxHo";
             textBoxHo.Size = new Size(155, 23);
             textBoxHo.TabIndex = 1;
-            textBoxHo.TextChanged += textBoxHo_TextChanged;
+            //textBoxHo.TextChanged += textBoxHo_TextChanged;
             textBoxHo.KeyPress += textBoxHo_KeyPress;
             // 
             // textBoxTen
