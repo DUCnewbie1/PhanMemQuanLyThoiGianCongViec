@@ -38,17 +38,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(39, 128);
+            label1.Location = new Point(27, 77);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(135, 25);
+            label1.Size = new Size(90, 15);
             label1.TabIndex = 0;
             label1.Text = "Nhập Mật Khẩu";
             // 
             // button1
             // 
-            button1.Location = new Point(201, 191);
+            button1.Location = new Point(141, 115);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(78, 28);
             button1.TabIndex = 1;
             button1.Text = "Xác Nhận";
             button1.UseVisualStyleBackColor = true;
@@ -56,16 +58,18 @@
             // 
             // NhapMatKhau
             // 
-            NhapMatKhau.Location = new Point(201, 122);
+            NhapMatKhau.Location = new Point(141, 73);
+            NhapMatKhau.Margin = new Padding(2, 2, 2, 2);
             NhapMatKhau.Name = "NhapMatKhau";
-            NhapMatKhau.Size = new Size(261, 31);
+            NhapMatKhau.Size = new Size(184, 23);
             NhapMatKhau.TabIndex = 2;
             // 
             // button2
             // 
-            button2.Location = new Point(350, 191);
+            button2.Location = new Point(245, 115);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(112, 34);
+            button2.Size = new Size(78, 28);
             button2.TabIndex = 3;
             button2.Text = "Hủy";
             button2.UseVisualStyleBackColor = true;
@@ -74,22 +78,26 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(219, 24);
+            label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Blue;
+            label2.Location = new Point(131, 9);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(193, 25);
+            label2.Size = new Size(213, 28);
             label2.TabIndex = 4;
             label2.Text = "Xác Nhận Lại Mật Khẩu";
             // 
             // XacNhanMatKhau
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(674, 300);
+            ClientSize = new Size(472, 180);
             Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(NhapMatKhau);
             Controls.Add(button1);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "XacNhanMatKhau";
             Text = "XacNhanMatKhau";
             ResumeLayout(false);

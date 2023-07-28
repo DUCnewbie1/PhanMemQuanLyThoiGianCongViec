@@ -44,12 +44,12 @@
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             dataGridView1 = new DataGridView();
+            panel1 = new Panel();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
-            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -57,18 +57,19 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(237, 5);
+            label1.Location = new Point(317, 0);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(109, 15);
+            label1.Size = new Size(178, 28);
             label1.TabIndex = 0;
             label1.Text = "Thông Tin Cá Nhân";
             // 
             // button1
             // 
-            button1.Location = new Point(741, 5);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Location = new Point(741, 291);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(78, 32);
             button1.TabIndex = 8;
@@ -78,8 +79,8 @@
             // 
             // button2
             // 
-            button2.Location = new Point(659, 5);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Location = new Point(654, 291);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(78, 32);
             button2.TabIndex = 7;
@@ -150,7 +151,7 @@
             // ho
             // 
             ho.Location = new Point(70, 22);
-            ho.Margin = new Padding(2, 2, 2, 2);
+            ho.Margin = new Padding(2);
             ho.Name = "ho";
             ho.Size = new Size(145, 23);
             ho.TabIndex = 1;
@@ -158,7 +159,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(404, 24);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(153, 23);
             textBox2.TabIndex = 2;
@@ -166,7 +167,7 @@
             // textBox3
             // 
             textBox3.Location = new Point(70, 73);
-            textBox3.Margin = new Padding(2, 2, 2, 2);
+            textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(145, 23);
             textBox3.TabIndex = 3;
@@ -174,7 +175,7 @@
             // textBox4
             // 
             textBox4.Location = new Point(70, 124);
-            textBox4.Margin = new Padding(2, 2, 2, 2);
+            textBox4.Margin = new Padding(2);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(145, 23);
             textBox4.TabIndex = 5;
@@ -182,7 +183,7 @@
             // textBox5
             // 
             textBox5.Location = new Point(404, 68);
-            textBox5.Margin = new Padding(2, 2, 2, 2);
+            textBox5.Margin = new Padding(2);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(153, 23);
             textBox5.TabIndex = 4;
@@ -190,29 +191,49 @@
             // textBox6
             // 
             textBox6.Location = new Point(404, 119);
-            textBox6.Margin = new Padding(2, 2, 2, 2);
+            textBox6.Margin = new Padding(2);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(153, 23);
             textBox6.TabIndex = 6;
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = Color.Gray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dataGridView1.Location = new Point(-1, 41);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
+            dataGridView1.Location = new Point(-11, 41);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 33;
-            dataGridView1.Size = new Size(830, 48);
+            dataGridView1.Size = new Size(841, 48);
             dataGridView1.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(ho);
+            panel1.Controls.Add(textBox6);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(textBox5);
+            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(95, 107);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(604, 167);
+            panel1.TabIndex = 10;
             // 
             // Column1
             // 
+            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column1.HeaderText = "Họ";
             Column1.MinimumWidth = 8;
             Column1.Name = "Column1";
-            Column1.Width = 150;
             // 
             // Column2
             // 
@@ -242,36 +263,17 @@
             Column5.Name = "Column5";
             Column5.Width = 150;
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(ho);
-            panel1.Controls.Add(textBox6);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(textBox5);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label3);
-            panel1.Location = new Point(80, 164);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(604, 167);
-            panel1.TabIndex = 10;
-            // 
             // ThongTinCaNhan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(830, 385);
+            ClientSize = new Size(830, 329);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "ThongTinCaNhan";
             Text = "ThongTinCaNhan";
             FormClosing += ThongTinCaNhan_FormClosing;
@@ -301,11 +303,11 @@
         private TextBox textBox5;
         private TextBox textBox6;
         private DataGridView dataGridView1;
+        private Panel panel1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
-        private Panel panel1;
     }
 }

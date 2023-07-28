@@ -168,7 +168,7 @@ namespace WinFormsApp1
         {
             if (XacNhanThoatChuongTrinh.ConfirmExit())
             {
-                Application.Exit();
+                Application.ExitThread();
             }
         }
         // đăng xuất 
@@ -210,7 +210,7 @@ namespace WinFormsApp1
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Application.ExitThread();
         }
 
         // Hàm xử lý sự kiện FormClosing để xác nhận việc thoát chương trình khi người dùng ấn nút "X" hoặc sử dụng tổ hợp phím Alt + F4.
