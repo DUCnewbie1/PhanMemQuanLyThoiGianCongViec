@@ -16,7 +16,7 @@ namespace WinFormsApp1
 {
     public partial class Dang_Ky : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QLTG";
         public Dang_Ky()
         {
             InitializeComponent();
@@ -213,6 +213,11 @@ namespace WinFormsApp1
                 textBoxMatKhau.UseSystemPasswordChar = true;
                 textBoxNhapLaiMatKhau.UseSystemPasswordChar = true;
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

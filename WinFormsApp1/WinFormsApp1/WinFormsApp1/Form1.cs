@@ -222,5 +222,12 @@ namespace WinFormsApp1
                 e.Cancel = !XacNhanThoatChuongTrinh.ConfirmExit();
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ThongTinCaNhan thongTinCaNhan = new ThongTinCaNhan();   
+            thongTinCaNhan.Show();
+            this.Hide();
+        }
     }
 }

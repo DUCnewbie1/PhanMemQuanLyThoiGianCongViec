@@ -29,7 +29,7 @@ namespace WinFormsApp1
         }
         private void DN_Click(object sender, EventArgs e)
         {
-            string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+            string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QLTG";
 
             try
             {
