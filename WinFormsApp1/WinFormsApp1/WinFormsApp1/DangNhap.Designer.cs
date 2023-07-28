@@ -57,7 +57,6 @@
             txt_TK.Size = new Size(181, 23);
             txt_TK.TabIndex = 2;
             txt_TK.TextChanged += txt_TK_TextChanged;
-           // txt_TK.KeyPress += txt_TK_KeyPress;
             // 
             // txt_MK
             // 
@@ -158,7 +157,7 @@
             Location = new Point(282, 151);
             Name = "DangNhap";
             Text = "DangNhap";
-            FormClosing += DangNhap_FormClosing_1;
+            FormClosing += DangNhap_FormClosing;
             Load += DangNhap_Load;
             ResumeLayout(false);
             PerformLayout();

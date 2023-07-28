@@ -171,9 +171,6 @@ namespace WinFormsApp1
             }
         }
 
-
-
-
         // đặt dấu nháy ở ô Họ 
         private void Dang_Ky_Load(object sender, EventArgs e)
         {
