@@ -16,7 +16,7 @@ namespace WinFormsApp1
 {
     public partial class Dang_Ky : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QLTG";
         public Dang_Ky()
         {
             InitializeComponent();

@@ -6,7 +6,7 @@ namespace WinFormsApp1
 {
     public partial class DangNhap : Form
     {
-        private const string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+        private const string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QLTG";
 
         public DangNhap()
         {
@@ -148,6 +148,13 @@ namespace WinFormsApp1
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             txt_MK.UseSystemPasswordChar = !checkBox1.Checked;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            QuenMatKhau QuenMK = new QuenMatKhau();
+            QuenMK.Show();
+            this.Hide();
         }
     }
 }
