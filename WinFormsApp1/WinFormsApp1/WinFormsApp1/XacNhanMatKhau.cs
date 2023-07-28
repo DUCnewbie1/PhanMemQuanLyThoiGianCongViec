@@ -37,10 +37,5 @@ namespace WinFormsApp1
                 this.Hide();
             }
         }
-
-        private void XacNhanMatKhau_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

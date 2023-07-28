@@ -35,9 +35,10 @@ namespace WinFormsApp1
         // thoát và trở lại giao diện chương trình
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn trở lại giao diện chính?", "Xác nhận trở lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (result == DialogResult.Yes)
+            DialogResult result2 = MessageBox.Show("Bạn có muốn trở lại giao diện chính?", "Xác nhận trở lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result2 == DialogResult.Yes)
             {
                 Form1 f = new Form1();
                 f.Show();
@@ -48,14 +49,15 @@ namespace WinFormsApp1
         // Nút X để thoát và trở lại giao diện chương trình
         private void ThongTinCaNhan_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn trở lại giao diện chính?", "Xác nhận trở lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
+                e.Cancel = !XacNhanThoatChuongTrinh.ConfirmBack();
                 Form1 f = new Form1();
                 f.Show();
                 this.Hide();
             }
+            
+
         }
         // nút chỉnh sửa thông tin
         private void button2_Click(object sender, EventArgs e)

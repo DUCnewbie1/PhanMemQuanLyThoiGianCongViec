@@ -92,7 +92,6 @@
             Controls.Add(label1);
             Name = "XacNhanMatKhau";
             Text = "XacNhanMatKhau";
-            Load += XacNhanMatKhau_Load;
             ResumeLayout(false);
             PerformLayout();
         }

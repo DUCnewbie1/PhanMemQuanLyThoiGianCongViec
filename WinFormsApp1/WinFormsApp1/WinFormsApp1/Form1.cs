@@ -214,10 +214,12 @@ namespace WinFormsApp1
         }
 
         // Hàm xử lý sự kiện FormClosing để xác nhận việc thoát chương trình khi người dùng ấn nút "X" hoặc sử dụng tổ hợp phím Alt + F4.
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Kiểm tra xem người dùng có sử dụng Alt + F4 hoặc ấn nút "X" để đóng form không
-            if (e.CloseReason == CloseReason.UserClosing && (Control.ModifierKeys == Keys.Alt || e.CloseReason == CloseReason.UserClosing))
+            // Kiểm tra nếu người dùng đang đóng Form1 bằng cách nhấp nút "X"
+            // thì không hiển thị hội thoại xác nhận và đóng form mà không hỏi gì thêm.
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = !XacNhanThoatChuongTrinh.ConfirmExit();
             }

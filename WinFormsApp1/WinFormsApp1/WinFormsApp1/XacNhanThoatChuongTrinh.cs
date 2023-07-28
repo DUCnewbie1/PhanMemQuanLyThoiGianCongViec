@@ -14,5 +14,14 @@ namespace WinFormsApp1
             var result = MessageBox.Show("Bạn có muốn thoát chương trình?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             return result == DialogResult.Yes;
         }
+
+        public static bool ConfirmBack()
+        {
+            var result1 = MessageBox.Show("Bạn có muốn trở lại giao diện chính?", "Xác nhận trở lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result1 == DialogResult.Yes;
+
+        }
+
+
     }
 }
