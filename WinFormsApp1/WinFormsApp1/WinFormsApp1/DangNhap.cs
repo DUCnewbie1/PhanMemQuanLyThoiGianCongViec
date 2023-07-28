@@ -66,7 +66,7 @@ namespace WinFormsApp1
         {
             if (ConfirmExit())
             {
-                Application.Exit();
+                Application.ExitThread();
             }
         }
 
@@ -82,7 +82,8 @@ namespace WinFormsApp1
             if (e.CloseReason == CloseReason.UserClosing && ConfirmExit())
             {
                 // Nếu người dùng chọn "Yes" để xác nhận muốn thoát, thực hiện dừng chương trình.
-                Application.Exit();
+                // Sử dụng Application.ExitThread() để dừng hoàn toàn chương trình.
+                Application.ExitThread();
             }
             else
             {
@@ -90,6 +91,7 @@ namespace WinFormsApp1
                 e.Cancel = true;
             }
         }
+
 
 
         private void button1_Click(object sender, EventArgs e)
