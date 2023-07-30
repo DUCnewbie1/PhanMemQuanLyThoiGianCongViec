@@ -1,13 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
         #region peoperties
+        private string filePath = "data.xml";
+
         private List<List<Button>> matrix;
 
         public List<List<Button>> Matrix
@@ -22,6 +31,16 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            //-------------------------------THỦY TỔ LẬP TRÌNH ĐỨC ĐÃ THÊM-------------------------------------
+            try
+            {
+                Job = DeserializeFromXML(filePath) as PlanData;
+            }
+            catch
+            {
+                SetDefaultJob();
+            }
+            //-------------------------------------------------------------------------------------------------
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,6 +56,8 @@ namespace WinFormsApp1
                 {
                     Button btn = new Button() { Width = Cons.DateButtonWidth, Height = Cons.DateButtonHeight };
                     btn.Location = new Point(oldbtn.Location.X + oldbtn.Width + Cons.Margin, oldbtn.Location.Y);
+                    btn.Click += Btn_Click;// ĐỨC THÊM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
                     pnMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
                     oldbtn = btn;
@@ -53,6 +74,7 @@ namespace WinFormsApp1
             SetDefaultDay(); //Dat ngay mac dinh
             AddNumberIntoMatrixByDate(dtpkDate.Value);
         }
+
 
         private void dtpkDate_ValueChanged(object sender, EventArgs e)
         {
@@ -214,7 +236,6 @@ namespace WinFormsApp1
         }
 
         // Hàm xử lý sự kiện FormClosing để xác nhận việc thoát chương trình khi người dùng ấn nút "X" hoặc sử dụng tổ hợp phím Alt + F4.
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Kiểm tra nếu người dùng đang đóng Form1 bằng cách nhấp nút "X"
@@ -223,11 +244,117 @@ namespace WinFormsApp1
             {
                 e.Cancel = !XacNhanThoatChuongTrinh.ConfirmExit();
             }
+            SerializeToXML(Job, filePath);
+        }
+        
+        //---------------------------------------------ĐỨC THÊM VÔ FORM 1---------------------------------------------------------------------
+        // Lấy để xài danh sách các PlanItem(sự kiện)
+        private PlanData job;
+
+        public PlanData Job
+        {
+            get { return job; }
+            set { job = value; }
+        }
+
+        // Hàm SerializeToXML được sử dụng để lưu trữ một đối tượng vào một tệp XML
+        private void SerializeToXML(object data, string filePath)
+        {
+            // Tạo một luồng để ghi dữ liệu vào tệp
+            FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
+            // Tạo một đối tượng XmlSerializer để chuyển đổi đối tượng thành XML
+            XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+
+            // Chuyển đổi đối tượng thành XML và ghi nó vào luồng
+            sr.Serialize(fs, data);
+
+            // Đóng luồng
+            fs.Close();
+        }
+
+        // Hàm DeserializeFromXML được sử dụng để đọc một đối tượng từ một tệp XML
+        private object DeserializeFromXML(string filePath)
+        {
+            // Tạo một luồng để đọc dữ liệu từ tệp
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            try
+            {
+                // Tạo một đối tượng XmlSerializer để chuyển đổi XML thành một đối tượng
+                XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+
+                // Đọc dữ liệu từ luồng và chuyển đổi nó thành một đối tượng
+                object result = sr.Deserialize(fs);
+                // Đóng luồng
+                fs.Close();
+                return result;
+            }
+            catch (Exception e)
+            {
+                // Nếu có lỗi xảy ra, đóng luồng và ném ra ngoại lệ
+                fs.Close();
+                throw new NotImplementedException();
+            }
+        }
+        //<<<<<<<<<<<<<<<<<<<<<<<ĐỨC THÊM DỮ LIỆU MẪU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        void SetDefaultJob()
+        {
+            Job = new PlanData();
+            Job.Job = new List<PlanItem>();
+            // thêm câu trúc data thứ 1 đã thành công thêm vô file data.xml!
+            Job.Job.Add(new PlanItem()
+            {
+                Date = DateTime.Now,
+                FromTime = new Point(4, 0),
+                ToTime = new Point(5, 0),
+                Job = "Thử nghiệm thôi 1",
+                Status = PlanItem.ListStatus[(int)EPlanItem.COMING]
+            });
+            // thêm cấu trúc data thứ 2 xem thử có thêm vô file xml không 
+            Job.Job.Add(new PlanItem()
+            {
+                Date = DateTime.Now,
+                FromTime = new Point(6, 0),
+                ToTime = new Point(8, 0),
+                Job = "Thử nghiệm thôi 2",
+                Status = PlanItem.ListStatus[(int)EPlanItem.DONE]
+            });
+            // thêm cấu trúc data thứ 3 xem thử có thêm vô file xml không 
+            Job.Job.Add(new PlanItem()
+            {
+                Date = DateTime.Now,
+                FromTime = new Point(12, 2),// Date = new DateTime(2023, 7, 29, 18, 13, 0),
+                ToTime = new Point(13, 3),
+                Job = "Thử nghiệm thôi 3",
+                Status = PlanItem.ListStatus[(int)EPlanItem.COMING]
+            });
+            // thêm cấu trúc data thứ 4 xem thử thuộc tính date có lỗi hay không?
+            Job.Job.Add(new PlanItem()
+            {
+                Date = new DateTime(2023, 7, 30, 18, 13, 0),// ngày 30/7/2023 lúc 18:13 
+                FromTime = new Point(12, 2),
+                ToTime = new Point(13, 3),
+                Job = "Thử nghiệm nhập Date bằng cơm",
+                Status = PlanItem.ListStatus[(int)EPlanItem.COMING]
+            });
+        }
+
+        // Phương thức xử lý sự kiện khi người dùng nhấn vào nút Btn
+        private void Btn_Click(object? sender, EventArgs e)
+        {
+            // Kiểm tra xem nội dung của nút Btn có rỗng hay không
+            if (string.IsNullOrEmpty((sender as Button).Text))
+                return;
+
+            // Tạo một đối tượng mới của lớp DailyPlan với ngày được đặt bằng ngày được chọn từ nút Btn và thuộc tính Job
+            DailyPlan daily = new DailyPlan(new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32((sender as Button).Text)), Job);
+
+            // Hiển thị đối tượng DailyPlan dưới dạng một cửa sổ modal
+            daily.ShowDialog();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ThongTinCaNhan thongTinCaNhan = new ThongTinCaNhan();   
+            ThongTinCaNhan thongTinCaNhan = new ThongTinCaNhan();
             thongTinCaNhan.Show();
             this.Hide();
         }

@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class Ajob
+    partial class AJob
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,162 +31,179 @@
             panel1 = new Panel();
             btnDelete = new Button();
             btnEdit = new Button();
-            comboBox1 = new ComboBox();
-            LabelTo = new Label();
-            numericUpDown4 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown1 = new NumericUpDown();
-            textBox1 = new TextBox();
-            ChbDone = new CheckBox();
+            cbStatus = new ComboBox();
+            panel2 = new Panel();
+            nmToMinute = new NumericUpDown();
+            nmToHours = new NumericUpDown();
+            label1 = new Label();
+            nmFromMinute = new NumericUpDown();
+            nmFromHours = new NumericUpDown();
+            txbJob = new TextBox();
+            ckbDone = new CheckBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nmToMinute).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nmToHours).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nmFromMinute).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nmFromHours).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Controls.Add(btnDelete);
             panel1.Controls.Add(btnEdit);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(LabelTo);
-            panel1.Controls.Add(numericUpDown4);
-            panel1.Controls.Add(numericUpDown3);
-            panel1.Controls.Add(numericUpDown2);
-            panel1.Controls.Add(numericUpDown1);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(ChbDone);
-            panel1.Location = new Point(2, 4);
-            panel1.Margin = new Padding(2);
+            panel1.Controls.Add(cbStatus);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(txbJob);
+            panel1.Controls.Add(ckbDone);
+            panel1.Location = new Point(5, 0);
+            panel1.Margin = new Padding(5, 6, 5, 6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(696, 51);
+            panel1.Size = new Size(1245, 58);
             panel1.TabIndex = 0;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(584, 1);
-            btnDelete.Margin = new Padding(2);
+            btnDelete.Location = new Point(1165, 0);
+            btnDelete.Margin = new Padding(5, 6, 5, 6);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(78, 24);
-            btnDelete.TabIndex = 9;
-            btnDelete.Text = "Xóa ";
+            btnDelete.Size = new Size(75, 44);
+            btnDelete.TabIndex = 5;
+            btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(501, 1);
-            btnEdit.Margin = new Padding(2);
+            btnEdit.Location = new Point(1083, 0);
+            btnEdit.Margin = new Padding(5, 6, 5, 6);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(78, 24);
-            btnEdit.TabIndex = 8;
-            btnEdit.Text = "Sửa ";
+            btnEdit.Size = new Size(75, 44);
+            btnEdit.TabIndex = 4;
+            btnEdit.Text = "Lưu ";
             btnEdit.UseVisualStyleBackColor = true;
-            btnEdit.Click += button1_Click;
+            btnEdit.Click += btnEdit_Click;
             // 
-            // comboBox1
+            // cbStatus
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(370, 1);
-            comboBox1.Margin = new Padding(2);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(129, 23);
-            comboBox1.TabIndex = 7;
+            cbStatus.FormattingEnabled = true;
+            cbStatus.Location = new Point(902, 4);
+            cbStatus.Margin = new Padding(5, 6, 5, 6);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Size = new Size(169, 33);
+            cbStatus.TabIndex = 3;
+            cbStatus.SelectedIndexChanged += cbStatus_SelectedIndexChanged;
             // 
-            // LabelTo
+            // panel2
             // 
-            LabelTo.AutoSize = true;
-            LabelTo.Location = new Point(211, 3);
-            LabelTo.Margin = new Padding(2, 0, 2, 0);
-            LabelTo.Name = "LabelTo";
-            LabelTo.Size = new Size(24, 15);
-            LabelTo.TabIndex = 6;
-            LabelTo.Text = "tới ";
-            LabelTo.Click += label1_Click;
+            panel2.Controls.Add(nmToMinute);
+            panel2.Controls.Add(nmToHours);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(nmFromMinute);
+            panel2.Controls.Add(nmFromHours);
+            panel2.Location = new Point(563, 0);
+            panel2.Margin = new Padding(5, 6, 5, 6);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(333, 58);
+            panel2.TabIndex = 2;
             // 
-            // numericUpDown4
+            // nmToMinute
             // 
-            numericUpDown4.Location = new Point(295, 1);
-            numericUpDown4.Margin = new Padding(2);
-            numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(49, 23);
-            numericUpDown4.TabIndex = 5;
+            nmToMinute.Location = new Point(267, 6);
+            nmToMinute.Margin = new Padding(5, 6, 5, 6);
+            nmToMinute.Name = "nmToMinute";
+            nmToMinute.Size = new Size(62, 31);
+            nmToMinute.TabIndex = 4;
+            nmToMinute.ValueChanged += nmToMinute_ValueChanged;
             // 
-            // numericUpDown3
+            // nmToHours
             // 
-            numericUpDown3.Location = new Point(242, 1);
-            numericUpDown3.Margin = new Padding(2);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(49, 23);
-            numericUpDown3.TabIndex = 4;
+            nmToHours.Location = new Point(195, 6);
+            nmToHours.Margin = new Padding(5, 6, 5, 6);
+            nmToHours.Name = "nmToHours";
+            nmToHours.Size = new Size(62, 31);
+            nmToHours.TabIndex = 3;
+            nmToHours.ValueChanged += nmToHours_ValueChanged;
             // 
-            // numericUpDown2
+            // label1
             // 
-            numericUpDown2.Location = new Point(158, 2);
-            numericUpDown2.Margin = new Padding(2);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(49, 23);
-            numericUpDown2.TabIndex = 3;
+            label1.AutoSize = true;
+            label1.Location = new Point(148, 10);
+            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 25);
+            label1.TabIndex = 2;
+            label1.Text = "Đến";
             // 
-            // numericUpDown1
+            // nmFromMinute
             // 
-            numericUpDown1.Location = new Point(104, 2);
-            numericUpDown1.Margin = new Padding(2);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(49, 23);
-            numericUpDown1.TabIndex = 2;
+            nmFromMinute.Location = new Point(77, 6);
+            nmFromMinute.Margin = new Padding(5, 6, 5, 6);
+            nmFromMinute.Name = "nmFromMinute";
+            nmFromMinute.Size = new Size(62, 31);
+            nmFromMinute.TabIndex = 1;
+            nmFromMinute.ValueChanged += nmFromMinute_ValueChanged;
             // 
-            // textBox1
+            // nmFromHours
             // 
-            textBox1.Location = new Point(2, 24);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(693, 23);
-            textBox1.TabIndex = 1;
-            textBox1.TextChanged += textBox1_TextChanged;
+            nmFromHours.Location = new Point(5, 6);
+            nmFromHours.Margin = new Padding(5, 6, 5, 6);
+            nmFromHours.Name = "nmFromHours";
+            nmFromHours.Size = new Size(62, 31);
+            nmFromHours.TabIndex = 0;
+            nmFromHours.ValueChanged += nmFromHours_ValueChanged;
             // 
-            // ChbDone
+            // txbJob
             // 
-            ChbDone.AutoSize = true;
-            ChbDone.Location = new Point(13, 3);
-            ChbDone.Margin = new Padding(2);
-            ChbDone.Name = "ChbDone";
-            ChbDone.Size = new Size(54, 19);
-            ChbDone.TabIndex = 0;
-            ChbDone.Text = "Done";
-            ChbDone.UseVisualStyleBackColor = true;
-            ChbDone.CheckedChanged += ChbDone_CheckedChanged;
+            txbJob.Location = new Point(42, 7);
+            txbJob.Margin = new Padding(5, 6, 5, 6);
+            txbJob.Name = "txbJob";
+            txbJob.Size = new Size(511, 31);
+            txbJob.TabIndex = 1;
             // 
-            // Ajob
+            // ckbDone
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            ckbDone.AutoSize = true;
+            ckbDone.Location = new Point(10, 13);
+            ckbDone.Margin = new Padding(5, 6, 5, 6);
+            ckbDone.Name = "ckbDone";
+            ckbDone.Size = new Size(22, 21);
+            ckbDone.TabIndex = 0;
+            ckbDone.UseVisualStyleBackColor = true;
+            ckbDone.CheckedChanged += ckbDone_CheckedChanged;
+            // 
+            // AJob
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Margin = new Padding(2);
-            Name = "Ajob";
-            Size = new Size(701, 330);
+            Margin = new Padding(5, 6, 5, 6);
+            Name = "AJob";
+            Size = new Size(1255, 63);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nmToMinute).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nmToHours).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nmFromMinute).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nmFromHours).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private TextBox textBox1;
-        private CheckBox ChbDone;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown4;
-        private NumericUpDown numericUpDown3;
-        private NumericUpDown numericUpDown2;
-        private Label LabelTo;
-        private ComboBox comboBox1;
+        private Panel panel2;
+        private NumericUpDown nmFromHours;
+        private TextBox txbJob;
+        private CheckBox ckbDone;
         private Button btnDelete;
         private Button btnEdit;
+        private ComboBox cbStatus;
+        private NumericUpDown nmToMinute;
+        private NumericUpDown nmToHours;
+        private Label label1;
+        private NumericUpDown nmFromMinute;
     }
 }

@@ -16,7 +16,7 @@ namespace WinFormsApp1
 {
     public partial class Dang_Ky : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QLTG";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
         public Dang_Ky()
         {
             InitializeComponent();
@@ -163,8 +163,6 @@ namespace WinFormsApp1
             {
                 // Hủy sự kiện đóng form để ngăn form đóng đi khi người dùng nhấn nút "X"
                 e.Cancel = true;
-
-                // Thay vì mở form DangNhap một lần nữa, bạn chỉ cần đặt form hiện hành thành DangNhap và hiển thị nó.
                 DangNhap f = new DangNhap();
                 f.Show();
                 this.Hide();
@@ -213,11 +211,6 @@ namespace WinFormsApp1
                 textBoxMatKhau.UseSystemPasswordChar = true;
                 textBoxNhapLaiMatKhau.UseSystemPasswordChar = true;
             }
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

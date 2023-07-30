@@ -64,9 +64,10 @@
             // 
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(4, 3);
+            panel1.Location = new Point(3, 2);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1101, 660);
+            panel1.Size = new Size(771, 396);
             panel1.TabIndex = 0;
             // 
             // panel3
@@ -75,17 +76,17 @@
             panel3.Controls.Add(DangXuat);
             panel3.Controls.Add(pnMatrix);
             panel3.Controls.Add(panel4);
-            panel3.Location = new Point(4, 53);
+            panel3.Location = new Point(3, 32);
+            panel3.Margin = new Padding(2, 2, 2, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1093, 558);
+            panel3.Size = new Size(765, 335);
             panel3.TabIndex = 1;
             // 
             // Thoat
             // 
-            Thoat.Location = new Point(951, 517);
-            Thoat.Margin = new Padding(4, 5, 4, 5);
+            Thoat.Location = new Point(666, 310);
             Thoat.Name = "Thoat";
-            Thoat.Size = new Size(140, 42);
+            Thoat.Size = new Size(98, 25);
             Thoat.TabIndex = 4;
             Thoat.Text = "Thoát";
             Thoat.UseVisualStyleBackColor = true;
@@ -94,10 +95,9 @@
             // DangXuat
             // 
             DangXuat.AccessibleDescription = "";
-            DangXuat.Location = new Point(951, 467);
-            DangXuat.Margin = new Padding(4, 5, 4, 5);
+            DangXuat.Location = new Point(666, 280);
             DangXuat.Name = "DangXuat";
-            DangXuat.Size = new Size(141, 42);
+            DangXuat.Size = new Size(99, 25);
             DangXuat.TabIndex = 3;
             DangXuat.Text = "Đăng xuất";
             DangXuat.UseVisualStyleBackColor = true;
@@ -105,9 +105,10 @@
             // 
             // pnMatrix
             // 
-            pnMatrix.Location = new Point(126, 77);
+            pnMatrix.Location = new Point(88, 46);
+            pnMatrix.Margin = new Padding(2, 2, 2, 2);
             pnMatrix.Name = "pnMatrix";
-            pnMatrix.Size = new Size(820, 478);
+            pnMatrix.Size = new Size(574, 287);
             pnMatrix.TabIndex = 1;
             // 
             // panel4
@@ -121,16 +122,18 @@
             panel4.Controls.Add(btnWed);
             panel4.Controls.Add(btnThu);
             panel4.Controls.Add(btnMon);
-            panel4.Location = new Point(-4, 7);
+            panel4.Location = new Point(-3, 4);
+            panel4.Margin = new Padding(2, 2, 2, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1101, 65);
+            panel4.Size = new Size(771, 39);
             panel4.TabIndex = 0;
             // 
             // btnPreviours
             // 
-            btnPreviours.Location = new Point(7, 18);
+            btnPreviours.Location = new Point(5, 11);
+            btnPreviours.Margin = new Padding(2, 2, 2, 2);
             btnPreviours.Name = "btnPreviours";
-            btnPreviours.Size = new Size(119, 47);
+            btnPreviours.Size = new Size(83, 28);
             btnPreviours.TabIndex = 8;
             btnPreviours.Text = "Tháng trước ";
             btnPreviours.UseVisualStyleBackColor = true;
@@ -138,18 +141,20 @@
             // 
             // btnSun
             // 
-            btnSun.Location = new Point(831, 18);
+            btnSun.Location = new Point(582, 11);
+            btnSun.Margin = new Padding(2, 2, 2, 2);
             btnSun.Name = "btnSun";
-            btnSun.Size = new Size(111, 47);
+            btnSun.Size = new Size(78, 28);
             btnSun.TabIndex = 7;
             btnSun.Text = "CN";
             btnSun.UseVisualStyleBackColor = true;
             // 
             // btnnext
             // 
-            btnnext.Location = new Point(956, 18);
+            btnnext.Location = new Point(669, 11);
+            btnnext.Margin = new Padding(2, 2, 2, 2);
             btnnext.Name = "btnnext";
-            btnnext.Size = new Size(111, 47);
+            btnnext.Size = new Size(78, 28);
             btnnext.TabIndex = 6;
             btnnext.Text = "Tháng sau ";
             btnnext.UseVisualStyleBackColor = true;
@@ -157,54 +162,60 @@
             // 
             // btnSat
             // 
-            btnSat.Location = new Point(714, 18);
+            btnSat.Location = new Point(500, 11);
+            btnSat.Margin = new Padding(2, 2, 2, 2);
             btnSat.Name = "btnSat";
-            btnSat.Size = new Size(111, 47);
+            btnSat.Size = new Size(78, 28);
             btnSat.TabIndex = 5;
             btnSat.Text = "Th7";
             btnSat.UseVisualStyleBackColor = true;
             // 
             // btnFri
             // 
-            btnFri.Location = new Point(597, 18);
+            btnFri.Location = new Point(418, 11);
+            btnFri.Margin = new Padding(2, 2, 2, 2);
             btnFri.Name = "btnFri";
-            btnFri.Size = new Size(111, 47);
+            btnFri.Size = new Size(78, 28);
             btnFri.TabIndex = 4;
             btnFri.Text = "Th6";
             btnFri.UseVisualStyleBackColor = true;
             // 
             // btnTue
             // 
-            btnTue.Location = new Point(246, 18);
+            btnTue.Location = new Point(172, 11);
+            btnTue.Margin = new Padding(2, 2, 2, 2);
             btnTue.Name = "btnTue";
-            btnTue.Size = new Size(111, 47);
+            btnTue.Size = new Size(78, 28);
             btnTue.TabIndex = 3;
             btnTue.Text = "Th3";
             btnTue.UseVisualStyleBackColor = true;
             // 
             // btnWed
             // 
-            btnWed.Location = new Point(363, 18);
+            btnWed.Location = new Point(254, 11);
+            btnWed.Margin = new Padding(2, 2, 2, 2);
             btnWed.Name = "btnWed";
-            btnWed.Size = new Size(111, 47);
+            btnWed.Size = new Size(78, 28);
             btnWed.TabIndex = 2;
             btnWed.Text = "Th4";
             btnWed.UseVisualStyleBackColor = true;
             // 
             // btnThu
             // 
-            btnThu.Location = new Point(480, 18);
+            btnThu.Location = new Point(336, 11);
+            btnThu.Margin = new Padding(2, 2, 2, 2);
             btnThu.Name = "btnThu";
-            btnThu.Size = new Size(111, 47);
+            btnThu.Size = new Size(78, 28);
             btnThu.TabIndex = 1;
             btnThu.Text = "Th5";
             btnThu.UseVisualStyleBackColor = true;
             // 
             // btnMon
             // 
-            btnMon.Location = new Point(129, 18);
+            btnMon.Location = new Point(90, 11);
+            btnMon.Margin = new Padding(2, 2, 2, 2);
             btnMon.Name = "btnMon";
-            btnMon.Size = new Size(111, 47);
+            btnMon.Size = new Size(78, 28);
             btnMon.TabIndex = 0;
             btnMon.Text = "Th2";
             btnMon.UseVisualStyleBackColor = true;
@@ -215,9 +226,10 @@
             panel2.Controls.Add(button1);
             panel2.Controls.Add(HomNay);
             panel2.Controls.Add(dtpkDate);
-            panel2.Location = new Point(1, 8);
+            panel2.Location = new Point(1, 5);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1099, 45);
+            panel2.Size = new Size(769, 27);
             panel2.TabIndex = 0;
             // 
             // panel6
@@ -225,47 +237,48 @@
             panel6.Controls.Add(label1);
             panel6.Controls.Add(nmNotify);
             panel6.Controls.Add(cbnotify);
-            panel6.Location = new Point(9, 5);
+            panel6.Location = new Point(6, 3);
+            panel6.Margin = new Padding(2, 2, 2, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(319, 37);
+            panel6.Size = new Size(223, 22);
             panel6.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(217, 8);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(152, 5);
             label1.Name = "label1";
-            label1.Size = new Size(48, 25);
+            label1.Size = new Size(32, 15);
             label1.TabIndex = 2;
             label1.Text = "Phút";
             // 
             // nmNotify
             // 
-            nmNotify.Location = new Point(124, 0);
+            nmNotify.Location = new Point(87, 0);
+            nmNotify.Margin = new Padding(2, 2, 2, 2);
             nmNotify.Maximum = new decimal(new int[] { 3600, 0, 0, 0 });
             nmNotify.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nmNotify.Name = "nmNotify";
-            nmNotify.Size = new Size(86, 31);
+            nmNotify.Size = new Size(60, 23);
             nmNotify.TabIndex = 1;
             nmNotify.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // cbnotify
             // 
             cbnotify.AutoSize = true;
-            cbnotify.Location = new Point(3, 3);
+            cbnotify.Location = new Point(2, 2);
+            cbnotify.Margin = new Padding(2, 2, 2, 2);
             cbnotify.Name = "cbnotify";
-            cbnotify.Size = new Size(125, 29);
+            cbnotify.Size = new Size(83, 19);
             cbnotify.TabIndex = 0;
             cbnotify.Text = "Thông báo";
             cbnotify.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            button1.Location = new Point(927, 5);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Location = new Point(649, 3);
             button1.Name = "button1";
-            button1.Size = new Size(169, 38);
+            button1.Size = new Size(118, 23);
             button1.TabIndex = 2;
             button1.Text = "Thông tin cá nhân";
             button1.UseVisualStyleBackColor = true;
@@ -273,9 +286,10 @@
             // 
             // HomNay
             // 
-            HomNay.Location = new Point(696, 3);
+            HomNay.Location = new Point(487, 2);
+            HomNay.Margin = new Padding(2, 2, 2, 2);
             HomNay.Name = "HomNay";
-            HomNay.Size = new Size(104, 42);
+            HomNay.Size = new Size(73, 25);
             HomNay.TabIndex = 1;
             HomNay.Text = "Hôm nay ";
             HomNay.UseVisualStyleBackColor = true;
@@ -284,20 +298,23 @@
             // dtpkDate
             // 
             dtpkDate.CalendarMonthBackground = SystemColors.ScrollBar;
-            dtpkDate.Location = new Point(373, 5);
+            dtpkDate.Location = new Point(261, 3);
+            dtpkDate.Margin = new Padding(2, 2, 2, 2);
             dtpkDate.Name = "dtpkDate";
-            dtpkDate.Size = new Size(300, 31);
+            dtpkDate.Size = new Size(211, 23);
             dtpkDate.TabIndex = 0;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1111, 675);
+            ClientSize = new Size(778, 405);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Calendar";
             FormClosing += Form1_FormClosing;
             FormClosed += Form1_FormClosed;

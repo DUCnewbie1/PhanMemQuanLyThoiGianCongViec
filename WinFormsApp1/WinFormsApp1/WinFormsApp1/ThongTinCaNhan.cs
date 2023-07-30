@@ -53,15 +53,12 @@ namespace WinFormsApp1
                 f.Show();
                 this.Hide();
             }
-
-
         }
         // nút chỉnh sửa thông tin
         private void button2_Click(object sender, EventArgs e)
         {
             XacNhanMatKhau xn = new XacNhanMatKhau();
-            xn.Show();
-            this.Hide();
+            xn.ShowDialog();
         }
     }
 }

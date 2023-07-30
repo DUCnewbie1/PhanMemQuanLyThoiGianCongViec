@@ -134,10 +134,10 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Location = new Point(201, 167);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(94, 15);
+            linkLabel1.Size = new Size(89, 15);
             linkLabel1.TabIndex = 10;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Quên mật khẩu?";
+            linkLabel1.Text = "Quên mật khẩu";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // DangNhap
@@ -157,6 +157,7 @@
             Controls.Add(Thoat);
             Location = new Point(282, 151);
             Name = "DangNhap";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DangNhap";
             FormClosing += DangNhap_FormClosing;
             Load += DangNhap_Load;

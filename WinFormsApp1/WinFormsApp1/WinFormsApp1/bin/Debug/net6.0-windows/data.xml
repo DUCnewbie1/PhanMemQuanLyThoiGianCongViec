@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlanData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Job>
+    <PlanItem>
+      <Date>2023-07-29T21:58:43.4278989+07:00</Date>
+      <Job>Thử nghiệm thôi 2</Job>
+      <FromTime>
+        <X>6</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>8</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>DONE</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-29T21:58:43.4278992+07:00</Date>
+      <Job>Thử nghiệm thôi 3</Job>
+      <FromTime>
+        <X>12</X>
+        <Y>2</Y>
+      </FromTime>
+      <ToTime>
+        <X>13</X>
+        <Y>3</Y>
+      </ToTime>
+      <Status>COMING</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-30T18:13:00</Date>
+      <Job>Thử nghiệm nhập Date bằng cơm</Job>
+      <FromTime>
+        <X>12</X>
+        <Y>2</Y>
+      </FromTime>
+      <ToTime>
+        <X>13</X>
+        <Y>3</Y>
+      </ToTime>
+      <Status>COMING</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-30T00:00:00</Date>
+      <Job>hế lổ</Job>
+      <FromTime>
+        <X>6</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>7</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>DOING</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-30T00:00:00</Date>
+      <Job>sáng ngày 30 tháng 7 năm 2023</Job>
+      <FromTime>
+        <X>1</X>
+        <Y>23</Y>
+      </FromTime>
+      <ToTime>
+        <X>1</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>DOING</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-29T00:00:00</Date>
+      <Job>mười giờ ba mươi bảy phút </Job>
+      <FromTime>
+        <X>27</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>26</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>DOING</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-31T00:00:00</Date>
+      <Job>Thuyết trình về công ty</Job>
+      <FromTime>
+        <X>7</X>
+        <Y>30</Y>
+      </FromTime>
+      <ToTime>
+        <X>8</X>
+        <Y>30</Y>
+      </ToTime>
+      <Status>COMING</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-30T12:13:50.9945157+07:00</Date>
+      <FromTime>
+        <X>0</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>0</X>
+        <Y>0</Y>
+      </ToTime>
+    </PlanItem>
+  </Job>
+</PlanData>
+      <Status>COMING</Status>
+    </PlanItem>
+  </Job>
+</PlanData>
