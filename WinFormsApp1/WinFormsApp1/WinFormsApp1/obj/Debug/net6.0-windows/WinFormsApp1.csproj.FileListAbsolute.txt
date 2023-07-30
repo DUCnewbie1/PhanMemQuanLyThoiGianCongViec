@@ -444,3 +444,5 @@ C:\Users\PC\Downloads\PhanMemQuanLyThoiGianCongViec\PhanMemQuanLyThoiGianCongVie
 C:\Users\PC\Downloads\PhanMemQuanLyThoiGianCongViec\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\ref\WinFormsApp1.dll
 C:\Users\PC\Downloads\PhanMemQuanLyThoiGianCongViec\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.ThongTinCaNhan.resources
 C:\Users\PC\Downloads\PhanMemQuanLyThoiGianCongViec\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.XacNhanMatKhau.resources
+C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.ThongTinCaNhan.resources
+C:\Users\PC\source\DoAn\PhanMemQuanLyThoiGianCongViec\WinFormsApp1\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.XacNhanMatKhau.resources

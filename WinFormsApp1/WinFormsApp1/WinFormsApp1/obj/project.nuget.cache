@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JuRSYk90Rcoizz33kRfHov2ITzxH/K5DC8xKElp+s6zIDbEphxwF0FO3TFeDj1IkxA9oguFIwnbKz/9rouBZBQ==",
+  "dgSpecHash": "Cw2B1gsE9oZYusJdONDHaKAVlCqfO+WrACbCPZ4BDxd26q4rSOYts5n+IQeItVIEG5Bwdtf76KVsIB2/f/0Njw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\Downloads\\PhanMemQuanLyThoiGianCongViec\\PhanMemQuanLyThoiGianCongViec\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+  "projectFilePath": "C:\\Users\\PC\\source\\DoAn\\PhanMemQuanLyThoiGianCongViec\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

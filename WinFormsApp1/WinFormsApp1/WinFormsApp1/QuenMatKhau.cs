@@ -38,6 +38,12 @@ namespace WinFormsApp1
             string matkhau = textBox_newMK.Text;
             string ktraMK = textBox_CheckPass.Text;
 
+            // Kiểm tra nếu có trường nào chưa nhập dữ liệu thì hiển thị hộp thoại cảnh báo
+            if (string.IsNullOrEmpty(taikhoan) || string.IsNullOrEmpty(matkhau) || string.IsNullOrEmpty(ktraMK))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
+                return;
+            }
             // Kiểm tra tên đăng nhập chỉ chứa chữ và số (không chứa kí tự đặc biệt)
             if (!Regex.IsMatch(taikhoan, "^[a-zA-Z0-9]+$"))
             {
@@ -117,8 +123,6 @@ namespace WinFormsApp1
             {
                 // Hủy sự kiện đóng form để ngăn form đóng đi khi người dùng nhấn nút "X"
                 e.Cancel = true;
-
-                // Thay vì mở form DangNhap một lần nữa, bạn chỉ cần đặt form hiện hành thành DangNhap và hiển thị nó.
                 DangNhap f = new DangNhap();
                 f.Show();
                 this.Hide();
