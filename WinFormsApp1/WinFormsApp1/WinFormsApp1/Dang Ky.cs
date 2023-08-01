@@ -17,11 +17,24 @@ namespace WinFormsApp1
     public partial class Dang_Ky : Form
     {
         string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+        private KiemTraNhapChuoi hoTextBoxHandler;
+        private KiemTraNhapChuoi tenTextBoxHandler;
+        private KiemTraNhapChuoi diaChiTextBoxHandler;
+        private KiemTraNhapChuoi tenDangNhapTextBoxHandler;
+        private KiemTraNhapChuoi matKhauTextBoxHandler;
+        private KiemTraNhapChuoi nhapLaiMatKhauTextBoxHandler;
         public Dang_Ky()
         {
             InitializeComponent();
             // Thiết lập giá trị mặc định cho DateTimePicker
             dateTimePickerNgaySinh.Value = new DateTime(1990, 1, 1);
+            // Khởi tạo đối tượng KiemTraNhapChuoi cho các TextBox
+            hoTextBoxHandler = new KiemTraNhapChuoi(15);
+            tenTextBoxHandler = new KiemTraNhapChuoi(20);
+            diaChiTextBoxHandler = new KiemTraNhapChuoi(20);
+            tenDangNhapTextBoxHandler = new KiemTraNhapChuoi(20);
+            matKhauTextBoxHandler = new KiemTraNhapChuoi(20);
+            nhapLaiMatKhauTextBoxHandler = new KiemTraNhapChuoi(20);
         }
 
         // quay lại màn hình đăng nhập
@@ -162,9 +175,14 @@ namespace WinFormsApp1
         // Kiểm tra người dùng có muốn hủy đăng ký hay không
         private void Dang_Ky_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DangNhap f = new DangNhap();
-            f.Show();
-            this.Hide();
+            if (MessageBox.Show("Bạn có muốn hủy đăng ký?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Hủy sự kiện đóng form để ngăn form đóng đi khi người dùng nhấn nút "X"
+                e.Cancel = true;
+                DangNhap f = new DangNhap();
+                f.Show();
+                this.Hide();
+            }
         }
 
         // đặt dấu nháy ở ô Họ 
@@ -209,6 +227,88 @@ namespace WinFormsApp1
                 textBoxMatKhau.UseSystemPasswordChar = true;
                 textBoxNhapLaiMatKhau.UseSystemPasswordChar = true;
             }
+        }
+
+        // GIỚI HẠN NHẬP LIỆU CHO CÁC TEXT BOX
+        //--------------------------------------------------------------------------------------
+        private bool dangXuLyTextChanged = false;
+        private bool vuotQuaDoDaiToiDaHo = false;
+        private bool vuotQuaDoDaiToiDaTen = false;
+        private bool vuotQuaDoDaiToiDaDiaChi = false;
+        private bool vuotQuaDoDaiToiDaTenDangNhap = false;
+        private bool vuotQuaDoDaiToiDaMatKhau = false;
+        private bool vuotQuaDoDaiToiDaNhapLaiMatKhau = false;
+
+        // giới hạn kí tự cho  TextBox Họ
+        private void textBoxHo_TextChanged(object sender, EventArgs e)
+        {
+            if (dangXuLyTextChanged)
+            {
+                return;
+            }
+            dangXuLyTextChanged = true;
+            vuotQuaDoDaiToiDaHo = hoTextBoxHandler.KiemTraNhap(textBoxHo, textBoxHo.Name);
+            dangXuLyTextChanged = false;
+        }
+
+        // giới hạn kí tự cho  TextBox Tên
+        private void textBoxTen_TextChanged(object sender, EventArgs e)
+        {
+            if (dangXuLyTextChanged)
+            {
+                return;
+            }
+            dangXuLyTextChanged = true;
+            vuotQuaDoDaiToiDaTen = tenTextBoxHandler.KiemTraNhap(textBoxTen, textBoxTen.Name);
+            dangXuLyTextChanged = false;
+        }
+
+        // giới hạn kí tự cho  TextBox Địa chỉ
+        private void textBoxDiaChi_TextChanged(object sender, EventArgs e)
+        {
+            if (dangXuLyTextChanged)
+            {
+                return;
+            }
+            dangXuLyTextChanged = true;
+            vuotQuaDoDaiToiDaDiaChi = diaChiTextBoxHandler.KiemTraNhap(textBoxDiaChi, textBoxDiaChi.Name);
+            dangXuLyTextChanged = false;
+        }
+
+        // giới hạn kí tự cho  TextBox Tên đăng nhập
+        private void textBoxTenDangNhap_TextChanged(object sender, EventArgs e)
+        {
+            if (dangXuLyTextChanged)
+            {
+                return;
+            }
+            dangXuLyTextChanged = true;
+            vuotQuaDoDaiToiDaTenDangNhap = tenDangNhapTextBoxHandler.KiemTraNhap(textBoxTenDangNhap, textBoxTenDangNhap.Name);
+            dangXuLyTextChanged = false;
+        }
+
+        //giới hạn kí tự cho  TextBox Mật khẩu
+        private void textBoxMatKhau_TextChanged(object sender, EventArgs e)
+        {
+            if (dangXuLyTextChanged)
+            {
+                return;
+            }
+            dangXuLyTextChanged = true;
+            vuotQuaDoDaiToiDaMatKhau = matKhauTextBoxHandler.KiemTraNhap(textBoxMatKhau, textBoxMatKhau.Name);
+            dangXuLyTextChanged = false;
+        }
+
+        // giới hạn kí tự cho TextBox Nhập lại mật khẩu
+        private void textBoxNhapLaiMatKhau_TextChanged(object sender, EventArgs e)
+        {
+            if (dangXuLyTextChanged)
+            {
+                return;
+            }
+            dangXuLyTextChanged = true;
+            vuotQuaDoDaiToiDaNhapLaiMatKhau = nhapLaiMatKhauTextBoxHandler.KiemTraNhap(textBoxNhapLaiMatKhau, textBoxNhapLaiMatKhau.Name);
+            dangXuLyTextChanged = false;
         }
     }
 }

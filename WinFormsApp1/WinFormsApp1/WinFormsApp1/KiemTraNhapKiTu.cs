@@ -13,7 +13,7 @@ namespace WinFormsApp1
             this.maxLength = maxLength;
         }
 
-        public bool HandleTextChanged(TextBox textBox, string textBoxName)
+        public bool KiemTraNhap(TextBox textBox, string textBoxName)
         {
             if (textBox.Text.Length > maxLength && !isMaxLengthExceeded)
             {

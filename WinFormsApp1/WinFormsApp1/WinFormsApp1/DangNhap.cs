@@ -132,7 +132,7 @@ namespace WinFormsApp1
                 return;
             }
             isHandlingTextChanged = true;
-            bool tkExceeded = tkTextBoxHandler.HandleTextChanged(txt_TK, txt_TK.Name);
+            bool tkExceeded = tkTextBoxHandler.KiemTraNhap(txt_TK, txt_TK.Name);
             isHandlingTextChanged = false;
             isTKMaxLengthExceeded = tkExceeded;
         }
@@ -140,7 +140,7 @@ namespace WinFormsApp1
         // kiểm tra nhập mật khẩu có quá kí tự quy định không
         private void txt_MK_TextChanged(object sender, EventArgs e)
         {
-            bool mkExceeded = mkTextBoxHandler.HandleTextChanged(txt_MK, txt_MK.Name);
+            bool mkExceeded = mkTextBoxHandler.KiemTraNhap(txt_MK, txt_MK.Name);
             isMKMaxLengthExceeded = mkExceeded;
         }
 

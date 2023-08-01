@@ -65,7 +65,7 @@
             // 
             // btnPreviousDay
             // 
-            btnPreviousDay.Location = new Point(151, 4);
+            btnPreviousDay.Location = new Point(227, 4);
             btnPreviousDay.Margin = new Padding(2);
             btnPreviousDay.Name = "btnPreviousDay";
             btnPreviousDay.Size = new Size(78, 27);
@@ -76,7 +76,7 @@
             // 
             // btnNextDay
             // 
-            btnNextDay.Location = new Point(475, 4);
+            btnNextDay.Location = new Point(582, 4);
             btnNextDay.Margin = new Padding(2);
             btnNextDay.Name = "btnNextDay";
             btnNextDay.Size = new Size(78, 27);
@@ -87,7 +87,7 @@
             // 
             // dtpkDate
             // 
-            dtpkDate.Location = new Point(250, 4);
+            dtpkDate.Location = new Point(338, 4);
             dtpkDate.Margin = new Padding(2);
             dtpkDate.Name = "dtpkDate";
             dtpkDate.Size = new Size(211, 23);

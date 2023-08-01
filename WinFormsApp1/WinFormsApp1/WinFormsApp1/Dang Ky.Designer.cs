@@ -59,6 +59,7 @@
             textBoxHo.Name = "textBoxHo";
             textBoxHo.Size = new Size(155, 23);
             textBoxHo.TabIndex = 1;
+            textBoxHo.TextChanged += textBoxHo_TextChanged;
             textBoxHo.KeyPress += textBoxHo_KeyPress;
             // 
             // textBoxTen
@@ -67,6 +68,7 @@
             textBoxTen.Name = "textBoxTen";
             textBoxTen.Size = new Size(187, 23);
             textBoxTen.TabIndex = 2;
+            textBoxTen.TextChanged += textBoxTen_TextChanged;
             textBoxTen.KeyPress += textBoxTen_KeyPress;
             // 
             // textBoxMatKhau
@@ -76,6 +78,7 @@
             textBoxMatKhau.Size = new Size(155, 23);
             textBoxMatKhau.TabIndex = 8;
             textBoxMatKhau.UseSystemPasswordChar = true;
+            textBoxMatKhau.TextChanged += textBoxMatKhau_TextChanged;
             // 
             // button1
             // 
@@ -170,6 +173,7 @@
             textBoxTenDangNhap.Name = "textBoxTenDangNhap";
             textBoxTenDangNhap.Size = new Size(187, 23);
             textBoxTenDangNhap.TabIndex = 7;
+            textBoxTenDangNhap.TextChanged += textBoxTenDangNhap_TextChanged;
             // 
             // label7
             // 
@@ -204,6 +208,7 @@
             textBoxDiaChi.Name = "textBoxDiaChi";
             textBoxDiaChi.Size = new Size(155, 23);
             textBoxDiaChi.TabIndex = 6;
+            textBoxDiaChi.TextChanged += textBoxDiaChi_TextChanged;
             // 
             // label10
             // 
@@ -221,6 +226,7 @@
             textBoxNhapLaiMatKhau.Size = new Size(187, 23);
             textBoxNhapLaiMatKhau.TabIndex = 9;
             textBoxNhapLaiMatKhau.UseSystemPasswordChar = true;
+            textBoxNhapLaiMatKhau.TextChanged += textBoxNhapLaiMatKhau_TextChanged;
             // 
             // dateTimePickerNgaySinh
             // 

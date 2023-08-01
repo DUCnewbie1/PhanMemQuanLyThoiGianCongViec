@@ -273,7 +273,7 @@ namespace WinFormsApp1
             }
             SerializeToXML(Job, filePath);
         }
-        
+
         //---------------------------------------------ĐỨC THÊM VÔ FORM 1---------------------------------------------------------------------
         // Lấy để xài danh sách các PlanItem(sự kiện)
         private PlanData job;

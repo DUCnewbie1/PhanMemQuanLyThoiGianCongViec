@@ -62,24 +62,26 @@
             // 
             // panel1
             // 
+            panel1.AutoSize = true;
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(771, 396);
+            panel1.Size = new Size(775, 396);
             panel1.TabIndex = 0;
             // 
             // panel3
             // 
+            panel3.AutoSize = true;
             panel3.Controls.Add(Thoat);
             panel3.Controls.Add(DangXuat);
             panel3.Controls.Add(pnMatrix);
             panel3.Controls.Add(panel4);
             panel3.Location = new Point(3, 32);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(765, 335);
+            panel3.Size = new Size(770, 338);
             panel3.TabIndex = 1;
             // 
             // Thoat
@@ -105,8 +107,9 @@
             // 
             // pnMatrix
             // 
+            pnMatrix.AutoSize = true;
             pnMatrix.Location = new Point(88, 46);
-            pnMatrix.Margin = new Padding(2, 2, 2, 2);
+            pnMatrix.Margin = new Padding(2);
             pnMatrix.Name = "pnMatrix";
             pnMatrix.Size = new Size(574, 287);
             pnMatrix.TabIndex = 1;
@@ -123,7 +126,7 @@
             panel4.Controls.Add(btnThu);
             panel4.Controls.Add(btnMon);
             panel4.Location = new Point(-3, 4);
-            panel4.Margin = new Padding(2, 2, 2, 2);
+            panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(771, 39);
             panel4.TabIndex = 0;
@@ -131,7 +134,7 @@
             // btnPreviours
             // 
             btnPreviours.Location = new Point(5, 11);
-            btnPreviours.Margin = new Padding(2, 2, 2, 2);
+            btnPreviours.Margin = new Padding(2);
             btnPreviours.Name = "btnPreviours";
             btnPreviours.Size = new Size(83, 28);
             btnPreviours.TabIndex = 8;
@@ -142,7 +145,7 @@
             // btnSun
             // 
             btnSun.Location = new Point(582, 11);
-            btnSun.Margin = new Padding(2, 2, 2, 2);
+            btnSun.Margin = new Padding(2);
             btnSun.Name = "btnSun";
             btnSun.Size = new Size(78, 28);
             btnSun.TabIndex = 7;
@@ -152,7 +155,7 @@
             // btnnext
             // 
             btnnext.Location = new Point(669, 11);
-            btnnext.Margin = new Padding(2, 2, 2, 2);
+            btnnext.Margin = new Padding(2);
             btnnext.Name = "btnnext";
             btnnext.Size = new Size(78, 28);
             btnnext.TabIndex = 6;
@@ -163,7 +166,7 @@
             // btnSat
             // 
             btnSat.Location = new Point(500, 11);
-            btnSat.Margin = new Padding(2, 2, 2, 2);
+            btnSat.Margin = new Padding(2);
             btnSat.Name = "btnSat";
             btnSat.Size = new Size(78, 28);
             btnSat.TabIndex = 5;
@@ -173,7 +176,7 @@
             // btnFri
             // 
             btnFri.Location = new Point(418, 11);
-            btnFri.Margin = new Padding(2, 2, 2, 2);
+            btnFri.Margin = new Padding(2);
             btnFri.Name = "btnFri";
             btnFri.Size = new Size(78, 28);
             btnFri.TabIndex = 4;
@@ -183,7 +186,7 @@
             // btnTue
             // 
             btnTue.Location = new Point(172, 11);
-            btnTue.Margin = new Padding(2, 2, 2, 2);
+            btnTue.Margin = new Padding(2);
             btnTue.Name = "btnTue";
             btnTue.Size = new Size(78, 28);
             btnTue.TabIndex = 3;
@@ -193,7 +196,7 @@
             // btnWed
             // 
             btnWed.Location = new Point(254, 11);
-            btnWed.Margin = new Padding(2, 2, 2, 2);
+            btnWed.Margin = new Padding(2);
             btnWed.Name = "btnWed";
             btnWed.Size = new Size(78, 28);
             btnWed.TabIndex = 2;
@@ -203,7 +206,7 @@
             // btnThu
             // 
             btnThu.Location = new Point(336, 11);
-            btnThu.Margin = new Padding(2, 2, 2, 2);
+            btnThu.Margin = new Padding(2);
             btnThu.Name = "btnThu";
             btnThu.Size = new Size(78, 28);
             btnThu.TabIndex = 1;
@@ -213,7 +216,7 @@
             // btnMon
             // 
             btnMon.Location = new Point(90, 11);
-            btnMon.Margin = new Padding(2, 2, 2, 2);
+            btnMon.Margin = new Padding(2);
             btnMon.Name = "btnMon";
             btnMon.Size = new Size(78, 28);
             btnMon.TabIndex = 0;
@@ -222,25 +225,27 @@
             // 
             // panel2
             // 
+            panel2.AutoSize = true;
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(HomNay);
             panel2.Controls.Add(dtpkDate);
             panel2.Location = new Point(1, 5);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(769, 27);
+            panel2.Size = new Size(770, 30);
             panel2.TabIndex = 0;
             // 
             // panel6
             // 
+            panel6.AutoSize = true;
             panel6.Controls.Add(label1);
             panel6.Controls.Add(nmNotify);
             panel6.Controls.Add(cbnotify);
             panel6.Location = new Point(6, 3);
-            panel6.Margin = new Padding(2, 2, 2, 2);
+            panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(223, 22);
+            panel6.Size = new Size(223, 25);
             panel6.TabIndex = 2;
             // 
             // label1
@@ -255,7 +260,7 @@
             // nmNotify
             // 
             nmNotify.Location = new Point(87, 0);
-            nmNotify.Margin = new Padding(2, 2, 2, 2);
+            nmNotify.Margin = new Padding(2);
             nmNotify.Maximum = new decimal(new int[] { 3600, 0, 0, 0 });
             nmNotify.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nmNotify.Name = "nmNotify";
@@ -267,7 +272,7 @@
             // 
             cbnotify.AutoSize = true;
             cbnotify.Location = new Point(2, 2);
-            cbnotify.Margin = new Padding(2, 2, 2, 2);
+            cbnotify.Margin = new Padding(2);
             cbnotify.Name = "cbnotify";
             cbnotify.Size = new Size(83, 19);
             cbnotify.TabIndex = 0;
@@ -287,7 +292,7 @@
             // HomNay
             // 
             HomNay.Location = new Point(487, 2);
-            HomNay.Margin = new Padding(2, 2, 2, 2);
+            HomNay.Margin = new Padding(2);
             HomNay.Name = "HomNay";
             HomNay.Size = new Size(73, 25);
             HomNay.TabIndex = 1;
@@ -299,7 +304,7 @@
             // 
             dtpkDate.CalendarMonthBackground = SystemColors.ScrollBar;
             dtpkDate.Location = new Point(261, 3);
-            dtpkDate.Margin = new Padding(2, 2, 2, 2);
+            dtpkDate.Margin = new Padding(2);
             dtpkDate.Name = "dtpkDate";
             dtpkDate.Size = new Size(211, 23);
             dtpkDate.TabIndex = 0;
@@ -312,7 +317,7 @@
             ClientSize = new Size(778, 405);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Calendar";
@@ -320,13 +325,17 @@
             FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nmNotify).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
