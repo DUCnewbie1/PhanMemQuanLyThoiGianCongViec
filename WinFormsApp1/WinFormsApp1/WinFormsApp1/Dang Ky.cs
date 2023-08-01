@@ -146,7 +146,10 @@ namespace WinFormsApp1
                         cmd.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Đăng ký tài khoản thành công!");
+                    MessageBox.Show("Đăng ký tài khoản thành công, đăng nhập ngay!");
+                    DangNhap f = new DangNhap();
+                    f.Show();
+                    this.Hide();
                     conn.Close();
                 }
             }
@@ -159,14 +162,9 @@ namespace WinFormsApp1
         // Kiểm tra người dùng có muốn hủy đăng ký hay không
         private void Dang_Ky_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn hủy đăng ký?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                // Hủy sự kiện đóng form để ngăn form đóng đi khi người dùng nhấn nút "X"
-                e.Cancel = true;
-                DangNhap f = new DangNhap();
-                f.Show();
-                this.Hide();
-            }
+            DangNhap f = new DangNhap();
+            f.Show();
+            this.Hide();
         }
 
         // đặt dấu nháy ở ô Họ 

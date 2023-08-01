@@ -16,6 +16,8 @@ namespace WinFormsApp1
     {
         #region peoperties
         private string filePath = "data.xml";
+        private Button lastClickedButton = null;
+        private bool isFirstClick = false;
 
         private List<List<Button>> matrix;
 
@@ -57,7 +59,6 @@ namespace WinFormsApp1
                     Button btn = new Button() { Width = Cons.DateButtonWidth, Height = Cons.DateButtonHeight };
                     btn.Location = new Point(oldbtn.Location.X + oldbtn.Width + Cons.Margin, oldbtn.Location.Y);
                     btn.Click += Btn_Click;// ĐỨC THÊM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
                     pnMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
                     oldbtn = btn;
@@ -74,8 +75,34 @@ namespace WinFormsApp1
             SetDefaultDay(); //Dat ngay mac dinh
             AddNumberIntoMatrixByDate(dtpkDate.Value);
         }
+        // Phương thức xử lý sự kiện khi người dùng double click vào nút Btn
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra xem sender có phải là một Button hay không
+            if (sender is Button btn)
+            {
+                // Kiểm tra xem nội dung của nút Btn có rỗng hay không
+                if (string.IsNullOrEmpty(btn.Text))
+                    return;
 
+                if (lastClickedButton == btn)
+                {
+                    // Tạo một đối tượng mới của lớp DailyPlan với ngày được đặt bằng ngày được chọn từ nút Btn và thuộc tính Job
+                    DailyPlan daily = new DailyPlan(new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32(btn.Text)), Job);
 
+                    // Hiển thị đối tượng DailyPlan dưới dạng một cửa sổ modal
+                    daily.ShowDialog();
+
+                    // Đặt lastClickedButton thành null để chuẩn bị cho lần nhấp tiếp theo
+                    lastClickedButton = null;
+                }
+                else
+                {
+                    // Lưu trữ nút vào biến lastClickedButton để chờ đến lần nhấp tiếp theo
+                    lastClickedButton = btn;
+                }
+            }
+        }
         private void dtpkDate_ValueChanged(object sender, EventArgs e)
         {
             AddNumberIntoMatrixByDate(dtpkDate.Value);
@@ -336,20 +363,6 @@ namespace WinFormsApp1
                 Job = "Thử nghiệm nhập Date bằng cơm",
                 Status = PlanItem.ListStatus[(int)EPlanItem.COMING]
             });
-        }
-
-        // Phương thức xử lý sự kiện khi người dùng nhấn vào nút Btn
-        private void Btn_Click(object? sender, EventArgs e)
-        {
-            // Kiểm tra xem nội dung của nút Btn có rỗng hay không
-            if (string.IsNullOrEmpty((sender as Button).Text))
-                return;
-
-            // Tạo một đối tượng mới của lớp DailyPlan với ngày được đặt bằng ngày được chọn từ nút Btn và thuộc tính Job
-            DailyPlan daily = new DailyPlan(new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32((sender as Button).Text)), Job);
-
-            // Hiển thị đối tượng DailyPlan dưới dạng một cửa sổ modal
-            daily.ShowDialog();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
