@@ -96,12 +96,19 @@ namespace WinFormsApp1
                 MessageBox.Show("Tên đăng nhập chỉ được chứa chữ và số, không chứa kí tự đặc biệt.");
                 return;
             }
-            // Kiểm tra mật khẩu chỉ chứa chữ và số (không chứa ký tự đặc biệt)
-            if (!Regex.IsMatch(matKhau, "^[a-zA-Z0-9]+$"))
+            // Kiểm tra mật khẩu phải chứa cả chữ hoa, chữ thường, số và ký tự đặc biệt
+            if (!Regex.IsMatch(matKhau, "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9\\s])"))
             {
-                MessageBox.Show("Mật khẩu chỉ được chứa chữ và số, không chứa ký tự đặc biệt và dấu cách.");
+                MessageBox.Show("Mật khẩu phải chứa cả chữ hoa, chữ thường, số và ký tự đặc biệt.");
                 return;
             }
+            // Kiểm tra mật khẩu có chứa dấu cách hay không
+            if (Regex.IsMatch(matKhau, "\\s"))
+            {
+                MessageBox.Show("Mật khẩu không được chứa dấu cách.");
+                return;
+            }
+
             // Kiểm tra mật khẩu và mật khẩu nhập lại có khớp hay không
             if (matKhau != nhapLaiMatKhau)
             {
