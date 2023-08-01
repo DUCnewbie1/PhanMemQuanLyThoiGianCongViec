@@ -22,19 +22,16 @@ namespace WinFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             String matKhau = NhapMatKhau.Text;
-
-
         }
-
+        // Nút hủy
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn hủy không?", "Xác nhận trở lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                ThongTinCaNhan g = new ThongTinCaNhan();
-                g.Show();
-                this.Hide();
+                // Nếu người dùng muốn hủy, đóng form "XacNhanMatKhau" và trở lại form "ThongTinCaNhan"
+                this.Close();
             }
         }
     }
