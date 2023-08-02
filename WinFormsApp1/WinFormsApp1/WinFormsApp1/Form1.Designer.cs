@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
             panel3 = new Panel();
@@ -52,6 +53,8 @@
             button1 = new Button();
             HomNay = new Button();
             dtpkDate = new DateTimePicker();
+            Nofity = new NotifyIcon(components);
+            tmNotify = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -259,6 +262,7 @@
             // 
             // nmNotify
             // 
+            nmNotify.Enabled = false;
             nmNotify.Location = new Point(87, 0);
             nmNotify.Margin = new Padding(2);
             nmNotify.Maximum = new decimal(new int[] { 3600, 0, 0, 0 });
@@ -267,6 +271,7 @@
             nmNotify.Size = new Size(60, 23);
             nmNotify.TabIndex = 1;
             nmNotify.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nmNotify.ValueChanged += nmNotify_ValueChanged_1;
             // 
             // cbnotify
             // 
@@ -278,6 +283,7 @@
             cbnotify.TabIndex = 0;
             cbnotify.Text = "Thông báo";
             cbnotify.UseVisualStyleBackColor = true;
+            cbnotify.CheckedChanged += cbnotify_CheckedChanged_1;
             // 
             // button1
             // 
@@ -308,6 +314,18 @@
             dtpkDate.Name = "dtpkDate";
             dtpkDate.Size = new Size(211, 23);
             dtpkDate.TabIndex = 0;
+            // 
+            // Nofity
+            // 
+            Nofity.Icon = (Icon)resources.GetObject("Nofity.Icon");
+            Nofity.Text = "notifyIcon1";
+            Nofity.Visible = true;
+            // 
+            // tmNotify
+            // 
+            tmNotify.Enabled = true;
+            tmNotify.Interval = 5000;
+            tmNotify.Tick += tmNofity_Tick;
             // 
             // Form1
             // 
@@ -363,5 +381,7 @@
         private Button DangXuat;
         private Label label1;
         private Button button1;
+        private NotifyIcon Nofity;
+        private System.Windows.Forms.Timer tmNotify;
     }
 }

@@ -153,6 +153,34 @@ namespace WinFormsApp1
             // Đặt giá trị của điều khiển nhập liệu ngày tháng năm dtpkDate bằng ngày giờ hiện tại
             dtpkDate.Value = DateTime.Now;
         }
+
+        private void DailyPlan_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
         // Nút X để thoát và trở lại giao diện chương trình
     }
 }

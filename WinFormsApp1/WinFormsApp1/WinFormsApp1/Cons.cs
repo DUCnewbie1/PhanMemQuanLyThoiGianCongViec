@@ -8,6 +8,8 @@
         public static int DateButtonHeight = 40;
 
         public static int Margin = 4;
+        public static int notifyTime = 1;
+        public static int notifyTimeOut = 10000;// 10 giây 
     }
 }
 

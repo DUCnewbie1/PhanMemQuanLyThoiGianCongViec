@@ -30,7 +30,7 @@ namespace WinFormsApp1
 
         private void DN_Click(object sender, EventArgs e)
         {
-            string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+            string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
 
             try
             {
@@ -39,6 +39,7 @@ namespace WinFormsApp1
                     conn.Open();
                     string tk = txt_TK.Text;
                     string mk = txt_MK.Text;
+
                     // Kiểm tra nếu người dùng chưa nhập tên đăng nhập hoặc mật khẩu
                     if (string.IsNullOrWhiteSpace(tk) || string.IsNullOrWhiteSpace(mk))
                     {
@@ -46,7 +47,7 @@ namespace WinFormsApp1
                         return;
                     }
 
-                    string sql = "SELECT * FROM THONGTINTK WHERE TENTK=@tk AND MATKHAU=@mk";
+                    string sql = "SELECT id FROM THONGTINTK WHERE TENTK=@tk AND MATKHAU=@mk";
 
                     using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                     {
@@ -57,9 +58,10 @@ namespace WinFormsApp1
                         {
                             if (data.Read())
                             {
+                                int userId = data.GetInt32(0); // Lấy user id từ cột "id" trong kết quả truy vấn
                                 MessageBox.Show("Đăng nhập thành công");
-                                Form1 f = new Form1();
-                                f.Show();
+                                Form1 form1 = new Form1(userId); // Truyền user id vào Form1
+                                form1.Show();
                                 this.Hide();
                             }
                             else
@@ -75,6 +77,7 @@ namespace WinFormsApp1
                 MessageBox.Show("Lỗi kết nối: " + ex.Message);
             }
         }
+
         private void Thoat_Click(object sender, EventArgs e)
         {
             if (ConfirmExit())

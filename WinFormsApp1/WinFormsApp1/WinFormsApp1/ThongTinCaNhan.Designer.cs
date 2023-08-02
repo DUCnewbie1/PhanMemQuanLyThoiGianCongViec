@@ -43,15 +43,10 @@
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             textBox6 = new TextBox();
-            dataGridView1 = new DataGridView();
             panel1 = new Panel();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -150,6 +145,7 @@
             // 
             // ho
             // 
+            ho.Enabled = false;
             ho.Location = new Point(70, 22);
             ho.Margin = new Padding(2);
             ho.Name = "ho";
@@ -158,6 +154,7 @@
             // 
             // textBox2
             // 
+            textBox2.Enabled = false;
             textBox2.Location = new Point(404, 24);
             textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
@@ -166,6 +163,7 @@
             // 
             // textBox3
             // 
+            textBox3.Enabled = false;
             textBox3.Location = new Point(70, 73);
             textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
@@ -174,6 +172,7 @@
             // 
             // textBox4
             // 
+            textBox4.Enabled = false;
             textBox4.Location = new Point(70, 124);
             textBox4.Margin = new Padding(2);
             textBox4.Name = "textBox4";
@@ -182,6 +181,7 @@
             // 
             // textBox5
             // 
+            textBox5.Enabled = false;
             textBox5.Location = new Point(404, 68);
             textBox5.Margin = new Padding(2);
             textBox5.Name = "textBox5";
@@ -190,24 +190,12 @@
             // 
             // textBox6
             // 
+            textBox6.Enabled = false;
             textBox6.Location = new Point(404, 119);
             textBox6.Margin = new Padding(2);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(153, 23);
             textBox6.TabIndex = 6;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = Color.Gray;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dataGridView1.Location = new Point(-11, 41);
-            dataGridView1.Margin = new Padding(2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.RowTemplate.Height = 33;
-            dataGridView1.Size = new Size(841, 48);
-            dataGridView1.TabIndex = 9;
             // 
             // panel1
             // 
@@ -223,53 +211,30 @@
             panel1.Controls.Add(textBox4);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(95, 107);
+            panel1.Location = new Point(93, 119);
             panel1.Name = "panel1";
             panel1.Size = new Size(604, 167);
             panel1.TabIndex = 10;
             // 
-            // Column1
+            // dataGridView1
             // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column1.HeaderText = "Họ";
-            Column1.MinimumWidth = 8;
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên";
-            Column2.MinimumWidth = 8;
-            Column2.Name = "Column2";
-            Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Giới Tính";
-            Column3.MinimumWidth = 8;
-            Column3.Name = "Column3";
-            Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Ngày Sinh";
-            Column4.MinimumWidth = 8;
-            Column4.Name = "Column4";
-            Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Địa Chỉ";
-            Column5.MinimumWidth = 8;
-            Column5.Name = "Column5";
-            Column5.Width = 150;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(1, 41);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(829, 61);
+            dataGridView1.TabIndex = 11;
             // 
             // ThongTinCaNhan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(830, 329);
-            Controls.Add(panel1);
             Controls.Add(dataGridView1);
+            Controls.Add(panel1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -278,9 +243,9 @@
             Text = "ThongTinCaNhan";
             FormClosing += ThongTinCaNhan_FormClosing;
             Load += ThongTinCaNhan_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -302,12 +267,7 @@
         private TextBox textBox4;
         private TextBox textBox5;
         private TextBox textBox6;
-        private DataGridView dataGridView1;
         private Panel panel1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
+        private DataGridView dataGridView1;
     }
 }
