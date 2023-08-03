@@ -18,7 +18,7 @@ namespace WinFormsApp1
 {
     public partial class QuenMatKhau : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QUANLYTHOIGIAN";
         //Hai 1234
         public QuenMatKhau()
         {

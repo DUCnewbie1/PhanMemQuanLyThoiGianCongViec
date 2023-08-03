@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using System.Text.RegularExpressions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsApp1
@@ -18,7 +19,7 @@ namespace WinFormsApp1
         // id người dùng hiện tại 
         private int currentUserId;
 
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QUANLYTHOIGIAN";
 
         public ThongTinCaNhan(int userId)
         {
@@ -97,8 +98,72 @@ namespace WinFormsApp1
         // nút chỉnh sửa thông tin
         private void button2_Click(object sender, EventArgs e)
         {
-            XacNhanMatKhau xn = new XacNhanMatKhau();
+            XacNhanMatKhau xn = new XacNhanMatKhau(this);
             xn.ShowDialog();
+        }
+        //
+        public void enableText()
+        {
+            ho.Enabled = true;
+            ten.Enabled = true;
+            Nam.Enabled = true;
+            Nu.Enabled = true;
+            ngaySinh.Enabled = true;
+            diaChi.Enabled = true;
+            luu.Enabled = true;
+        }
+        // lưu thông tin
+        private void luu_Click(object sender, EventArgs e)
+        {
+            string hoMoi = ho.Text;
+            string tenMoi = ten.Text;
+            string gioiTinhMoi = null;
+            string ngaySinhMoi = ngaySinh.Value.ToString("yyyy-MM-dd");
+            string diaChiMoi = diaChi.Text;
+
+            if (Nam.Checked)
+            {
+                gioiTinhMoi = "Nam";
+
+            }
+            else
+            {
+                gioiTinhMoi = "Nữ";
+            }
+            // cập nhật dữ liệu cho bảng người dùng
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sql = "UPDATE NGUOIDUNG SET HO = COALESCE(@Ho, HO), TEN = COALESCE(@Ten, TEN), " +
+                         "GIOITINH = COALESCE(@GioiTinh, GIOITINH), NGAYSINH = COALESCE(@NgaySinh, NGAYSINH), " +
+                         "DIACHI = COALESCE(@DiaChi, DIACHI) WHERE id = @UserId";
+
+                    using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Ho", string.IsNullOrWhiteSpace(hoMoi) ? (object)DBNull.Value : hoMoi);
+                        command.Parameters.AddWithValue("@Ten", string.IsNullOrWhiteSpace(tenMoi) ? (object)DBNull.Value : tenMoi);
+                        command.Parameters.AddWithValue("@GioiTinh", gioiTinhMoi == null ? (object)DBNull.Value : gioiTinhMoi);
+                        command.Parameters.AddWithValue("@NgaySinh", ngaySinhMoi);
+                        command.Parameters.AddWithValue("@DiaChi", string.IsNullOrWhiteSpace(diaChiMoi) ? (object)DBNull.Value : diaChiMoi);
+                        command.Parameters.AddWithValue("@UserId", currentUserId);
+                        int soHangAnhHuong = command.ExecuteNonQuery();
+                        if (soHangAnhHuong > 0)
+                        {
+                            MessageBox.Show("Cập nhật thông tin thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật thông tin không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối: " + ex.Message);
+            }
         }
     }
 }

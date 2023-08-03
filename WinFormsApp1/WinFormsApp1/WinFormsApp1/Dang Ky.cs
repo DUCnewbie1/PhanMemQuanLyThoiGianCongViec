@@ -16,7 +16,7 @@ namespace WinFormsApp1
 {
     public partial class Dang_Ky : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QUANLYTHOIGIAN";
 
         private KiemTraNhapChuoi hoTextBoxHandler;
         private KiemTraNhapChuoi tenTextBoxHandler;
