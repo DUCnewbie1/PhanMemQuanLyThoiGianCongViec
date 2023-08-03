@@ -19,7 +19,7 @@ namespace WinFormsApp1
         // id người dùng hiện tại 
         private int currentUserId;
 
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123;Database=QUANLYTHOIGIAN";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
 
         public ThongTinCaNhan(int userId)
         {
@@ -111,24 +111,37 @@ namespace WinFormsApp1
             ngaySinh.Enabled = true;
             diaChi.Enabled = true;
             luu.Enabled = true;
+            button2.Enabled = false;
         }
         // lưu thông tin
         private void luu_Click(object sender, EventArgs e)
         {
             string hoMoi = ho.Text;
             string tenMoi = ten.Text;
-            string gioiTinhMoi = null;
-            string ngaySinhMoi = ngaySinh.Value.ToString("yyyy-MM-dd");
+            string gioiTinhMoi = Nam.Checked ? "Nam" : (Nu.Checked ? "Nữ" : "");
+            string ngaySinhMoi = "";
             string diaChiMoi = diaChi.Text;
+            // Lấy chuỗi ngày tháng năm từ TextBox
+            string ngayThangNam = ngaySinh.Text;
 
-            if (Nam.Checked)
+            // Kiểm tra nếu không nhập gì thì không cập nhật thông tin
+            if (string.IsNullOrWhiteSpace(ngayThangNam))
             {
-                gioiTinhMoi = "Nam";
+                MessageBox.Show("Bạn cần nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // Chuyển đổi chuỗi ngày tháng năm thành định dạng ngày hợp lệ
+            DateTime ngaySinhDateTime;
+            if (DateTime.TryParse(ngayThangNam, out ngaySinhDateTime))
+            {
+                ngaySinhMoi = ngaySinhDateTime.ToString("yyyy-MM-dd");
             }
             else
             {
-                gioiTinhMoi = "Nữ";
+                // Hiển thị thông báo lỗi nếu ngày tháng năm không hợp lệ
+                MessageBox.Show("Ngày tháng năm không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             // cập nhật dữ liệu cho bảng người dùng
             try
@@ -144,13 +157,14 @@ namespace WinFormsApp1
                     {
                         command.Parameters.AddWithValue("@Ho", string.IsNullOrWhiteSpace(hoMoi) ? (object)DBNull.Value : hoMoi);
                         command.Parameters.AddWithValue("@Ten", string.IsNullOrWhiteSpace(tenMoi) ? (object)DBNull.Value : tenMoi);
-                        command.Parameters.AddWithValue("@GioiTinh", gioiTinhMoi == null ? (object)DBNull.Value : gioiTinhMoi);
-                        command.Parameters.AddWithValue("@NgaySinh", ngaySinhMoi);
+                        command.Parameters.AddWithValue("@GioiTinh", string.IsNullOrWhiteSpace(gioiTinhMoi) ? (object)DBNull.Value : gioiTinhMoi);
+                        command.Parameters.AddWithValue("@NgaySinh", string.IsNullOrWhiteSpace(ngaySinhMoi) ? (object)DBNull.Value : ngaySinhMoi);
                         command.Parameters.AddWithValue("@DiaChi", string.IsNullOrWhiteSpace(diaChiMoi) ? (object)DBNull.Value : diaChiMoi);
                         command.Parameters.AddWithValue("@UserId", currentUserId);
                         int soHangAnhHuong = command.ExecuteNonQuery();
                         if (soHangAnhHuong > 0)
                         {
+                            LoadData();
                             MessageBox.Show("Cập nhật thông tin thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else

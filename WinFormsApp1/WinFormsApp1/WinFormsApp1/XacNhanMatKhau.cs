@@ -18,7 +18,7 @@ namespace WinFormsApp1
     public partial class XacNhanMatKhau : Form
     {
         //ket noi database 
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=123   ;Database=QUANLYTHOIGIAN";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
         private ThongTinCaNhan ThongTinCaNhan;
 
         public XacNhanMatKhau(ThongTinCaNhan ThongTinCaNhan)
@@ -82,6 +82,10 @@ namespace WinFormsApp1
         {
             NhapMatKhau.UseSystemPasswordChar = !checkBox1.Checked;
         }
-    }
 
+        private void XacNhanMatKhau_Load(object sender, EventArgs e)
+        {
+            NhapMatKhau.Select();
+        }
+    }
 }
