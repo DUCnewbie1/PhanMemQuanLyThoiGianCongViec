@@ -16,8 +16,6 @@ namespace WinFormsApp1
 {
     public partial class Dang_Ky : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
-
         private KiemTraNhapChuoi hoTextBoxHandler;
         private KiemTraNhapChuoi tenTextBoxHandler;
         private KiemTraNhapChuoi diaChiTextBoxHandler;
@@ -125,7 +123,7 @@ namespace WinFormsApp1
             // Thực hiện lưu thông tin vào cơ sở dữ liệu
             try
             {
-                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                using (NpgsqlConnection conn = new NpgsqlConnection(Helper.ConnectionString))
                 {
                     conn.Open();
 
@@ -247,7 +245,6 @@ namespace WinFormsApp1
         private bool vuotQuaDoDaiToiDaTenDangNhap = false;
         private bool vuotQuaDoDaiToiDaMatKhau = false;
         private bool vuotQuaDoDaiToiDaNhapLaiMatKhau = false;
-
         // giới hạn kí tự cho  TextBox Họ
         private void textBoxHo_TextChanged(object sender, EventArgs e)
         {

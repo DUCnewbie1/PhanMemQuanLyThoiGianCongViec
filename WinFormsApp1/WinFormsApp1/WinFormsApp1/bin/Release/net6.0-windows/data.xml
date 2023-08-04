@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlanData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Job>
+    <PlanItem>
+      <Date>2023-08-04T17:55:20.2817802+07:00</Date>
+      <Job>Thử nghiệm thôi 1</Job>
+      <FromTime>
+        <X>4</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>5</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Sắp tới</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-04T17:55:20.2818726+07:00</Date>
+      <Job>Thử nghiệm thôi 2</Job>
+      <FromTime>
+        <X>6</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>8</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đã xong</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-04T17:55:20.2818728+07:00</Date>
+      <Job>Thử nghiệm thôi 3</Job>
+      <FromTime>
+        <X>12</X>
+        <Y>2</Y>
+      </FromTime>
+      <ToTime>
+        <X>13</X>
+        <Y>3</Y>
+      </ToTime>
+      <Status>Sắp tới</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-30T18:13:00</Date>
+      <Job>Thử nghiệm nhập Date bằng cơm</Job>
+      <FromTime>
+        <X>12</X>
+        <Y>2</Y>
+      </FromTime>
+      <ToTime>
+        <X>13</X>
+        <Y>3</Y>
+      </ToTime>
+      <Status>Sắp tới</Status>
+    </PlanItem>
+  </Job>
+</PlanData>

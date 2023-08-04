@@ -17,8 +17,6 @@ namespace WinFormsApp1
 {
     public partial class XacNhanMatKhau : Form
     {
-        //ket noi database 
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
         private ThongTinCaNhan ThongTinCaNhan;
 
         public XacNhanMatKhau(ThongTinCaNhan ThongTinCaNhan)
@@ -37,7 +35,7 @@ namespace WinFormsApp1
 
             try
             {
-                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                using (NpgsqlConnection conn = new NpgsqlConnection(Helper.ConnectionString))
                 {
                     conn.Open();
                     String matkhau = NhapMatKhau.Text;

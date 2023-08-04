@@ -60,7 +60,7 @@ namespace WinFormsApp1
         }
 
         // Danh sách tĩnh chứa các trạng thái có thể có của một mục kế hoạch
-        public static List<string> ListStatus = new List<string>() { "DONE", "DOING", "COMING", "MISSED" };
+        public static List<string> ListStatus = new List<string>() { "Đã xong", "Đang làm", "Sắp tới", "Bỏ lỡ" };
     }
 
     // Kiểu liệt kê định nghĩa các giá trị cho các trạng thái của một mục kế hoạch

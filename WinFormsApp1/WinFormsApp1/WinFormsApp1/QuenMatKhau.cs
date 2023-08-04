@@ -18,8 +18,6 @@ namespace WinFormsApp1
 {
     public partial class QuenMatKhau : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
-        //Hai 1234
         public QuenMatKhau()
         {
             InitializeComponent();
@@ -71,7 +69,7 @@ namespace WinFormsApp1
             // Thực hiện lưu thông tin vào cơ sở dữ liệu
             try
             {
-                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                using (NpgsqlConnection conn = new NpgsqlConnection(Helper.ConnectionString))
                 {
                     conn.Open();
                     string matkhaucu = null;

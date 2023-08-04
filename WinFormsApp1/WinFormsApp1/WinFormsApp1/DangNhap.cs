@@ -30,11 +30,9 @@ namespace WinFormsApp1
 
         private void DN_Click(object sender, EventArgs e)
         {
-            string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
-
             try
             {
-                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                using (NpgsqlConnection conn = new NpgsqlConnection(Helper.ConnectionString))
                 {
                     conn.Open();
                     string tk = txt_TK.Text;

@@ -18,9 +18,6 @@ namespace WinFormsApp1
     {
         // id người dùng hiện tại 
         private int currentUserId;
-
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
-
         public ThongTinCaNhan(int userId)
         {
             InitializeComponent();
@@ -39,7 +36,7 @@ namespace WinFormsApp1
         {
             try
             {
-                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                using (NpgsqlConnection connection = new NpgsqlConnection(Helper.ConnectionString))
                 {
                     connection.Open();
                     string sql = "SELECT ND.HO, ND.TEN, ND.GIOITINH, ND.NGAYSINH, ND.DIACHI " +
@@ -146,7 +143,7 @@ namespace WinFormsApp1
             // cập nhật dữ liệu cho bảng người dùng
             try
             {
-                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                using (NpgsqlConnection connection = new NpgsqlConnection(Helper.ConnectionString))
                 {
                     connection.Open();
                     string sql = "UPDATE NGUOIDUNG SET HO = COALESCE(@Ho, HO), TEN = COALESCE(@Ten, TEN), " +

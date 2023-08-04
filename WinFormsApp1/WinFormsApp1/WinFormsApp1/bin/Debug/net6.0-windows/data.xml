@@ -2,7 +2,7 @@
 <PlanData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Job>
     <PlanItem>
-      <Date>2023-08-04T01:27:45.806982+07:00</Date>
+      <Date>2023-08-04T10:16:35.4224493+07:00</Date>
       <Job>Thử nghiệm thôi 1</Job>
       <FromTime>
         <X>4</X>
@@ -15,7 +15,7 @@
       <Status>COMING</Status>
     </PlanItem>
     <PlanItem>
-      <Date>2023-08-04T01:27:45.8069836+07:00</Date>
+      <Date>2023-08-04T10:16:35.4224507+07:00</Date>
       <Job>Thử nghiệm thôi 2</Job>
       <FromTime>
         <X>6</X>
@@ -28,7 +28,7 @@
       <Status>DONE</Status>
     </PlanItem>
     <PlanItem>
-      <Date>2023-08-04T01:27:45.8069838+07:00</Date>
+      <Date>2023-08-04T10:16:35.4224509+07:00</Date>
       <Job>Thử nghiệm thôi 3</Job>
       <FromTime>
         <X>12</X>
@@ -54,8 +54,7 @@
       <Status>COMING</Status>
     </PlanItem>
   </Job>
-</PlanData>><Date>2023-08-03T00:00:00</Date>
-      <Job>hoanf thien chuc nang hom nay</Job>
+</PlanData>chuc nang hom nay</Job>
       <FromTime>
         <X>13</X>
         <Y>0</Y>
