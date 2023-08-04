@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,17 @@ namespace WinFormsApp1
     public partial class Form1 : Form
     {
         #region peoperties
+
+
+        private int appTime;
+
+        public int AppTime { get => appTime; set => appTime = value; }
+
+
         private string filePath = "data.xml";
+
         private Button lastClickedButton = null;
+
         private bool isFirstClick = false;
 
         private List<List<Button>> matrix;
@@ -29,11 +39,14 @@ namespace WinFormsApp1
 
         private List<string> dateOfWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         #endregion
-
-        public Form1()
+        private int UserId;
+        public Form1(int userId)
         {
+            UserId = userId;
             InitializeComponent();
             //-------------------------------THỦY TỔ LẬP TRÌNH ĐỨC ĐÃ THÊM-------------------------------------
+            tmNotify.Start();
+            appTime = 0;
             try
             {
                 Job = DeserializeFromXML(filePath) as PlanData;
@@ -364,12 +377,43 @@ namespace WinFormsApp1
                 Status = PlanItem.ListStatus[(int)EPlanItem.COMING]
             });
         }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ThongTinCaNhan thongTinCaNhan = new ThongTinCaNhan();
-            thongTinCaNhan.Show();
+            ThongTinCaNhan t = new ThongTinCaNhan(UserId);
+            t.Show();
             this.Hide();
+        }
+
+
+        private void tmNofity_Tick(object sender, EventArgs e)
+        {
+            if (!cbnotify.Checked)
+            {
+                return;
+            }
+            AppTime++;
+
+            if (AppTime < Cons.notifyTime)
+            {
+                return;
+            }
+            if (Job == null || Job.Job == null)
+            { return; }
+            DateTime currentDate = DateTime.Now;// 
+            List<PlanItem> todayjobs = Job.Job.Where(p => p.Date.Year == currentDate.Year && p.Date.Month == currentDate.Month && p.Date.Day == currentDate.Day).ToList();
+            Nofity.ShowBalloonTip(Cons.notifyTimeOut, "Lịch công việc", string.Format("Bạn có {0} việc trong ngày hôm nay", todayjobs.Count), ToolTipIcon.Info);
+
+            AppTime = 0;
+        }
+
+        private void nmNotify_ValueChanged_1(object sender, EventArgs e)
+        {
+            Cons.notifyTime = (int)nmNotify.Value;
+        }
+
+        private void cbnotify_CheckedChanged_1(object sender, EventArgs e)
+        {
+            nmNotify.Enabled = cbnotify.Checked;
         }
     }
 }

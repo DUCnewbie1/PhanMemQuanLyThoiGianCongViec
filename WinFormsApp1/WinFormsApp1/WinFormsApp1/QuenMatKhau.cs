@@ -18,7 +18,7 @@ namespace WinFormsApp1
 {
     public partial class QuenMatKhau : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
         //Hai 1234
         public QuenMatKhau()
         {
@@ -127,6 +127,11 @@ namespace WinFormsApp1
                 f.Show();
                 this.Hide();
             }
+        }
+
+        private void QuenMatKhau_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -20,5 +20,7 @@ namespace WinFormsApp1
             DialogResult result = MessageBox.Show("Bạn có muốn trở lại giao diện chính?", "Xác nhận trở lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             return result == DialogResult.Yes;
         }
+
+
     }
 }

@@ -124,6 +124,7 @@
             Text = "QuenMatKhau";
             FormClosing += QuenMatKhau_FormClosing;
             FormClosed += QuenMatKhau_FormClosed;
+            Load += QuenMatKhau_Load;
             ResumeLayout(false);
             PerformLayout();
         }

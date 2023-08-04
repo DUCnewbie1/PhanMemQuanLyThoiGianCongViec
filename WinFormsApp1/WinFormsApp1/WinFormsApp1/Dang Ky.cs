@@ -16,7 +16,8 @@ namespace WinFormsApp1
 {
     public partial class Dang_Ky : Form
     {
-        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QLTG";
+        string connectionString = "Host=127.0.0.1;Username=postgres;Password=1234;Database=QUANLYTHOIGIAN";
+
         private KiemTraNhapChuoi hoTextBoxHandler;
         private KiemTraNhapChuoi tenTextBoxHandler;
         private KiemTraNhapChuoi diaChiTextBoxHandler;
@@ -165,7 +166,6 @@ namespace WinFormsApp1
                         cmd.Parameters.AddWithValue("MATKHAU", matKhau);
                         cmd.ExecuteNonQuery();
                     }
-
                     MessageBox.Show("Đăng ký tài khoản thành công, đăng nhập ngay!");
                     DangNhap f = new DangNhap();
                     f.Show();
@@ -184,11 +184,13 @@ namespace WinFormsApp1
         {
             if (MessageBox.Show("Bạn có muốn hủy đăng ký?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                // Hủy sự kiện đóng form để ngăn form đóng đi khi người dùng nhấn nút "X"
-                e.Cancel = true;
                 DangNhap f = new DangNhap();
                 f.Show();
                 this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
 

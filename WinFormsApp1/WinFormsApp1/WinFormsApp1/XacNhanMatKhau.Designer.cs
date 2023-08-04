@@ -33,12 +33,13 @@
             NhapMatKhau = new TextBox();
             button2 = new Button();
             label2 = new Label();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 77);
+            label1.Location = new Point(30, 64);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(90, 15);
@@ -48,7 +49,7 @@
             // button1
             // 
             button1.Location = new Point(141, 115);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(78, 28);
             button1.TabIndex = 1;
@@ -58,16 +59,17 @@
             // 
             // NhapMatKhau
             // 
-            NhapMatKhau.Location = new Point(141, 73);
-            NhapMatKhau.Margin = new Padding(2, 2, 2, 2);
+            NhapMatKhau.Location = new Point(141, 56);
+            NhapMatKhau.Margin = new Padding(2);
             NhapMatKhau.Name = "NhapMatKhau";
             NhapMatKhau.Size = new Size(184, 23);
             NhapMatKhau.TabIndex = 2;
+            NhapMatKhau.UseSystemPasswordChar = true;
             // 
             // button2
             // 
             button2.Location = new Point(245, 115);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(78, 28);
             button2.TabIndex = 3;
@@ -87,19 +89,33 @@
             label2.TabIndex = 4;
             label2.Text = "Xác Nhận Lại Mật Khẩu";
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(141, 94);
+            checkBox1.Margin = new Padding(2);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(121, 19);
+            checkBox1.TabIndex = 5;
+            checkBox1.Text = "Hiển thị mật khẩu";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // XacNhanMatKhau
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(472, 180);
+            Controls.Add(checkBox1);
             Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(NhapMatKhau);
             Controls.Add(button1);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "XacNhanMatKhau";
             Text = "XacNhanMatKhau";
+            Load += XacNhanMatKhau_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,5 +127,6 @@
         private TextBox NhapMatKhau;
         private Button button2;
         private Label label2;
+        private CheckBox checkBox1;
     }
 }
