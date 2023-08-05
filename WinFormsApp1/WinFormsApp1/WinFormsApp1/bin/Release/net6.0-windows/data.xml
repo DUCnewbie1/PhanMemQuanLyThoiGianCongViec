@@ -2,7 +2,7 @@
 <PlanData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Job>
     <PlanItem>
-      <Date>2023-08-04T17:55:20.2817802+07:00</Date>
+      <Date>2023-08-05T15:14:06.8128729+07:00</Date>
       <Job>Thử nghiệm thôi 1</Job>
       <FromTime>
         <X>4</X>
@@ -15,7 +15,7 @@
       <Status>Sắp tới</Status>
     </PlanItem>
     <PlanItem>
-      <Date>2023-08-04T17:55:20.2818726+07:00</Date>
+      <Date>2023-08-05T15:14:06.8133388+07:00</Date>
       <Job>Thử nghiệm thôi 2</Job>
       <FromTime>
         <X>6</X>
@@ -28,7 +28,7 @@
       <Status>Đã xong</Status>
     </PlanItem>
     <PlanItem>
-      <Date>2023-08-04T17:55:20.2818728+07:00</Date>
+      <Date>2023-08-05T15:14:06.8133408+07:00</Date>
       <Job>Thử nghiệm thôi 3</Job>
       <FromTime>
         <X>12</X>
@@ -53,21 +53,21 @@
       </ToTime>
       <Status>Sắp tới</Status>
     </PlanItem>
-    <PlanItem>
-      <Date>2023-08-05T00:00:00</Date>
-      <Job>làm việc</Job>
+  </Job>
+</PlanData><Date>2023-08-05T00:00:00</Date>
+      <Job>dũng khứa</Job>
       <FromTime>
         <X>1</X>
         <Y>0</Y>
       </FromTime>
       <ToTime>
-        <X>2</X>
+        <X>5</X>
         <Y>0</Y>
       </ToTime>
       <Status>Đang làm</Status>
     </PlanItem>
-    <PlanItem>
-      <Date>2023-08-05T00:00:00</Date>
+  </Job>
+</PlanData>><Date>2023-08-05T00:00:00</Date>
       <Job>mới</Job>
       <FromTime>
         <X>4</X>
@@ -114,6 +114,19 @@
       </FromTime>
       <ToTime>
         <X>4</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>ewew</Job>
+      <FromTime>
+        <X>3</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>5</X>
         <Y>0</Y>
       </ToTime>
       <Status>Đang làm</Status>

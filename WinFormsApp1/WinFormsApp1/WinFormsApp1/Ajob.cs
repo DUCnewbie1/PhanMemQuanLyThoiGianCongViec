@@ -16,7 +16,6 @@ namespace WinFormsApp1
     public partial class AJob : UserControl
     {
         private PlanItem job;
-        private int currentUserId;
         private string gioBatDau;
         private string gioKetThuc;
 
@@ -48,7 +47,7 @@ namespace WinFormsApp1
             cbStatus.DataSource = PlanItem.ListStatus;
             this.Job = job;
             ShowInfo();
-            currentUserId = userId; // Lưu trữ userId
+            this.userId = userId; // Lưu trữ userId
         }
         void ShowInfo()
         {
@@ -87,7 +86,7 @@ namespace WinFormsApp1
                 string checkExistQuery = "SELECT COUNT(*) FROM sukien WHERE sukien_id = @sukien_id AND tensk = @tensk";
                 using (var cmdCheck = new NpgsqlCommand(checkExistQuery, conn))
                 {
-                    cmdCheck.Parameters.AddWithValue("@sukien_id", currentUserId);
+                    cmdCheck.Parameters.AddWithValue("@sukien_id", this.userId);
                     cmdCheck.Parameters.AddWithValue("@tensk", Job.Job);
                     int count = Convert.ToInt32(cmdCheck.ExecuteScalar());
                     if (count > 0)
@@ -100,18 +99,26 @@ namespace WinFormsApp1
                 string insertQuery = "INSERT INTO sukien (sukien_id,tensk, thoigianbd, thoigiankt, trangthai) VALUES (@sukien_id,@tensk, @thoigianbd, @thoigiankt, @trangthai)";
                 using (var cmdInsert = new NpgsqlCommand(insertQuery, conn))
                 {
-                    cmdInsert.Parameters.AddWithValue("@sukien_id", currentUserId);
-                    cmdInsert.Parameters.AddWithValue("@tensk", Job.Job);
+                    if (this.userId == 0)
+                    {
+                        MessageBox.Show("lỗi ID .");
+                        return;
+                    }
+                    else
+                    {
+                        cmdInsert.Parameters.AddWithValue("@sukien_id", this.userId); // Truyền userId vào tham số @sukien_id
+                        cmdInsert.Parameters.AddWithValue("@tensk", Job.Job);
 
-                    // Tạo giá trị TimeSpan cho giờ bắt đầu và giờ kết thúc
-                    TimeSpan fromTime = new TimeSpan(Job.FromTime.X, Job.FromTime.Y, 0);
-                    TimeSpan toTime = new TimeSpan(Job.ToTime.X, Job.ToTime.Y, 0);
+                        // Tạo giá trị TimeSpan cho giờ bắt đầu và giờ kết thúc
+                        TimeSpan fromTime = new TimeSpan(Job.FromTime.X, Job.FromTime.Y, 0);
+                        TimeSpan toTime = new TimeSpan(Job.ToTime.X, Job.ToTime.Y, 0);
 
-                    // Gán giá trị TimeSpan cho các tham số
-                    cmdInsert.Parameters.AddWithValue("@thoigianbd", fromTime);
-                    cmdInsert.Parameters.AddWithValue("@thoigiankt", toTime);
-                    cmdInsert.Parameters.AddWithValue("@trangthai", Job.Status);
-                    cmdInsert.ExecuteNonQuery();
+                        // Gán giá trị TimeSpan cho các tham số
+                        cmdInsert.Parameters.AddWithValue("@thoigianbd", fromTime);
+                        cmdInsert.Parameters.AddWithValue("@thoigiankt", toTime);
+                        cmdInsert.Parameters.AddWithValue("@trangthai", Job.Status);
+                        cmdInsert.ExecuteNonQuery();
+                    }
                 }
             }
 

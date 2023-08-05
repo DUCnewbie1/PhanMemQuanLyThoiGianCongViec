@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
+using static WinFormsApp1.AJob;
 
 namespace WinFormsApp1
 {
     public partial class DailyPlan : Form
     {
         private DateTime date;
+        private int userId; // Thêm thuộc tính userId
 
         public DateTime Date
         {
@@ -32,14 +35,15 @@ namespace WinFormsApp1
         FlowLayoutPanel fPanel = new FlowLayoutPanel();
 
         // Phương thức khởi tạo của lớp DailyPlan
-        public DailyPlan(DateTime date, PlanData job)
+        public DailyPlan(DateTime date, PlanData job, int userId) // Thêm tham số userId vào constructor
         {
             // Gọi phương thức InitializeComponent để khởi tạo các điều khiển
             InitializeComponent();
 
-            // Khởi tạo các thuộc tính Date và Job với các giá trị tương ứng
+            // Khởi tạo các thuộc tính Date, Job và userId với các giá trị tương ứng
             this.Date = date;
             this.Job = job;
+            this.userId = userId;
 
             // Thiết lập kích thước của fPanel và thêm nó vào pnlJob
             fPanel.Width = pnlJob.Width;
@@ -48,6 +52,9 @@ namespace WinFormsApp1
 
             // Đặt giá trị của dtpkDate bằng giá trị của thuộc tính Date
             dtpkDate.Value = Date;
+
+            // Hiển thị danh sách công việc trong ngày được chỉ định
+            ShowJobByDate(date);
         }
 
         // Phương thức hiển thị danh sách công việc trong ngày được chỉ định
@@ -63,7 +70,7 @@ namespace WinFormsApp1
                 List<PlanItem> todayJob = GetJobByDay(date);
 
                 // Thêm từng công việc vào fPanel
-                for (int i = 0; i < GetJobByDay(date).Count; i++)
+                for (int i = 0; i < todayJob.Count; i++)
                 {
                     AddJob(todayJob[i]);
                 }
@@ -73,8 +80,8 @@ namespace WinFormsApp1
         // Phương thức thêm một công việc vào fPanel
         void AddJob(PlanItem job)
         {
-            // Tạo một đối tượng mới của lớp AJob với tham số là job
-            AJob aJob = new AJob(job,0);
+            // Tạo một đối tượng mới của lớp AJob với tham số là job và userId
+            AJob aJob = new AJob(job, userId); // Truyền userId vào đối tượng AJob
 
             // Đăng ký các sự kiện Edited và Deleted của đối tượng AJob với các phương thức xử lý tương ứng
             aJob.Edited += aJob_Edited;
@@ -101,18 +108,18 @@ namespace WinFormsApp1
         List<PlanItem> GetJobByDay(DateTime date)
         {
             // Sử dụng phép toán LINQ để lọc ra các công việc có thuộc tính Date trùng với giá trị của tham số date
-            return Job.Job.Where(p => p.Date.Year == date.Year && p.Date.Month == date.Month && p.Date.Day == date.Day).ToList();
+            return Job.Job.Where(p => p.Date.Date == date.Date).ToList();
         }
 
         // Phương thức xử lý sự kiện khi người dùng thay đổi giá trị của điều khiển nhập liệu ngày tháng năm dtpkDate
-        private void dtpkDate_ValueChanged_1(object sender, EventArgs e)
+        private void dtpkDate_ValueChanged(object sender, EventArgs e)
         {
             // Gọi phương thức ShowJobByDate với giá trị mới của điều khiển nhập liệu để hiển thị danh sách công việc trong ngày mới
             ShowJobByDate((sender as DateTimePicker).Value);
         }
 
         // Phương thức xử lý sự kiện khi người dùng nhấn vào nút btnNextDay
-        private void btnNextDay_Click_1(object sender, EventArgs e)
+        private void btnNextDay_Click(object sender, EventArgs e)
         {
             // Cộng giá trị của điều khiển nhập liệu ngày tháng năm dtpkDate thêm một ngày
             dtpkDate.Value = dtpkDate.Value.AddDays(1);
@@ -153,6 +160,11 @@ namespace WinFormsApp1
             // Đặt giá trị của điều khiển nhập liệu ngày tháng năm dtpkDate bằng ngày giờ hiện tại
             dtpkDate.Value = DateTime.Now;
         }
-        // Nút X để thoát và trở lại giao diện chương trình
+
+        private void btnNextDay_Click_1(object sender, EventArgs e)
+        {
+            // Cộng giá trị của điều khiển nhập liệu ngày tháng năm dtpkDate thêm một ngày
+            dtpkDate.Value = dtpkDate.Value.AddDays(1);
+        }
     }
 }

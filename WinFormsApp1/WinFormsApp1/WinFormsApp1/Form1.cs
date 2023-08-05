@@ -23,7 +23,7 @@ namespace WinFormsApp1
         private Button lastClickedButton = null;
         private bool isFirstClick = false;
         private List<List<Button>> matrix;
-
+        private PlanItem planItem;
         public List<List<Button>> Matrix
         {
             get { return matrix; }
@@ -32,10 +32,10 @@ namespace WinFormsApp1
 
         private List<string> dateOfWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         #endregion
-        private int UserId;
+        private int userId;
         public Form1(int userId)
         {
-            this.UserId = userId;
+            this.userId = userId;
             InitializeComponent();
             //-------------------------------THỦY TỔ LẬP TRÌNH ĐỨC ĐÃ THÊM-------------------------------------
             tmNotify.Start();
@@ -71,6 +71,8 @@ namespace WinFormsApp1
                 }
                 oldbtn = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.Margin, oldbtn.Location.Y + Cons.DateButtonHeight) };
             }
+            // Khai báo biến ajob
+            AJob ajob = null;
             foreach (List<Button> buttonRow in Matrix)
             {
                 foreach (Button btn in buttonRow)
@@ -82,7 +84,6 @@ namespace WinFormsApp1
                         {
                             if (int.TryParse(btn.Text, out int day) && day == planItem.Date.Day)
                             {
-                                AJob ajob = new AJob(planItem, UserId);
                                 btn.Controls.Add(ajob);
                                 ajob.Dock = DockStyle.Fill;
                                 btn.Tag = ajob;
@@ -107,8 +108,8 @@ namespace WinFormsApp1
 
                 if (lastClickedButton == btn)
                 {
-                    // Tạo một đối tượng mới của lớp DailyPlan với ngày được đặt bằng ngày được chọn từ nút Btn và thuộc tính Job
-                    DailyPlan daily = new DailyPlan(new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32(btn.Text)), Job);
+                    // Tạo một đối tượng mới của lớp DailyPlan với ngày được đặt bằng ngày được chọn từ nút Btn, thuộc tính Job và userId
+                    DailyPlan daily = new DailyPlan(new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32(btn.Text)), Job, this.userId);
 
                     // Hiển thị đối tượng DailyPlan dưới dạng một cửa sổ modal
                     daily.ShowDialog();
@@ -123,6 +124,7 @@ namespace WinFormsApp1
                 }
             }
         }
+
         private void dtpkDate_ValueChanged(object sender, EventArgs e)
         {
             AddNumberIntoMatrixByDate(dtpkDate.Value);
@@ -176,23 +178,15 @@ namespace WinFormsApp1
             int day = int.Parse(CheckColor.Text);
             DateTime useDate = new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, day);
 
-            // Tìm công việc tương ứng với ngày hiện tại trong danh sách job.Job
-            PlanItem planItem = job.Job.FirstOrDefault(item =>
-                item.Date.Year == useDate.Year &&
-                item.Date.Month == useDate.Month &&
-                item.Date.Day == useDate.Day
-            );
+            // Tạo đối tượng AJob với công việc tìm được và userId
+            AJob ajob = new AJob(planItem, this.userId);
 
-            if (planItem != null)
-            {
-                // Tạo đối tượng AJob với công việc tìm được và userId
-                AJob ajob = new AJob(planItem, UserId);
-                // Hiển thị đối tượng AJob trong button ClickColor
-                ClickColor.Controls.Add(ajob);
-                ajob.Dock = DockStyle.Fill;
-                // Gán đối tượng AJob vào thuộc tính Tag của button để lấy khi cần thiết
-                ClickColor.Tag = ajob;
-            }
+            // Hiển thị đối tượng AJob trong button ClickColor
+            ClickColor.Controls.Add(ajob);
+            ajob.Dock = DockStyle.Fill;
+
+            // Gán đối tượng AJob vào thuộc tính Tag của button để lấy khi cần thiết
+            ClickColor.Tag = ajob;
         }
 
 
@@ -399,7 +393,7 @@ namespace WinFormsApp1
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ThongTinCaNhan t = new ThongTinCaNhan(this.UserId);
+            ThongTinCaNhan t = new ThongTinCaNhan(this.userId);
             t.Show();
             this.Hide();
         }
@@ -435,10 +429,5 @@ namespace WinFormsApp1
         {
             nmNotify.Enabled = cbnotify.Checked;
         }
-        public int GetUserId()
-        {
-            return UserId;
-        }
-
     }
 }
