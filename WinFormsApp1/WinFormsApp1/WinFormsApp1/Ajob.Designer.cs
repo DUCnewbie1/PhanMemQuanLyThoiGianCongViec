@@ -56,18 +56,18 @@
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(txbJob);
             panel1.Controls.Add(ckbDone);
-            panel1.Location = new Point(5, 0);
-            panel1.Margin = new Padding(5, 6, 5, 6);
+            panel1.Location = new Point(4, 0);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1245, 58);
+            panel1.Size = new Size(872, 35);
             panel1.TabIndex = 0;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(1165, 0);
-            btnDelete.Margin = new Padding(5, 6, 5, 6);
+            btnDelete.Location = new Point(816, 0);
+            btnDelete.Margin = new Padding(4, 4, 4, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(75, 44);
+            btnDelete.Size = new Size(52, 26);
             btnDelete.TabIndex = 5;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
@@ -75,10 +75,10 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(1083, 0);
-            btnEdit.Margin = new Padding(5, 6, 5, 6);
+            btnEdit.Location = new Point(758, 0);
+            btnEdit.Margin = new Padding(4, 4, 4, 4);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(75, 44);
+            btnEdit.Size = new Size(52, 26);
             btnEdit.TabIndex = 4;
             btnEdit.Text = "Lưu ";
             btnEdit.UseVisualStyleBackColor = true;
@@ -87,10 +87,10 @@
             // cbStatus
             // 
             cbStatus.FormattingEnabled = true;
-            cbStatus.Location = new Point(902, 4);
-            cbStatus.Margin = new Padding(5, 6, 5, 6);
+            cbStatus.Location = new Point(631, 2);
+            cbStatus.Margin = new Padding(4, 4, 4, 4);
             cbStatus.Name = "cbStatus";
-            cbStatus.Size = new Size(169, 33);
+            cbStatus.Size = new Size(120, 23);
             cbStatus.TabIndex = 3;
             cbStatus.SelectedIndexChanged += cbStatus_SelectedIndexChanged;
             // 
@@ -101,85 +101,85 @@
             panel2.Controls.Add(label1);
             panel2.Controls.Add(nmFromMinute);
             panel2.Controls.Add(nmFromHours);
-            panel2.Location = new Point(563, 0);
-            panel2.Margin = new Padding(5, 6, 5, 6);
+            panel2.Location = new Point(394, 0);
+            panel2.Margin = new Padding(4, 4, 4, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(333, 58);
+            panel2.Size = new Size(233, 35);
             panel2.TabIndex = 2;
             // 
             // nmToMinute
             // 
-            nmToMinute.Location = new Point(267, 6);
-            nmToMinute.Margin = new Padding(5, 6, 5, 6);
+            nmToMinute.Location = new Point(187, 4);
+            nmToMinute.Margin = new Padding(4, 4, 4, 4);
             nmToMinute.Name = "nmToMinute";
-            nmToMinute.Size = new Size(62, 31);
+            nmToMinute.Size = new Size(43, 23);
             nmToMinute.TabIndex = 4;
             nmToMinute.ValueChanged += nmToMinute_ValueChanged;
             // 
             // nmToHours
             // 
-            nmToHours.Location = new Point(195, 6);
-            nmToHours.Margin = new Padding(5, 6, 5, 6);
+            nmToHours.Location = new Point(136, 4);
+            nmToHours.Margin = new Padding(4, 4, 4, 4);
             nmToHours.Name = "nmToHours";
-            nmToHours.Size = new Size(62, 31);
+            nmToHours.Size = new Size(43, 23);
             nmToHours.TabIndex = 3;
             nmToHours.ValueChanged += nmToHours_ValueChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(148, 10);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(104, 6);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(44, 25);
+            label1.Size = new Size(28, 15);
             label1.TabIndex = 2;
             label1.Text = "Đến";
             // 
             // nmFromMinute
             // 
-            nmFromMinute.Location = new Point(77, 6);
-            nmFromMinute.Margin = new Padding(5, 6, 5, 6);
+            nmFromMinute.Location = new Point(54, 4);
+            nmFromMinute.Margin = new Padding(4, 4, 4, 4);
             nmFromMinute.Name = "nmFromMinute";
-            nmFromMinute.Size = new Size(62, 31);
+            nmFromMinute.Size = new Size(43, 23);
             nmFromMinute.TabIndex = 1;
             nmFromMinute.ValueChanged += nmFromMinute_ValueChanged;
             // 
             // nmFromHours
             // 
-            nmFromHours.Location = new Point(5, 6);
-            nmFromHours.Margin = new Padding(5, 6, 5, 6);
+            nmFromHours.Location = new Point(4, 4);
+            nmFromHours.Margin = new Padding(4, 4, 4, 4);
             nmFromHours.Name = "nmFromHours";
-            nmFromHours.Size = new Size(62, 31);
+            nmFromHours.Size = new Size(43, 23);
             nmFromHours.TabIndex = 0;
             nmFromHours.ValueChanged += nmFromHours_ValueChanged;
             // 
             // txbJob
             // 
-            txbJob.Location = new Point(42, 7);
-            txbJob.Margin = new Padding(5, 6, 5, 6);
+            txbJob.Location = new Point(29, 4);
+            txbJob.Margin = new Padding(4, 4, 4, 4);
             txbJob.Name = "txbJob";
-            txbJob.Size = new Size(511, 31);
+            txbJob.Size = new Size(359, 23);
             txbJob.TabIndex = 1;
             // 
             // ckbDone
             // 
             ckbDone.AutoSize = true;
-            ckbDone.Location = new Point(10, 13);
-            ckbDone.Margin = new Padding(5, 6, 5, 6);
+            ckbDone.Location = new Point(7, 8);
+            ckbDone.Margin = new Padding(4, 4, 4, 4);
             ckbDone.Name = "ckbDone";
-            ckbDone.Size = new Size(22, 21);
+            ckbDone.Size = new Size(15, 14);
             ckbDone.TabIndex = 0;
             ckbDone.UseVisualStyleBackColor = true;
             ckbDone.CheckedChanged += ckbDone_CheckedChanged;
             // 
             // AJob
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Margin = new Padding(5, 6, 5, 6);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "AJob";
-            Size = new Size(1255, 63);
+            Size = new Size(878, 38);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

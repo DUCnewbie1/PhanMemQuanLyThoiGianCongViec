@@ -142,7 +142,6 @@
             lbtime.Size = new Size(182, 28);
             lbtime.TabIndex = 1;
             lbtime.Text = "Thời gian sự kiện ";
-            lbtime.Click += label2_Click;
             // 
             // lbStatus
             // 
@@ -153,7 +152,6 @@
             lbStatus.Size = new Size(166, 28);
             lbStatus.TabIndex = 2;
             lbStatus.Text = "Chọn trang thái ";
-            lbStatus.Click += lbStatus_Click;
             // 
             // panel3
             // 
@@ -172,7 +170,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(43, 63);
             panel5.TabIndex = 1;
-            panel5.Paint += panel5_Paint;
             // 
             // LbTensk
             // 
@@ -183,7 +180,6 @@
             LbTensk.Size = new Size(125, 28);
             LbTensk.TabIndex = 0;
             LbTensk.Text = "Tên sự kiện ";
-            LbTensk.Click += label1_Click;
             // 
             // menuStrip1
             // 
@@ -225,7 +221,6 @@
             Name = "DailyPlan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lịch trong ngày ";
-            Load += DailyPlan_Load;
             panel1.ResumeLayout(false);
             pnJob.ResumeLayout(false);
             panel2.ResumeLayout(false);

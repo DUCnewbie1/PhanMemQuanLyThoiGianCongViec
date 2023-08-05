@@ -16,19 +16,12 @@ namespace WinFormsApp1
     public partial class Form1 : Form
     {
         #region peoperties
-
-
+        private PlanData job;
         private int appTime;
-
         public int AppTime { get => appTime; set => appTime = value; }
-
-
         private string filePath = "data.xml";
-
         private Button lastClickedButton = null;
-
         private bool isFirstClick = false;
-
         private List<List<Button>> matrix;
 
         public List<List<Button>> Matrix
@@ -42,7 +35,7 @@ namespace WinFormsApp1
         private int UserId;
         public Form1(int userId)
         {
-            UserId = userId;
+            this.UserId = userId;
             InitializeComponent();
             //-------------------------------THỦY TỔ LẬP TRÌNH ĐỨC ĐÃ THÊM-------------------------------------
             tmNotify.Start();
@@ -82,9 +75,23 @@ namespace WinFormsApp1
             {
                 foreach (Button btn in buttonRow)
                 {
-                    btn.Click += Click_Color; // Nhan nut thi to mau
+                    // Thay vì truyền biến job vào AJob, ta truyền từng công việc trong job.Job vào AJob
+                    foreach (PlanItem planItem in job.Job)
+                    {
+                        if (planItem.Date.Year == dtpkDate.Value.Year && planItem.Date.Month == dtpkDate.Value.Month)
+                        {
+                            if (int.TryParse(btn.Text, out int day) && day == planItem.Date.Day)
+                            {
+                                AJob ajob = new AJob(planItem, UserId);
+                                btn.Controls.Add(ajob);
+                                ajob.Dock = DockStyle.Fill;
+                                btn.Tag = ajob;
+                            }
+                        }
+                    }
                 }
             }
+
             SetDefaultDay(); //Dat ngay mac dinh
             AddNumberIntoMatrixByDate(dtpkDate.Value);
         }
@@ -150,12 +157,13 @@ namespace WinFormsApp1
         private Button CheckColor;
         private void Click_Color(object sender, EventArgs e)
         {
-
             if (CheckColor != null)
             {
                 CheckColor.BackColor = Color.WhiteSmoke;
             }
+
             Button ClickColor = (Button)sender;
+
             //Ngoai thang thi khong to mau  
             if (string.IsNullOrEmpty(ClickColor.Text))
             {
@@ -168,12 +176,25 @@ namespace WinFormsApp1
             int day = int.Parse(CheckColor.Text);
             DateTime useDate = new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, day);
 
-            if (KiemTraNgay(useDate, DateTime.Now))
+            // Tìm công việc tương ứng với ngày hiện tại trong danh sách job.Job
+            PlanItem planItem = job.Job.FirstOrDefault(item =>
+                item.Date.Year == useDate.Year &&
+                item.Date.Month == useDate.Month &&
+                item.Date.Day == useDate.Day
+            );
+
+            if (planItem != null)
             {
-                ClickColor.BackColor = Color.Aqua;
-                CheckColor = ClickColor;
+                // Tạo đối tượng AJob với công việc tìm được và userId
+                AJob ajob = new AJob(planItem, UserId);
+                // Hiển thị đối tượng AJob trong button ClickColor
+                ClickColor.Controls.Add(ajob);
+                ajob.Dock = DockStyle.Fill;
+                // Gán đối tượng AJob vào thuộc tính Tag của button để lấy khi cần thiết
+                ClickColor.Tag = ajob;
             }
         }
+
 
         private void AddNumberIntoMatrixByDate(DateTime date)
         {
@@ -284,12 +305,11 @@ namespace WinFormsApp1
             {
                 e.Cancel = !XacNhanThoatChuongTrinh.ConfirmExit();
             }
-            SerializeToXML(Job, filePath);
+            SerializeToXML(this.Job, filePath);
         }
 
         //---------------------------------------------ĐỨC THÊM VÔ FORM 1---------------------------------------------------------------------
         // Lấy để xài danh sách các PlanItem(sự kiện)
-        private PlanData job;
 
         public PlanData Job
         {
@@ -379,7 +399,7 @@ namespace WinFormsApp1
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ThongTinCaNhan t = new ThongTinCaNhan(UserId);
+            ThongTinCaNhan t = new ThongTinCaNhan(this.UserId);
             t.Show();
             this.Hide();
         }
@@ -415,5 +435,10 @@ namespace WinFormsApp1
         {
             nmNotify.Enabled = cbnotify.Checked;
         }
+        public int GetUserId()
+        {
+            return UserId;
+        }
+
     }
 }

@@ -74,7 +74,7 @@ namespace WinFormsApp1
         void AddJob(PlanItem job)
         {
             // Tạo một đối tượng mới của lớp AJob với tham số là job
-            AJob aJob = new AJob(job);
+            AJob aJob = new AJob(job,0);
 
             // Đăng ký các sự kiện Edited và Deleted của đối tượng AJob với các phương thức xử lý tương ứng
             aJob.Edited += aJob_Edited;
@@ -153,34 +153,6 @@ namespace WinFormsApp1
             // Đặt giá trị của điều khiển nhập liệu ngày tháng năm dtpkDate bằng ngày giờ hiện tại
             dtpkDate.Value = DateTime.Now;
         }
-
-        private void DailyPlan_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
         // Nút X để thoát và trở lại giao diện chương trình
     }
 }

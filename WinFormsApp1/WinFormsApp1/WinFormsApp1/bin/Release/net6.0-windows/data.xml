@@ -53,5 +53,70 @@
       </ToTime>
       <Status>Sắp tới</Status>
     </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>làm việc</Job>
+      <FromTime>
+        <X>1</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>2</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>mới</Job>
+      <FromTime>
+        <X>4</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>8</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>thêm</Job>
+      <FromTime>
+        <X>1</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>5</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>123</Job>
+      <FromTime>
+        <X>3</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>10</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>456</Job>
+      <FromTime>
+        <X>1</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>4</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
   </Job>
 </PlanData>

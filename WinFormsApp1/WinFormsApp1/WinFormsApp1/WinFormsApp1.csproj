@@ -11,10 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Npgsql" Version="7.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
+    <PackageReference Include="OpenAI.ChatGPT" Version="2.8.0" />
   </ItemGroup>
 
 </Project>

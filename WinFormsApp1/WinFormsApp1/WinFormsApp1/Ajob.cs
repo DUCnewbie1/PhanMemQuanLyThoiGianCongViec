@@ -7,46 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
+using static WinFormsApp1.AJob;
+
 
 namespace WinFormsApp1
 {
     public partial class AJob : UserControl
     {
         private PlanItem job;
+        private int currentUserId;
+        private string gioBatDau;
+        private string gioKetThuc;
 
         public PlanItem Job
         {
             get { return job; }
             set { job = value; }
         }
-        // Khai báo sửa, xóa sự kiện 
-        //---------------------------------------------------------------------------------------------------------
-        private event EventHandler edited; // Khai báo một trường sự kiện kiểu EventHandler tên là 'edited'
-        public event EventHandler Edited // Khai báo một sự kiện kiểu EventHandler có tên là 'Edited'
+
+        private event EventHandler edited;
+        public event EventHandler Edited
         {
             add { edited += value; }
             remove { edited -= value; }
         }
 
-        private event EventHandler deleted; // Khai báo một trường sự kiện kiểu EventHandler tên là 'deleted'
-        public event EventHandler Deleted // Khai báo một sự kiện kiểu EventHandler có tên là 'Deleted'
+        private event EventHandler deleted;
+        public event EventHandler Deleted
         {
             add { deleted += value; }
             remove { deleted -= value; }
         }
-        //---------------------------------------------------------------------------------------------------------
-        public AJob(PlanItem job)
+
+        private int userId; // Thêm thuộc tính userId
+
+        public AJob(PlanItem job, int userId) // Thêm tham số userId vào constructor
         {
-            InitializeComponent(); // Khởi tạo các thành phần của lớp
-
-            cbStatus.DataSource = PlanItem.ListStatus; // Đặt nguồn dữ liệu cho điều khiển cbStatus
-
-            this.Job = job; // Đặt giá trị cho thuộc tính Job
-
-            ShowInfo(); // Hiển thị thông tin
+            InitializeComponent();
+            cbStatus.DataSource = PlanItem.ListStatus;
+            this.Job = job;
+            ShowInfo();
+            currentUserId = userId; // Lưu trữ userId
         }
-
-        // Phương thức hiển thị thông tin của 1 sự kiện 
         void ShowInfo()
         {
             txbJob.Text = Job.Job;
@@ -58,62 +61,80 @@ namespace WinFormsApp1
             ckbDone.Checked = PlanItem.ListStatus.IndexOf(Job.Status) == (int)EPlanItem.DONE ? true : false;
         }
 
-        // Xử lý sự kiện khi người dùng nhấn vào nút btnDelete
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Nếu biến deleted khác null
             if (deleted != null)
-                // Gọi sự kiện deleted với tham số là đối tượng hiện tại và một đối tượng EventArgs mới
                 deleted(this, new EventArgs());
         }
 
-        // Xử lý sự kiện khi người dùng nhấn vào nút btnEdit
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            // Cập nhật các thuộc tính của đối tượng Job với các giá trị mới từ các điều khiển nhập liệu
             Job.Job = txbJob.Text;
             Job.FromTime = new Point((int)nmFromHours.Value, (int)nmFromMinute.Value);
             Job.ToTime = new Point((int)nmToHours.Value, (int)nmToMinute.Value);
             Job.Status = PlanItem.ListStatus[cbStatus.SelectedIndex];
 
-            // Nếu biến edited khác null
+            if (string.IsNullOrEmpty(Job.Job))
+            {
+                MessageBox.Show("Bạn chưa nhập tên sự kiện.");
+                return;
+            }
+
+            // Kiểm tra và cập nhật công việc vào cơ sở dữ liệu sử dụng userId
+            using (NpgsqlConnection conn = new NpgsqlConnection(Helper.ConnectionString))
+            {
+                conn.Open();
+                string checkExistQuery = "SELECT COUNT(*) FROM sukien WHERE sukien_id = @sukien_id AND tensk = @tensk";
+                using (var cmdCheck = new NpgsqlCommand(checkExistQuery, conn))
+                {
+                    cmdCheck.Parameters.AddWithValue("@sukien_id", currentUserId);
+                    cmdCheck.Parameters.AddWithValue("@tensk", Job.Job);
+                    int count = Convert.ToInt32(cmdCheck.ExecuteScalar());
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Sự kiện đã tồn tại.");
+                        return;
+                    }
+                }
+
+                string insertQuery = "INSERT INTO sukien (sukien_id,tensk, thoigianbd, thoigiankt, trangthai) VALUES (@sukien_id,@tensk, @thoigianbd, @thoigiankt, @trangthai)";
+                using (var cmdInsert = new NpgsqlCommand(insertQuery, conn))
+                {
+                    cmdInsert.Parameters.AddWithValue("@sukien_id", currentUserId);
+                    cmdInsert.Parameters.AddWithValue("@tensk", Job.Job);
+
+                    // Tạo giá trị TimeSpan cho giờ bắt đầu và giờ kết thúc
+                    TimeSpan fromTime = new TimeSpan(Job.FromTime.X, Job.FromTime.Y, 0);
+                    TimeSpan toTime = new TimeSpan(Job.ToTime.X, Job.ToTime.Y, 0);
+
+                    // Gán giá trị TimeSpan cho các tham số
+                    cmdInsert.Parameters.AddWithValue("@thoigianbd", fromTime);
+                    cmdInsert.Parameters.AddWithValue("@thoigiankt", toTime);
+                    cmdInsert.Parameters.AddWithValue("@trangthai", Job.Status);
+                    cmdInsert.ExecuteNonQuery();
+                }
+            }
+
             if (edited != null)
-                // Gọi sự kiện edited với tham số là đối tượng hiện tại và một đối tượng EventArgs mới
                 edited(this, new EventArgs());
         }
 
-        // nêú ấn vào ô tích thì sẽ chuyển trạng thái công việc sang DONE. 
         private void ckbDone_CheckedChanged(object sender, EventArgs e)
         {
             cbStatus.SelectedIndex = ckbDone.Checked ? (int)EPlanItem.DONE : (int)EPlanItem.DOING;
         }
-        // => Đã ràng buộc 2 chiều nếu DONE thì điều khiển ckbDone được chọn (Checked) và ngược lại  
+
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cbStatus = sender as ComboBox;
             ckbDone.Checked = (cbStatus.SelectedIndex == (int)EPlanItem.DONE);
         }
 
-        //-----------------------------------------------------------------------------------------------------------------------------------------------
-        // RÀNG BUỘC GIỜ BẮT ĐẦU và GIỜ KẾT THÚC 
-        private void ResetInput()
-        {
-            // Đặt lại giá trị của nmFromHours và nmFromMinute về 0
-            nmFromHours.Value = 0;
-            nmFromMinute.Value = 0;
-
-            // Hiển thị cửa sổ thông báo yêu cầu người dùng nhập lại giá trị
-            MessageBox.Show("Vui lòng nhập lại giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        //-----------------------------------RÀNG BUỘC Ở NGÀY BẮT ĐẦU------------------------------
         private void nmFromHours_ValueChanged(object sender, EventArgs e)
         {
-            // Ràng buộc giá trị của nmFromHours tối đa là 24
             if (nmFromHours.Value > 24)
                 nmFromHours.Value = 24;
 
-            // Nếu nmFromHours có giá trị là 24 thì nmFromMinute có giá trị tối đa là 0
             if (nmFromHours.Value == 24)
                 nmFromMinute.Maximum = 0;
             else
@@ -122,19 +143,15 @@ namespace WinFormsApp1
 
         private void nmFromMinute_ValueChanged(object sender, EventArgs e)
         {
-            // Ràng buộc giá trị của nmFromMinute tối đa là 59
             if (nmFromMinute.Value > 59)
                 nmFromMinute.Value = 59;
         }
 
-        //-----------------------------------RÀNG BUỘC Ở NGÀY KẾT THÚC------------------------------
         private void nmToHours_ValueChanged(object sender, EventArgs e)
         {
-            // Ràng buộc giá trị của nmToHours tối đa là 24
             if (nmToHours.Value > 24)
                 nmToHours.Value = 24;
 
-            // Nếu nmFromHours có giá trị là 24 thì nmToMinute có giá trị tối đa là 0
             if (nmToHours.Value == 24)
                 nmToMinute.Maximum = 0;
             else
@@ -143,7 +160,6 @@ namespace WinFormsApp1
 
         private void nmToMinute_ValueChanged(object sender, EventArgs e)
         {
-            // Ràng buộc giá trị của nmToMinute tối đa là 59
             if (nmToMinute.Value > 59)
                 nmToMinute.Value = 59;
         }
