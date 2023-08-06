@@ -58,7 +58,7 @@
             panel1.Controls.Add(pnJob);
             panel1.Controls.Add(pnlJob);
             panel1.Location = new Point(2, 21);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(904, 353);
             panel1.TabIndex = 0;
@@ -70,7 +70,7 @@
             pnJob.Controls.Add(btnNextDay);
             pnJob.Controls.Add(dtpkDate);
             pnJob.Location = new Point(-2, 0);
-            pnJob.Margin = new Padding(2, 2, 2, 2);
+            pnJob.Margin = new Padding(2);
             pnJob.Name = "pnJob";
             pnJob.Size = new Size(903, 34);
             pnJob.TabIndex = 1;
@@ -80,7 +80,7 @@
             btnPreviousDay.BackColor = Color.DarkGray;
             btnPreviousDay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnPreviousDay.Location = new Point(234, 2);
-            btnPreviousDay.Margin = new Padding(2, 2, 2, 2);
+            btnPreviousDay.Margin = new Padding(2);
             btnPreviousDay.Name = "btnPreviousDay";
             btnPreviousDay.Size = new Size(78, 27);
             btnPreviousDay.TabIndex = 3;
@@ -93,7 +93,7 @@
             btnNextDay.BackColor = Color.DarkGray;
             btnNextDay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnNextDay.Location = new Point(583, 3);
-            btnNextDay.Margin = new Padding(2, 2, 2, 2);
+            btnNextDay.Margin = new Padding(2);
             btnNextDay.Name = "btnNextDay";
             btnNextDay.Size = new Size(78, 27);
             btnNextDay.TabIndex = 2;
@@ -105,16 +105,17 @@
             // 
             dtpkDate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             dtpkDate.Location = new Point(339, 7);
-            dtpkDate.Margin = new Padding(2, 2, 2, 2);
+            dtpkDate.Margin = new Padding(2);
             dtpkDate.Name = "dtpkDate";
             dtpkDate.Size = new Size(213, 23);
             dtpkDate.TabIndex = 1;
+            dtpkDate.ValueChanged += dtpkDate_ValueChanged_1;
             // 
             // pnlJob
             // 
             pnlJob.BackColor = Color.Transparent;
             pnlJob.Location = new Point(-4, 71);
-            pnlJob.Margin = new Padding(2, 2, 2, 2);
+            pnlJob.Margin = new Padding(2);
             pnlJob.Name = "pnlJob";
             pnlJob.Size = new Size(906, 268);
             pnlJob.TabIndex = 0;
@@ -125,7 +126,7 @@
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(lbStatus);
             panel2.Location = new Point(2, 55);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(902, 38);
             panel2.TabIndex = 0;
@@ -135,7 +136,7 @@
             panel4.BackColor = Color.DarkGray;
             panel4.Controls.Add(lbtime);
             panel4.Location = new Point(378, -1);
-            panel4.Margin = new Padding(2, 2, 2, 2);
+            panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(250, 38);
             panel4.TabIndex = 4;
@@ -168,7 +169,7 @@
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(LbTensk);
             panel3.Location = new Point(2, 55);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(390, 38);
             panel3.TabIndex = 3;
@@ -177,7 +178,7 @@
             // 
             panel5.BackColor = Color.DimGray;
             panel5.Location = new Point(-2, 0);
-            panel5.Margin = new Padding(2, 2, 2, 2);
+            panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
             panel5.Size = new Size(30, 38);
             panel5.TabIndex = 1;
@@ -231,7 +232,7 @@
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "DailyPlan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lịch trong ngày ";

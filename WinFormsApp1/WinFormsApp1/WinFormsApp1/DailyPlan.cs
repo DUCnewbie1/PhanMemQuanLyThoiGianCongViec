@@ -80,8 +80,11 @@ namespace WinFormsApp1
         // Phương thức thêm một công việc vào fPanel
         void AddJob(PlanItem job)
         {
-            // Tạo một đối tượng mới của lớp AJob với tham số là job và userId
-            AJob aJob = new AJob(job, userId); // Truyền userId vào đối tượng AJob
+            // Lấy giá trị MaSK từ đối tượng PlanItem hoặc từ nguồn khác
+            int MaSKValue = job.MaSK; // Thay 'MaSK' bằng tên thực tế của thuộc tính trong PlanItem
+
+            // Tạo một đối tượng mới của lớp AJob với ba tham số: job, userId và MaSK
+            AJob aJob = new AJob(job, userId, MaSKValue, dtpkDate.Value);
 
             // Đăng ký các sự kiện Edited và Deleted của đối tượng AJob với các phương thức xử lý tương ứng
             aJob.Edited += aJob_Edited;
@@ -90,6 +93,7 @@ namespace WinFormsApp1
             // Thêm đối tượng AJob vào fPanel
             fPanel.Controls.Add(aJob);
         }
+
 
         // Phương thức xử lý sự kiện khi người dùng nhấn vào nút mnAddJob
         private void mnAddJob_Click(object sender, EventArgs e)
@@ -165,6 +169,11 @@ namespace WinFormsApp1
         {
             // Cộng giá trị của điều khiển nhập liệu ngày tháng năm dtpkDate thêm một ngày
             dtpkDate.Value = dtpkDate.Value.AddDays(1);
+        }
+
+        private void dtpkDate_ValueChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,9 +33,11 @@ namespace WinFormsApp1
         private List<string> dateOfWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         #endregion
         private int userId;
+        private int MaSK; // Thêm thuộc tính MaSK
         public Form1(int userId)
         {
             this.userId = userId;
+            MaSK = 0;
             InitializeComponent();
             //-------------------------------THỦY TỔ LẬP TRÌNH ĐỨC ĐÃ THÊM-------------------------------------
             tmNotify.Start();
@@ -97,6 +99,7 @@ namespace WinFormsApp1
             AddNumberIntoMatrixByDate(dtpkDate.Value);
         }
         // Phương thức xử lý sự kiện khi người dùng double click vào nút Btn
+        // Phương thức xử lý sự kiện khi người dùng double click vào nút Btn
         private void Btn_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem sender có phải là một Button hay không
@@ -105,7 +108,6 @@ namespace WinFormsApp1
                 // Kiểm tra xem nội dung của nút Btn có rỗng hay không
                 if (string.IsNullOrEmpty(btn.Text))
                     return;
-
                 if (lastClickedButton == btn)
                 {
                     // Tạo một đối tượng mới của lớp DailyPlan với ngày được đặt bằng ngày được chọn từ nút Btn, thuộc tính Job và userId
@@ -157,6 +159,7 @@ namespace WinFormsApp1
         }
 
         private Button CheckColor;
+        // Hàm xử lý sự kiện khi người dùng click vào ô màu
         private void Click_Color(object sender, EventArgs e)
         {
             if (CheckColor != null)
@@ -166,7 +169,7 @@ namespace WinFormsApp1
 
             Button ClickColor = (Button)sender;
 
-            //Ngoai thang thi khong to mau  
+            //Ngoài tháng thì không tô màu  
             if (string.IsNullOrEmpty(ClickColor.Text))
             {
                 return;
@@ -175,11 +178,8 @@ namespace WinFormsApp1
             ClickColor.BackColor = Color.Aqua;
             CheckColor = ClickColor;
 
-            int day = int.Parse(CheckColor.Text);
-            DateTime useDate = new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, day);
-
-            // Tạo đối tượng AJob với công việc tìm được và userId
-            AJob ajob = new AJob(planItem, this.userId);
+            // Tạo một đối tượng AJob với công việc tìm được và userId
+            AJob ajob = new AJob(planItem, this.userId, this.MaSK, new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32(ClickColor.Text)));
 
             // Hiển thị đối tượng AJob trong button ClickColor
             ClickColor.Controls.Add(ajob);
@@ -187,6 +187,11 @@ namespace WinFormsApp1
 
             // Gán đối tượng AJob vào thuộc tính Tag của button để lấy khi cần thiết
             ClickColor.Tag = ajob;
+
+            if (ClickColor.Tag is AJob existingAjob)
+            {
+                existingAjob.MaSK = this.MaSK;
+            }
         }
 
 
