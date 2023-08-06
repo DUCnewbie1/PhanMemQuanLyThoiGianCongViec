@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            button1 = new Button();
+            XN = new Button();
             NhapMatKhau = new TextBox();
             button2 = new Button();
             label2 = new Label();
@@ -39,39 +39,35 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(30, 64);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(43, 107);
             label1.Name = "label1";
-            label1.Size = new Size(90, 15);
+            label1.Size = new Size(135, 25);
             label1.TabIndex = 0;
             label1.Text = "Nhập Mật Khẩu";
             // 
-            // button1
+            // XN
             // 
-            button1.Location = new Point(141, 115);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(78, 28);
-            button1.TabIndex = 1;
-            button1.Text = "Xác Nhận";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            XN.Location = new Point(201, 192);
+            XN.Name = "XN";
+            XN.Size = new Size(111, 47);
+            XN.TabIndex = 1;
+            XN.Text = "Xác Nhận";
+            XN.UseVisualStyleBackColor = true;
+
             // 
             // NhapMatKhau
             // 
-            NhapMatKhau.Location = new Point(141, 56);
-            NhapMatKhau.Margin = new Padding(2);
+            NhapMatKhau.Location = new Point(201, 93);
             NhapMatKhau.Name = "NhapMatKhau";
-            NhapMatKhau.Size = new Size(184, 23);
+            NhapMatKhau.Size = new Size(261, 31);
             NhapMatKhau.TabIndex = 2;
             NhapMatKhau.UseSystemPasswordChar = true;
             // 
             // button2
             // 
-            button2.Location = new Point(245, 115);
-            button2.Margin = new Padding(2);
+            button2.Location = new Point(350, 192);
             button2.Name = "button2";
-            button2.Size = new Size(78, 28);
+            button2.Size = new Size(111, 47);
             button2.TabIndex = 3;
             button2.Text = "Hủy";
             button2.UseVisualStyleBackColor = true;
@@ -82,20 +78,18 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Blue;
-            label2.Location = new Point(131, 9);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(187, 15);
             label2.Name = "label2";
-            label2.Size = new Size(213, 28);
+            label2.Size = new Size(322, 41);
             label2.TabIndex = 4;
             label2.Text = "Xác Nhận Lại Mật Khẩu";
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(141, 94);
-            checkBox1.Margin = new Padding(2);
+            checkBox1.Location = new Point(201, 157);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(121, 19);
+            checkBox1.Size = new Size(178, 29);
             checkBox1.TabIndex = 5;
             checkBox1.Text = "Hiển thị mật khẩu";
             checkBox1.UseVisualStyleBackColor = true;
@@ -103,16 +97,15 @@
             // 
             // XacNhanMatKhau
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(472, 180);
+            ClientSize = new Size(674, 300);
             Controls.Add(checkBox1);
             Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(NhapMatKhau);
-            Controls.Add(button1);
+            Controls.Add(XN);
             Controls.Add(label1);
-            Margin = new Padding(2);
             Name = "XacNhanMatKhau";
             Text = "XacNhanMatKhau";
             Load += XacNhanMatKhau_Load;
@@ -123,7 +116,7 @@
         #endregion
 
         private Label label1;
-        private Button button1;
+        private Button XN;
         private TextBox NhapMatKhau;
         private Button button2;
         private Label label2;

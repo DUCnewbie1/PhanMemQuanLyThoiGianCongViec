@@ -30,7 +30,7 @@ namespace WinFormsApp1
             this.Close();
         }
         //nút xác nhận
-        private void button1_Click(object sender, EventArgs e)
+        private void XN_Click(object sender, EventArgs e)
         {
 
             try
@@ -84,6 +84,14 @@ namespace WinFormsApp1
         private void XacNhanMatKhau_Load(object sender, EventArgs e)
         {
             NhapMatKhau.Select();
+        }
+
+        private void NhapMatkhau_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                XN_Click(sender, e);
+            }
         }
     }
 }

@@ -98,7 +98,7 @@ namespace WinFormsApp1
             XacNhanMatKhau xn = new XacNhanMatKhau(this);
             xn.ShowDialog();
         }
-        //
+        //cho phép chỉnh sửa
         public void enableText()
         {
             ho.Enabled = true;
@@ -109,6 +109,17 @@ namespace WinFormsApp1
             diaChi.Enabled = true;
             luu.Enabled = true;
             button2.Enabled = false;
+        }
+        //đóng chỉnh sữa thông tin
+        public void disableText() 
+        {
+            ho.Enabled = false;
+            ten.Enabled = false;
+            Nam.Enabled = false;
+            Nu.Enabled = false;
+            ngaySinh.Enabled = false;
+            diaChi.Enabled = false;
+            luu.Enabled = false;
         }
         // lưu thông tin
         private void luu_Click(object sender, EventArgs e)
@@ -163,6 +174,7 @@ namespace WinFormsApp1
                         {
                             LoadData();
                             MessageBox.Show("Cập nhật thông tin thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            disableText();                         
                         }
                         else
                         {
