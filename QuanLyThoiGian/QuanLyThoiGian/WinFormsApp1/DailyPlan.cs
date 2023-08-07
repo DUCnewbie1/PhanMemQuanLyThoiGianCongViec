@@ -112,15 +112,15 @@ namespace WinFormsApp1
         List<PlanItem> GetJobByDay(DateTime date)
         {
             // Sử dụng phép toán LINQ để lọc ra các công việc có thuộc tính Date trùng với giá trị của tham số date
-            return Job.Job.Where(p => p.Date.Date == date.Date).ToList();
+            return Job.Job.Where(p => p.Date.Year == date.Year && p.Date.Month == date.Month && p.Date.Day == date.Day).ToList();
         }
 
         // Phương thức xử lý sự kiện khi người dùng thay đổi giá trị của điều khiển nhập liệu ngày tháng năm dtpkDate
-        private void dtpkDate_ValueChanged(object sender, EventArgs e)
-        {
-            // Gọi phương thức ShowJobByDate với giá trị mới của điều khiển nhập liệu để hiển thị danh sách công việc trong ngày mới
-            ShowJobByDate((sender as DateTimePicker).Value);
-        }
+        //private void dtpkDate_ValueChanged(object sender, EventArgs e)
+        //{
+        //    // Gọi phương thức ShowJobByDate với giá trị mới của điều khiển nhập liệu để hiển thị danh sách công việc trong ngày mới
+        //    ShowJobByDate((sender as DateTimePicker).Value);
+        //}
 
         // Phương thức xử lý sự kiện khi người dùng nhấn vào nút btnNextDay
         private void btnNextDay_Click(object sender, EventArgs e)
@@ -173,7 +173,8 @@ namespace WinFormsApp1
 
         private void dtpkDate_ValueChanged_1(object sender, EventArgs e)
         {
-
+            // Gọi phương thức ShowJobByDate với giá trị mới của điều khiển nhập liệu để hiển thị danh sách công việc trong ngày mới
+            ShowJobByDate((sender as DateTimePicker).Value);
         }
     }
 }
