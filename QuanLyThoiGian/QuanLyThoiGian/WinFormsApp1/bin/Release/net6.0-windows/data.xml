@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlanData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Job>
+    <PlanItem>
+      <Date>2023-08-07T14:50:20.8767546+07:00</Date>
+      <Job>Thử nghiệm thôi 1</Job>
+      <FromTime>
+        <X>4</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>5</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Sắp tới</Status>
+      <MaSK>0</MaSK>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-07T14:50:20.8767556+07:00</Date>
+      <Job>Thử nghiệm thôi 2</Job>
+      <FromTime>
+        <X>6</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>8</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đã xong</Status>
+      <MaSK>0</MaSK>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-07T14:50:20.8767558+07:00</Date>
+      <Job>Thử nghiệm thôi 3</Job>
+      <FromTime>
+        <X>12</X>
+        <Y>2</Y>
+      </FromTime>
+      <ToTime>
+        <X>13</X>
+        <Y>3</Y>
+      </ToTime>
+      <Status>Sắp tới</Status>
+      <MaSK>0</MaSK>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-07-30T18:13:00</Date>
+      <Job>Thử nghiệm nhập Date bằng cơm</Job>
+      <FromTime>
+        <X>12</X>
+        <Y>2</Y>
+      </FromTime>
+      <ToTime>
+        <X>13</X>
+        <Y>3</Y>
+      </ToTime>
+      <Status>Sắp tới</Status>
+      <MaSK>0</MaSK>
+    </PlanItem>
+  </Job>
+</PlanData> <Date>2023-08-06T00:00:00</Date>
+      <Job>việc 7</Job>
+      <FromTime>
+        <X>2</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>4</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+      <MaSK>0</MaSK>
+    </PlanItem>
+  </Job>
+</PlanData></Y>
+      </FromTime>
+      <ToTime>
+        <X>8</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>thêm</Job>
+      <FromTime>
+        <X>1</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>5</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>123</Job>
+      <FromTime>
+        <X>3</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>10</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>456</Job>
+      <FromTime>
+        <X>1</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>4</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+    <PlanItem>
+      <Date>2023-08-05T00:00:00</Date>
+      <Job>ewew</Job>
+      <FromTime>
+        <X>3</X>
+        <Y>0</Y>
+      </FromTime>
+      <ToTime>
+        <X>5</X>
+        <Y>0</Y>
+      </ToTime>
+      <Status>Đang làm</Status>
+    </PlanItem>
+  </Job>
+</PlanData>
