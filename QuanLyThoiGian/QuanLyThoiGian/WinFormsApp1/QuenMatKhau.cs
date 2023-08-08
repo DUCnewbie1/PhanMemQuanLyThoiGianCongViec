@@ -118,7 +118,7 @@ namespace WinFormsApp1
         //Tắt form Quên Mật Khẩu
         private void QuenMatKhau_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing) // Check if the form is being closed by the user
+            if (e.CloseReason == CloseReason.UserClosing) // Kiểm tra nếu như form được đóng bởi người dùng
             {
                 if (Helper.ConfirmExit())
                 {
@@ -132,13 +132,6 @@ namespace WinFormsApp1
                     e.Cancel = true;
                 }
             }
-        }
-        //Giúp thoát chương trình bằng nút X
-        private void QuenMatKhau_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DangNhap f = new DangNhap();
-            f.Show();
-            this.Hide();
         }
         // Giới hạn nhập dữ liệu cho các TextBox
         // giới hạn kí tự cho TextBox tài khoản

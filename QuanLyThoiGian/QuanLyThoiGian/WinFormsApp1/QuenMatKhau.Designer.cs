@@ -126,7 +126,6 @@
             Name = "QuenMatKhau";
             Text = "QuenMatKhau";
             FormClosing += QuenMatKhau_FormClosing;
-            FormClosed += QuenMatKhau_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
