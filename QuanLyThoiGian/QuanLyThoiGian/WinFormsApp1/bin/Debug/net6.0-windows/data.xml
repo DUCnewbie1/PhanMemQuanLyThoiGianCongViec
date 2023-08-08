@@ -2,7 +2,7 @@
 <PlanData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Job>
     <PlanItem>
-      <Date>2023-08-08T08:42:03.0093677+07:00</Date>
+      <Date>2023-08-08T13:33:47.5530451+07:00</Date>
       <Job>Thử nghiệm thôi 1</Job>
       <FromTime>
         <X>4</X>
@@ -16,7 +16,7 @@
       <MaSK>0</MaSK>
     </PlanItem>
     <PlanItem>
-      <Date>2023-08-08T08:42:03.0095102+07:00</Date>
+      <Date>2023-08-08T13:33:47.5531367+07:00</Date>
       <Job>Thử nghiệm thôi 2</Job>
       <FromTime>
         <X>6</X>
@@ -30,7 +30,7 @@
       <MaSK>0</MaSK>
     </PlanItem>
     <PlanItem>
-      <Date>2023-08-08T08:42:03.0095108+07:00</Date>
+      <Date>2023-08-08T13:33:47.5531373+07:00</Date>
       <Job>Thử nghiệm thôi 3</Job>
       <FromTime>
         <X>12</X>

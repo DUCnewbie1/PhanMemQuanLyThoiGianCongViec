@@ -66,7 +66,7 @@ namespace WinFormsApp1
                 {
                     Button btn = new Button() { Width = Cons.DateButtonWidth, Height = Cons.DateButtonHeight };
                     btn.Location = new Point(oldbtn.Location.X + oldbtn.Width + Cons.Margin, oldbtn.Location.Y);
-                    btn.Click += Btn_Click;// ĐỨC THÊM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    btn.Click += Btn_Click;// ĐỨC THÊM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     pnMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
                     oldbtn = btn;
@@ -79,6 +79,7 @@ namespace WinFormsApp1
             {
                 foreach (Button btn in buttonRow)
                 {
+                    btn.Click += Click_Color;
                     // Thay vì truyền biến job vào AJob, ta truyền từng công việc trong job.Job vào AJob
                     foreach (PlanItem planItem in job.Job)
                     {
@@ -86,7 +87,7 @@ namespace WinFormsApp1
                         {
                             if (int.TryParse(btn.Text, out int day) && day == planItem.Date.Day)
                             {
-                                btn.Controls.Add(ajob);
+                                btn.Controls.Add(ajob);                
                                 ajob.Dock = DockStyle.Fill;
                                 btn.Tag = ajob;
                             }
@@ -178,20 +179,6 @@ namespace WinFormsApp1
             ClickColor.BackColor = Color.Aqua;
             CheckColor = ClickColor;
 
-            // Tạo một đối tượng AJob với công việc tìm được và userId
-            AJob ajob = new AJob(planItem, this.userId, this.MaSK, new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32(ClickColor.Text)));
-
-            // Hiển thị đối tượng AJob trong button ClickColor
-            ClickColor.Controls.Add(ajob);
-            ajob.Dock = DockStyle.Fill;
-
-            // Gán đối tượng AJob vào thuộc tính Tag của button để lấy khi cần thiết
-            ClickColor.Tag = ajob;
-
-            if (ClickColor.Tag is AJob existingAjob)
-            {
-                existingAjob.MaSK = this.MaSK;
-            }
         }
 
 
