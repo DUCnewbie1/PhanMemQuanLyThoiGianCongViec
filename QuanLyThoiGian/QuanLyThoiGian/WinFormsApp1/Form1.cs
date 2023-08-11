@@ -59,14 +59,14 @@ namespace WinFormsApp1
             dtpkDate.ValueChanged += dtpkDate_ValueChanged; // Đăng ký sự kiện ValueChanged của DateTimePicker
             Matrix = new List<List<Button>>();
             Button oldbtn = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.Margin, 0) };
-            for (int i = 0; i < Cons.Column; i++)
+            for (int i = 0; i < Cons.Row; i++)
             {
                 Matrix.Add(new List<Button>());
                 for (int j = 0; j < Cons.NgayTrongTuan; j++)
                 {
                     Button btn = new Button() { Width = Cons.DateButtonWidth, Height = Cons.DateButtonHeight };
                     btn.Location = new Point(oldbtn.Location.X + oldbtn.Width + Cons.Margin, oldbtn.Location.Y);
-                    btn.Click += Btn_Click;// ĐỨC THÊM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    btn.Click += Btn_Click;
                     pnMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
                     oldbtn = btn;
@@ -87,7 +87,7 @@ namespace WinFormsApp1
                         {
                             if (int.TryParse(btn.Text, out int day) && day == planItem.Date.Day)
                             {
-                                btn.Controls.Add(ajob);                
+                                btn.Controls.Add(ajob);
                                 ajob.Dock = DockStyle.Fill;
                                 btn.Tag = ajob;
                             }
@@ -99,7 +99,51 @@ namespace WinFormsApp1
             SetDefaultDay(); //Dat ngay mac dinh
             AddNumberIntoMatrixByDate(dtpkDate.Value);
         }
-        // Phương thức xử lý sự kiện khi người dùng double click vào nút Btn
+        private void AddNumberIntoMatrixByDate(DateTime date)
+        {
+            ClearMatrix();
+            DateTime firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+
+            // Tính toán để ngày 1 luôn nằm trong khoảng thứ 2 đến chủ nhật (2, 3, 4, 5, 6, 7, CN)
+            int daysUntilFirstDay = (int)firstDayOfMonth.DayOfWeek - (int)DayOfWeek.Monday;
+            if (daysUntilFirstDay < 0)
+            {
+                daysUntilFirstDay += 7;
+            }
+            DateTime useDate = firstDayOfMonth.AddDays(-daysUntilFirstDay);
+
+            for (int i = 0; i < Matrix.Count; i++)
+            {
+                for (int j = 0; j < Matrix[i].Count; j++)
+                {
+                    Button btn = Matrix[i][j];
+                    int dayOfMonth = useDate.Day;
+
+                    if (useDate.Month == date.Month)
+                    {
+                        btn.Text = dayOfMonth.ToString();
+                        btn.ForeColor = Color.Black;
+                        if (KiemTraNgay(useDate, DateTime.Now))
+                        {
+                            btn.BackColor = Color.Orange;
+                        }
+                        if (KiemTraNgay(useDate, date))
+                        {
+                            btn.BackColor = Color.Aqua;
+                            CheckColor = btn;
+                        }
+                    }
+                    else
+                    {
+                        btn.Text = dayOfMonth.ToString();
+                        btn.ForeColor = Color.Gray;
+                    }
+
+                    useDate = useDate.AddDays(1);
+                }
+            }
+        }
+
         // Phương thức xử lý sự kiện khi người dùng double click vào nút Btn
         private void Btn_Click(object sender, EventArgs e)
         {
@@ -179,40 +223,6 @@ namespace WinFormsApp1
             ClickColor.BackColor = Color.Aqua;
             CheckColor = ClickColor;
 
-        }
-
-
-        private void AddNumberIntoMatrixByDate(DateTime date)
-        {
-            ClearMatrix();
-            DateTime useDate = new DateTime(date.Year, date.Month, 1);
-            int line = 0;
-
-            for (int i = 1; i <= DayOfMonth(date); i++)
-            {
-                int column = dateOfWeek.IndexOf(useDate.DayOfWeek.ToString());
-                Button btn = Matrix[line][column];
-                btn.Text = i.ToString();
-
-                // Nếu ngày đang xét là ngày hiện tại thì bôi xanh nền
-                if (KiemTraNgay(useDate, DateTime.Now))
-                {
-                    btn.BackColor = Color.Orange;
-                }
-
-                if (KiemTraNgay(useDate, date))
-                {
-                    btn.BackColor = Color.Aqua;
-                    CheckColor = btn;
-
-                }
-                if (column >= 6)
-                {
-                    line++;
-                }
-                // Cập nhật biến useDate trong vòng lặp để xử lý chính xác việc chuyển đổi giữa các tháng
-                useDate = useDate.AddDays(1);
-            }
         }
         // hàm so sánh ngày
         bool KiemTraNgay(DateTime dateA, DateTime dateB)
